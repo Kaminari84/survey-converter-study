@@ -5,4 +5,4 @@ app = Flask(__name__)
 # Main study
 @app.route('/', methods = ['GET','POST'])
 def study_main():
-  return "Hellow world from Test App!"
+  return "Hello world from Test App & Rafsal!"
