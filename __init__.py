@@ -10,4 +10,9 @@ app = Flask(__name__)
 # Main study
 @app.route('/', methods = ['GET','POST'])
 def study_main():
-  return f"Hello world from Test App & Rafsal: <br />DB_USER={DB_USER} <br />DB_PASS={DB_PASS} <br /> DB_NAME={DB_NAME}"
+  webHTML = "Hello world from Test App & Rafsal: <br />"
+  webHTML += "DB_USER="+str(DB_USER)+"<br />"
+  webHTML += "DB_PASS="+str(DB_PASS)+"<br />"
+  webHTML += "DB_NAME="+str(DB_NAME)+"<br />"
+
+  return webHTML 
