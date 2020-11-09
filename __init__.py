@@ -19,7 +19,6 @@ from flask_cors import CORS
 
 ENV_VARS = {}
 app = Flask(__name__)
-db = None
 
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['EXPLAIN_TEMPLATE_LOADING'] = True
@@ -28,6 +27,8 @@ env.add_extension("jinja2.ext.loopcontrols") #Loop extension to enable {% break 
 
 app.app_context().push()
 CORS(app)
+
+db = SQLAlchemy()
 
 logging.basicConfig(filename=os.path.join(app.root_path,'logs/app_'+time.strftime('%d-%m-%Y-%H-%M-%S')+'.log'), level=logging.INFO)
 logging.info("Server loading...")
@@ -48,44 +49,6 @@ def pstnow():
     pacific = timezone('US/Pacific')
     pst_time = utc_time.astimezone(pacific)
     return pst_time
-
-# Server instance initialize
-def setup_app(app):  
-  global db
-
-  logging.info("Initializing the server, first load env variables...")
-  logging.info("Root path: %s" % app.root_path)
-  
-  # Load environmental variables
-  load_env(os.path.join(app.root_path,"variables.env"))
-
-  # Initialize the database
-  logging.info("Initialize the database...")
-
-  db_name = ENV_VARS.get('DB_NAME')
-  db_user = ENV_VARS.get('DB_USER')
-  db_pass = ENV_VARS.get('DB_PASS')
-
-  app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://"+str(db_user)+":"+str(db_pass)+"@127.0.0.1:3306/"+str(db_name)
-  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-  app.config['SQLALCHEMY_POOL_RECYCLE'] = 1
-
-  db = SQLAlchemy(app)
-
-  # Create all database tables
-  logging.info("Create DB tables...")
-
-
-
-  # Initialize global application context
-  logging.info("Initialize global application context...")
-  with app.app_context():
-    # within this block, current_app points to app.
-    logging.info("App name: %s" % current_app.name)
-
-  logging.info("Initialization complete, start the actual server...")
-
-setup_app(app)
 
 # Database definition
 class UserEntry(db.Model):
@@ -128,9 +91,59 @@ UserEntry.answers = relationship("UserAnswer",
   back_populates="userEntry",
   cascade="all, delete-orphan")
 
+# Server instance initialize
+def setup_app(app):  
+  global db
+
+  logging.info("Initializing the server, first load env variables...")
+  logging.info("Root path: %s" % app.root_path)
+  
+  # Load environmental variables
+  load_env(os.path.join(app.root_path,"variables.env"))
+
+  # Initialize the database
+  logging.info("Initialize the database...")
+
+  db_name = ENV_VARS.get('DB_NAME')
+  db_user = ENV_VARS.get('DB_USER')
+  db_pass = ENV_VARS.get('DB_PASS')
+
+  app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://"+str(db_user)+":"+str(db_pass)+"@127.0.0.1:3306/"+str(db_name)
+  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+  app.config['SQLALCHEMY_POOL_RECYCLE'] = 1
+
+  logging.info("DB access string: %s" % app.config['SQLALCHEMY_DATABASE_URI'])
+  db.init_app(app)
+
+  # Create all database tables
+  logging.info("Create DB tables...")
+  db.create_all()
+
+  # Initialize global application context
+  logging.info("Initialize global application context...")
+  with app.app_context():
+    # within this block, current_app points to app.
+    logging.info("App name: %s" % current_app.name)
+
+  logging.info("Initialization complete, start the actual server...")
+
+setup_app(app)
+
 # Main study
 @app.route('/', methods = ['GET','POST'])
 def study_main():
+
+  # Generate user id
+  user_id = uuid.uuid1()
+
+  # Add entry to db for user
+  userEntry = UserEntry(user_id=str(user_id))
+  userEntry.condition = "Cond 1"
+
+  print("Adding entry to DB...")
+  db.session.merge(userEntry)
+  db.session.commit()
+
   webHTML = "<b>Test-Almost all is ready!</b> <br />"
   webHTML += "DB_USER="+str(ENV_VARS.get('DB_USER'))+"<br />"
   webHTML += "DB_PASS="+str(ENV_VARS.get('DB_PASS'))+"<br />"
