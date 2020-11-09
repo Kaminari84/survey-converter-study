@@ -42,11 +42,10 @@
         console.log("Page no: "+page_no);
         console.log("User id: "+user_id);
 
+        loadStudyPage(page_no);
+
         loadSurvey("Harbor_new_conv.json");
         //loadSurvey("TPB_survey_conv.json");
-
-        loadStudyPage(page_no);
-        
       });
 
       function choose(choices) {

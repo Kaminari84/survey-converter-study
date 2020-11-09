@@ -177,6 +177,34 @@ def study_main():
 
   return render_template('study_main.html', user_id=user_id, page_no=page_no)
 
+# Study page
+@app.route('/study_page', methods = ['GET','POST'])
+def study_page():
+  user_id = request.args.get('user_id')
+  print("User_id:",str(user_id))
+
+  page_no = safe_cast(request.args.get('page_no'), int)
+  print("Page no:",str(page_no))
+
+  pages = ['p1_introduction.html', 'p2_chat_interaction.html', 'p3_survey.html',
+           'p5_conv_on_side.html', ]
+
+  template = "No such page!"
+  if page_no > 0 and page_no <= len(pages):
+    add_answer(user_id, "P"+str(page_no), "Yes")
+    
+    questions = []
+    if pages[page_no-1] == 'p3_survey.html':
+      questions = [ "I was really drawn into answering questions", 
+                    "I felt involved in answering questions",
+                    "This experience of answering questions was fun",
+                    "I forgot about my immediate surroundings while answering questions",
+                    "I was so involved in answering questions that I ignored everything around me",
+                    "I was absorbed in answering questions"
+                  ]
+
+    template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions)
+
 @app.route('/get_study_responses')
 def get_study_responses():
   key_values = ['user_id','condition','datetime']
@@ -206,6 +234,15 @@ def get_study_responses():
   print("Entry Values:", entry_values)
 
   return render_template('study_responses.html', headers=key_values, entries=entry_values)
+
+# Helper methods
+def add_answer(user_id, q_id, ans):
+  userEntry = UserEntry.query.get(user_id)
+
+  if userEntry != None:
+    userAnswer = UserAnswer(question_id=q_id, answer=ans)
+    userEntry.answers.append(userAnswer)
+    db.session.commit()
 
 # Cast string to int
 def safe_cast(val, to_type, default=None):
