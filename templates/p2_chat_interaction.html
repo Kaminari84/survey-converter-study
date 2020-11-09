@@ -1,0 +1,458 @@
+<style>
+  .fa-edit {
+    color: #ff0000;
+    cursor:pointer;
+    transition-duration: 0.5s;
+    display:none;
+  }
+
+  .botui-app-container {
+    background-color: #ffffff;
+    border: 0px solid #e1e1ff;
+    display: table;
+    font-size: 12px;
+    max-height: 900px;
+    overflow: auto;
+  }
+
+  .botui-message-content {
+    background: #E8E8E8;
+    border-radius: 20px;
+    font-family: Roboto;
+    color: #333333;
+    font-size: 14px;
+  }
+
+  .botui-message-content.human {
+    background: #3676F4;
+    border-radius: 20px;	
+    font-family: Roboto;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .botui-message-content.human.text {
+    display: inline-block;
+  }
+
+
+</style>
+
+<script>
+  var botui;
+  var calc_delay = 0;
+  var isMuted = true;
+
+  $( document ).ready(function() {
+    console.log("Chat specific ready");
+
+    //$("#bot-interaction").html("<span style='color:red'><b>Added dynamic text!</b></span>")
+
+    /* https://docs.botui.org/guide.html */
+    botui = new BotUI('bot-interface');
+
+  });
+
+  function restartDialogue() {
+    console.log("Restarting the dialogue...");
+
+    // Show the dialogue JSON
+    // console.log(dialogue)
+    
+    // Hide the start conversation button
+    $("#start_button").hide()
+	    	  
+	  dialogue_position = 0;
+	  previous_dialogue_position = 0; 
+	  //botui.message.removeAll();
+    progressDialogue();
+
+  }
+
+  function progressDialogue(givenPosition = dialogue_position, alt = false, isReaction = false) {
+    console.log("Progressing dialogue, current position: "+ givenPosition);
+
+    var lang = 'en';
+
+    //We actually never reach this - as progressDialogue is not called in handling "End"
+    if (givenPosition > dialogue.length) {
+      console.log("Dialogue ended!");
+      return;
+    }
+    
+    msg_spec = {};
+	  if(dialogue_position !== 0){
+	  	msg_spec['loading'] = true;
+    }
+    
+    // Set the correct response type to handle the block
+    responseType = dialogue[givenPosition]['type'];
+      
+    //Handing an immediate reaction to a response
+    if (isReaction == true) {
+      responseType = "Reaction"; //This is a reaction, change a response type for question
+      if (latest_answer in dialogue[givenPosition]["reactions"]) {
+        msg_spec['content'] = dialogue[givenPosition]["reactions"][latest_answer]['text'];
+      } else {
+        //No matching text for this answer option, this should not happen, the check in response should not allow this!
+        msg_spec['content'] = "Missing matching reaction text for answer option: "+latest_answer;
+      }
+    } else {
+      if(alt) {
+        msg_spec['content'] = dialogue[givenPosition]['altText'];
+      } else {
+        msg_spec['content'] = dialogue[givenPosition]['text'];
+      }
+    }
+
+	  msg_spec['delay'] = calc_delay;
+		console.log("-["+givenPosition+"]-Message:"+msg_spec['content']+", delay:"+msg_spec['delay']);
+    calc_delay = setDelay(alt, isReaction, givenPosition, lang) * (100.0/getSpeechSpeed());
+
+    botui.message.add(msg_spec).then(function (index) {
+	  	addID();
+	  	if(givenPosition != 0) {
+	  		toggleAudioIcon();
+	  	}
+      
+      if (!(dialogue[givenPosition]['type'] === "Image")){
+				addPlay(msg_spec['content'], givenPosition, alt);
+      }
+
+      switch (responseType) {
+	  		case "Skip":
+        case "Reaction": //Reaction is the same as skip from the perspective of what follows the text
+          //console.log("Auto progress message...");
+          if(!alt) {
+            if (previous_dialogue_position != 0) {
+              dialogue_position = previous_dialogue_position;
+              previous_dialogue_position = 0;
+            } else {
+              //Does the response have jump conditions
+              if ("jumpConditions" in dialogue[givenPosition]) {
+                console.log("PROCESSING JUMP CONDITIONS...")
+                console.log("The latest answer I have:"+latest_answer);
+                //Check if we have this answer option, if not that is programmers error!
+                if (latest_answer in dialogue[givenPosition]["jumpConditions"]) {
+                  console.log("-> [Before JUMP] - position:", dialogue_position);
+                  console.log("Jump value raw: "+dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]);
+                  console.log("Jump value parsed: "+parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]));
+                  dialogue_position += parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]) || 1;
+                  console.log("-> [After JUMP] - position:", dialogue_position);
+                } else {
+                  console.log("No jump for this option...");
+                  //No jump for this answer option, progress at a normal pace
+                  dialogue_position += 1;
+                } 
+              } else { // No jump conditions
+                dialogue_position += 1;
+              }
+			  		}
+		  			progressDialogue();
+					}
+          console.log("Automated skip...");
+          break;
+        case "End":					  
+					//Log end of the conversation
+					//get todays date and time to log to the server
+					var today = new Date();
+					var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+					var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+					//var dateTime = date+' '+time;
+
+          break;
+        case "Yes/No":
+	  			/*showActionBar();
+	  			if(alt) {
+	  				addUtilButtons(givenPosition, true);
+	  			} else {
+	  				addUtilButtons(givenPosition, true);
+	  			}*/
+	  			console.log("Yes/No type of response..." + givenPosition)
+          var buttons_lang = [
+            { // show only one button
+              text: 'Yes',
+                value: 'Yes',
+                position: givenPosition
+            },
+            {
+              text: 'No',
+                value: 'No',
+                position: givenPosition
+            }
+          ]
+          
+	  			botui.action.button({ action: buttons_lang
+	  			}).then(function (res) { // will be called when a button is clicked.
+            //pauseAudio();
+            //removeUtilButtons();
+
+						console.log("Got value from Yes/No:" + res.value); // will print "one" from 'value'
+            latest_answer = res.value;
+            //Log answer in the dialogue structure itself
+            dialogue[givenPosition]['answer_value'] = res.value;
+            dialogue[givenPosition]['answer'] = res.text;
+
+            if (res.text === "Explain") {
+              progressDialogue(givenPosition, true);
+            } 
+			  		else {
+              //This block has a reaction, first process this before jumping back
+              isProgressDialogue = true;
+              if ('reactions' in dialogue[givenPosition] ) {
+                console.log("---Block has REACTIONS, processing....");
+                if (latest_answer in dialogue[givenPosition]["reactions"]) {
+                  console.log("Response has a reaction!!!");
+                  isProgressDialogue = false;
+                  progressDialogue(givenPosition, false, true);
+                }
+              }
+
+              if (isProgressDialogue == true) {
+                console.log("---NO REACTIONS, progressing dialogue as normal...");
+                if (previous_dialogue_position != 0) {
+                  dialogue_position = previous_dialogue_position;
+                  previous_dialogue_position = 0;
+                } else {
+                  dialogue_position += 1;
+                }
+                progressDialogue();
+              }
+            }
+					});
+          break;
+        case "Input":
+					/*showActionBar();
+					if(alt) {
+	  				addUtilButtons(givenPosition, true);
+	  			} else {
+	  				addUtilButtons(givenPosition, true);
+	  			}*/
+	  			console.log("Input type of response...")
+	  			botui.action.text({
+	  				action: [
+						{ // show only one button
+						  placeholder: 'Enter your response here',
+							sub_type: 'number',
+						    position: givenPosition
+						  }
+						]
+					}).then(function (res) { // will be called when a button is clicked.
+						/*pauseAudio();
+						removeUtilButtons();*/
+						console.log("Got value from Input:" + res.value); // will print "one" from 'value'
+            latest_answer = res.value;
+            //Log answer in the dialogue structure itself
+            dialogue[givenPosition]['answer_value'] = res.value;
+            dialogue[givenPosition]['answer'] = res.text;
+
+            if (previous_dialogue_position != 0) {
+              dialogue_position = previous_dialogue_position;
+              previous_dialogue_position = 0;
+            } else {
+              dialogue_position += 1;
+            }
+            progressDialogue();
+          });
+          break;
+        case "Options":
+					/*showActionBar();
+					if(alt) {
+	  				addUtilButtons(givenPosition, true);
+	  			} else {
+	  				addUtilButtons(givenPosition, true);
+	  			}*/
+	  			console.log("Options type of response...2")
+          dialogue[givenPosition]["options"].forEach(function(part, index) {
+            // part and arr[index] point to the same object
+            // so changing the object that part points to changes the object that arr[index] points to
+            part.position = givenPosition;
+          });
+					responseOptions = dialogue[givenPosition]["options"];
+
+	  			botui.action.button({
+	  				action: responseOptions
+					}).then(function (res) { // will be called when a button is clicked.
+						/*pauseAudio();
+						removeUtilButtons();*/
+
+						console.log("Got value from Options:" + res.value); // will print "one" from 'value'
+            latest_answer = res.value;
+            //Log answer in the dialogue structure itself
+            dialogue[givenPosition]['answer_value'] = res.value;
+            dialogue[givenPosition]['answer'] = res.text;
+
+						//This block has a reaction, first process this before jumping back
+						isProgressDialogue = true;
+						//Should it react to this response?
+						if ('reactions' in dialogue[givenPosition] ) {
+							console.log("---Block has REACTIONS, processing....");
+							if (latest_answer in dialogue[givenPosition]["reactions"]) {
+								console.log("Response has a reaction!!!");
+								isProgressDialogue = false;
+								progressDialogue(givenPosition, false, true);
+							}
+						}
+
+						if (isProgressDialogue == true) {
+							console.log("---NO REACTIONS, progressing dialogue as normal...");
+
+							if (previous_dialogue_position != 0) {
+								dialogue_position = previous_dialogue_position;
+								previous_dialogue_position = 0;
+							} else {
+								//Does the response have jump conditions
+								if ("jumpConditions" in dialogue[givenPosition]) {
+									console.log("PROCESSING JUMP CONDITIONS...")
+									console.log("The latest answer I have:"+latest_answer);
+									//Check if we have this answer option, if not that is programmers error!
+									if (latest_answer in dialogue[givenPosition]["jumpConditions"]) {
+										console.log("-> [Before JUMP] - position:", dialogue_position);
+										console.log("Jump value raw: "+dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]);
+										console.log("Jump value parsed: "+parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]));
+										dialogue_position += parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]) || 1;
+										console.log("-> [After JUMP] - position:", dialogue_position);
+									} else {
+										console.log("No jump for this option...");
+										//No jump for this answer option, progress at a normal pace
+										dialogue_position += 1;
+									} 
+								} else { // No jump conditions
+									dialogue_position += 1;
+								}
+							}
+								
+							progressDialogue();
+						}
+					});
+					break;
+
+          
+        
+      }
+    });
+  
+  }
+
+  // set delay of the message based on the length of the previous message
+  function setDelay(alt, isReaction, givenPosition, lang) {
+    console.log("Calculating delay for the future...");
+
+    var addDelay = 0;	
+    if(alt) {
+      message = dialogue[givenPosition]['altText'];
+    } else {
+      message = dialogue[givenPosition]['text'];
+      if ('delay' in dialogue[givenPosition]) {
+          addDelay = dialogue[givenPosition]['delay'];
+          console.log("  Added additional delay: "+addDelay);
+      }
+    }
+
+    if (isReaction) {
+      console.log("  ***IS REACTION****: "+dialogue[givenPosition]['type']);
+      try {
+          message = dialogue[givenPosition]['reactions'][latest_answer]['text'];
+      } catch(err) {
+          message = "Filler message for delay."
+      }
+    }
+
+    console.log("  ---->MSG: "+message);
+
+    //If we had just text without answer, then wait for user to read
+    if (dialogue[givenPosition]['type'] == "Skip" || isReaction) {
+      delay = calcDelay(message, isMuted, addDelay);
+
+    //If there was a reply required, then user likely read the question already - no need to wait
+    } else {
+      delay = 500;
+    }
+
+    console.log("  Calculated delay: "+delay);
+
+    return delay;
+  }
+
+  function calcDelay(message, isMuted, addDelay=0) {
+    console.log("Calculating delay from messagg:"+message);
+    //var audio = document.getElementById('audio_' + dialogue_position);
+    //var delay =  audio.duration;
+    var delay = 0;
+
+    var length = message.length;
+    //console.log("  Old length: "+length);
+    var delay;
+    if (length <=20) {
+      delay = 3000;
+    } else if (length > 20 && length <= 50) {
+      delay = 4500;
+    } else if (length > 50 && length <= 100) {
+      delay = 5500;
+    } else if (length > 100 && length <= 150) {
+      delay = 6000;
+    } else if (length > 150 && length <= 200) {
+      delay = 6500;
+    } else {
+      delay = 9000;
+    }
+    //low = ~50, high ~200					
+    //CREATE FOR LOOP THAT LOOPS THROUGH STRING TO SEE HOW MANY PUNCTUATION MARKS, ADJUST DELAY ACCORDINGLY
+    if (isMuted) { delay = delay - 1500;} // reduces delay if speaking is off
+
+    console.log("  Old delay: "+delay);
+    length = message.split(' ').length;
+    console.log("  Length in words: "+length);
+    punctiation_delay = (message.match(/[,.!?-`]/g) || []).length*150 // 50ms for every point or comma
+    console.log("  Bonus delay for punctuation marks: "+punctiation_delay);
+    delay = Math.round((length/150)*60*1000) + punctiation_delay + addDelay;
+
+    if (isMuted) { 
+      console.log("  Audio is off, reducing delay...");
+      delay = delay - 1500 - punctiation_delay - addDelay;
+      if (delay < 500) {
+          delay = 500;
+      }
+    } // reduces delay if speaking is off
+    console.log("  New delay: "+delay);
+    return delay;
+  }
+  
+  function getSpeechSpeed() {
+    var speech_speed = 100;
+
+    return speech_speed;
+  }
+
+  // adds unique ID to message element as it is created
+  function addID() {
+    var elems = document.getElementsByClassName('botui-message');
+    var i = elems.length - 1;
+    var message = document.getElementsByClassName('botui-message')[i];
+    message.id = "message_" + i;
+  }
+
+  // decreases opacity of old audio icons
+  function toggleAudioIcon() {
+    
+  }
+
+  function addPlay(message, q_id, isAlt) {
+
+	}
+
+
+</script>
+
+<h1>Page {{ page_no }} - Chat interaction</h1>
+
+<b>Please interact with the chat interface below to answer the questions</b>
+
+<button id="start_button" style="display:block;" type="button" 
+        onclick="return restartDialogue();">
+  Start interaction
+</button>	  
+
+<div class="botui-app-container text-left" id="bot-interface" >
+  <bot-ui ></bot-ui>
+</div>
