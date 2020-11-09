@@ -1,13 +1,18 @@
 import os
+import logging
+import time
+
 from flask import Flask, request, make_response, render_template, current_app, g
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy
 from sqlalchemy.orm import relationship
 
 ENV_VARS = {}
-
 app = Flask(__name__)
 db = None
+
+logging.basicConfig(filename=os.path.join(app.root_path,'logs/app_'+time.strftime('%d-%m-%Y-%H-%M-%S')+'.log'), level=logging.INFO)
+logging.info("Server loading...")
 
 def load_env(filename):
   with open(filename) as myfile:
@@ -18,7 +23,8 @@ def load_env(filename):
 # Server instance initialize
 def setup_app(app):  
   global db
-  
+
+  logging.info("Initializing the server, first load env variables...")
   print("Loading the server, first init global vars...")
   print("Root path:", app.root_path)
   load_env(os.path.join(app.root_path,"variables.env"))
