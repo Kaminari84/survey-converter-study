@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 import json
 import uuid
@@ -30,7 +31,13 @@ CORS(app)
 
 db = SQLAlchemy()
 
-logging.basicConfig(filename=os.path.join(app.root_path,'logs/app_'+time.strftime('%d-%m-%Y-%H-%M-%S')+'.log'), level=logging.INFO)
+file_handler = logging.FileHandler(filename=os.path.join(app.root_path,'logs/app_'+time.strftime('%d-%m-%Y-%H-%M-%S')+'.log'))
+stdout_handler = logging.StreamHandler(sys.stdout)
+handlers = [file_handler, stdout_handler]
+
+logging.basicConfig(level=logging.INFO,
+                    format='[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s',
+                    handlers=handlers)
 logging.info("Server loading...")
 
 # Load environmental variables
@@ -139,7 +146,7 @@ def test():
   #userEntry = UserEntry(user_id=str(user_id))
   #userEntry.condition = "Cond 1"
 
-  print("Adding entry to DB...")
+  logging.info("Adding entry to DB...")
   #db.session.merge(userEntry)
   #db.session.commit()
 
@@ -155,10 +162,10 @@ def test():
 @app.route('/', methods = ['GET','POST'])
 def study_main():
   user_id = request.args.get('user_id')
-  print("User_id:",str(user_id))
+  logging.info("User_id:" + str(user_id))
 
   page_no = safe_cast(request.args.get('page_no'), int)
-  print("Page no:",str(page_no))
+  logging.info("Page no:" + str(page_no))
 
   if page_no == None:
     page_no = 1
@@ -171,7 +178,7 @@ def study_main():
     userEntry = UserEntry(user_id=str(user_id))
     userEntry.condition = "Cond 1"
 
-    print("Adding entry to DB...")
+    logging.info("Adding entry to DB...")
     db.session.merge(userEntry)
     db.session.commit()
 
@@ -181,10 +188,10 @@ def study_main():
 @app.route('/study_page', methods = ['GET','POST'])
 def study_page():
   user_id = request.args.get('user_id')
-  print("User_id:",str(user_id))
+  logging.info("User_id:"+str(user_id))
 
   page_no = safe_cast(request.args.get('page_no'), int)
-  print("Page no:",str(page_no))
+  logging.info("Page no:"+str(page_no))
 
   pages = ['p1_introduction.html', 'p2_chat_interaction.html', 'p3_survey.html',
            'p5_conv_on_side.html', ]
@@ -237,8 +244,8 @@ def get_study_responses():
 
     entry_values.append(values)
 
-  print("Key Values:", key_values)
-  print("Entry Values:", entry_values)
+  logging.info("Key Values:", key_values)
+  logging.info("Entry Values:", entry_values)
 
   return render_template('study_responses.html', headers=key_values, entries=entry_values)
 
