@@ -71,7 +71,7 @@ def setup_app(app):
 # Main study
 @app.route('/', methods = ['GET','POST'])
 def study_main():
-  webHTML = "Hello world from Test App & Rafsal: <br />"
+  webHTML = "<b>Almost all is ready!</b> <br />"
   webHTML += "DB_USER="+str(ENV_VARS.get('DB_USER'))+"<br />"
   webHTML += "DB_PASS="+str(ENV_VARS.get('DB_PASS'))+"<br />"
   webHTML += "DB_NAME="+str(ENV_VARS.get('DB_NAME'))+"<br />"
