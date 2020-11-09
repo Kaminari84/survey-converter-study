@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Conversational Survey Study</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom Sticky Footer -->
+    <link rel="stylesheet" href="./static/stylesheets/sticky-footer.css" />
+
+    <!-- required for basic layout -->
+    <link rel="stylesheet" href="./static/stylesheets/botui.min.css" />
+
+    <!-- default theme - you can create your own theme -->
+    <link rel="stylesheet" href="./static/stylesheets/botui-theme-custom.css" />
+    <link rel="stylesheet" href="./static/stylesheets/bot-style-harbor.css" />
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <!-- Material Components -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+      
+    <!--SCRIPT-->
+    <script>
+      var user_id = ( "{{user_id}}"=="None" ? null : "{{user_id}}" );
+      var page_no = {{page_no}};
+
+      $( document ).ready(function() {
+	      console.log("Document ready!");
+        console.log("Page no: "+page_no);
+        console.log("User id: "+user_id);
+
+        loadSurvey("Harbor_new_conv.json");
+        //loadSurvey("TPB_survey_conv.json");
+
+        loadStudyPage(page_no);
+        
+      });
+
+      function choose(choices) {
+        var index = Math.floor(Math.random() * choices.length);
+        return choices[index];
+      }
+
+      function nextPage() {
+        console.log("Requesting next page...");
+        console.log("Valid:"+validateForm());
+
+        if (validateForm() == true) {
+          page_no += 1;
+
+          loadStudyPage(page_no);
+        }
+      }
+
+      function loadStudyPage(study_page) {
+        $('#study_page_content').load('/study_page?page_no='+study_page+'&user_id='+user_id, { 'user_id': user_id });
+      }
+
+      function loadSurvey(survey_file) {
+        console.log("Loading survey: "+survey_file);
+
+        var request = $.ajax({
+          url: "/get_survey",
+          type: "GET",
+          data: {survey_file: survey_file, survey_source: "conv"},
+          dataType: "html",
+          async: true, 
+          success : function (msg)
+          {
+            var obj = JSON.parse(msg);
+
+            if (obj.status !== "OK") {
+                console.log("Something went wrong and event did not log: "+obj.message);
+            } else {
+              //("Called log event successfully!");
+              let obj = JSON.parse(msg);
+              console.log("Survey load resp:");
+              console.log(obj);
+              dialogue = obj.survey_data;
+            }
+          }
+        });
+      }
+
+      // Form validation
+      function validateForm() {
+        console.log("Form validation check...");
+        var forms = document.getElementsByClassName('needs-validation');
+
+        var allValid = true;
+
+        for (var i=0; i<forms.length; i++) {
+          if (forms[i].checkValidity() === false) {
+            //event.preventDefault();
+            //event.stopPropagation();
+            console.log("NOT FILLED!!!");
+            allValid = false;
+          }
+          forms[i].classList.add('was-validated');
+          setTimeout(inValidateForm, 2000);
+        }
+
+        return allValid;
+      }
+
+      function inValidateForm() {
+        console.log("Invalidate form...");
+        var forms = document.getElementsByClassName('was-validated');
+
+        for (var i=0; i<forms.length; i++) {
+          forms[i].classList.remove('was-validated');
+        }
+      }
+
+      function saveAnswer(question, answer) {
+        console.log("Question:"+question, ", Response:"+answer)
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    <!-- Page Content  -->
+    <main role="main" class="container" id="content" >
+      <div id="study_page_content"></div>
+    </main> <!-- /content -->
+
+    <!-- Footer with buttons -->
+    <footer class="footer">
+      <div class="container">
+        <button type="button" class="btn btn-primary" onClick="nextPage();">Continue</button>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Vue - BotUI requires Vue to be present in page -->
+    <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+    <!-- BotUI - main file -->
+    <script src="./static/scripts/botui.min.js"></script>
+
+  </body>
+  
+</html>
+  

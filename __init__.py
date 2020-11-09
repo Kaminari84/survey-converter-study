@@ -130,19 +130,18 @@ def setup_app(app):
 setup_app(app)
 
 # Main study
-@app.route('/', methods = ['GET','POST'])
-def study_main():
-
+@app.route('/test', methods = ['GET','POST'])
+def test():
   # Generate user id
-  user_id = uuid.uuid1()
+  #user_id = uuid.uuid1()
 
   # Add entry to db for user
-  userEntry = UserEntry(user_id=str(user_id))
-  userEntry.condition = "Cond 1"
+  #userEntry = UserEntry(user_id=str(user_id))
+  #userEntry.condition = "Cond 1"
 
   print("Adding entry to DB...")
-  db.session.merge(userEntry)
-  db.session.commit()
+  #db.session.merge(userEntry)
+  #db.session.commit()
 
   webHTML = "<b>Test-Almost all is ready!</b> <br />"
   webHTML += "DB_USER="+str(ENV_VARS.get('DB_USER'))+"<br />"
@@ -151,3 +150,36 @@ def study_main():
   webHTML += "TEST_VAR="+str(ENV_VARS.get('TEST_VAR'))+"<br />"
 
   return webHTML 
+
+# Main study
+@app.route('/', methods = ['GET','POST'])
+def study_main():
+  user_id = request.args.get('user_id')
+  print("User_id:",str(user_id))
+
+  page_no = safe_cast(request.args.get('page_no'), int)
+  print("Page no:",str(page_no))
+
+  if page_no == None:
+    page_no = 1
+
+  # Generate user id
+  if user_id == None:
+    user_id = uuid.uuid1()
+
+    # Add entry to db for user
+    userEntry = UserEntry(user_id=str(user_id))
+    userEntry.condition = "Cond 1"
+
+    print("Adding entry to DB...")
+    db.session.merge(userEntry)
+    db.session.commit()
+
+  return render_template('study_main.html', user_id=user_id, page_no=page_no)
+
+# Cast string to int
+def safe_cast(val, to_type, default=None):
+  try:
+    return to_type(val)
+  except (ValueError, TypeError):
+    return default
