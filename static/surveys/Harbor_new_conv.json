@@ -1,0 +1,931 @@
+[
+    {
+        "augment_type": "opening",
+        "source": "augmented",
+        "text": "Hi, my name is SocialNeedsBot. Let's start by talking about social needs.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "in the past year, which of the following have you used?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Alcohol",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Tobacco",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Marijuana",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Prescription drugs that are not prescribed to you by a doctor",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Heroin",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Crack/ Cocaine",
+                "value": "Opt_6"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Methamphetamine",
+                "value": "Opt_7"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Others such as MDMA, ecstasy, poppers, inhalants, GHB, special K",
+                "value": "Opt_8"
+            }
+        ],
+        "org_text": "In the past year, which of the following have you used?",
+        "prefix": "Please tell me if",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "Opt_7": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_8": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Please tell me if in the past year, which of the following have you used?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
+        "org_text": "Do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
+        "prefix": "Next, could you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Yes": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            }
+        },
+        "text": "Next, could you tell me do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
+        "type": "Yes/No"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "do you have any significant outstanding bills or debts?",
+        "org_text": "Do you have any significant outstanding bills or debts?",
+        "prefix": "Continuing, can I ask you",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Yes": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            }
+        },
+        "text": "Continuing, can I ask you do you have any significant outstanding bills or debts?",
+        "type": "Yes/No"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "do you want help finding a job, or keeping your curren't work?",
+        "org_text": "Do you want help finding a job, or keeping your curren't work?",
+        "prefix": "Going forward, can you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "Yes": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Going forward, can you tell me do you want help finding a job, or keeping your curren't work?",
+        "type": "Yes/No"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are done with 20% of our questions.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Negative_frame",
+        "prefix_class": "q_none",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "Yes": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Do you want help with school or training? ",
+        "type": "Yes/No"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what is your living situation today?",
+        "options": [
+            {
+                "framing": "neu_answer",
+                "text": "I have a steady place to live.",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "I have a place to live at the moment, but I am worried about losing it in the future.",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "I do not have a steady place to live. I usually have a roof over my head, for example temporarily staying with others, in a motel.",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "I do not have a steady place to live. I sometimes have a roof over my head, for example in a shelter bed or motel room.",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "I do not have a steady place to live. I live outside, for example on the street, in a park, in a car or bus station.",
+                "value": "Opt_5"
+            }
+        ],
+        "org_text": "What is your living situation today?",
+        "prefix": "Further, would you mind sharing",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Further, would you mind sharing what is your living situation today?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "think about the place you live. Do you have any problems with the following? Choose all that apply.",
+        "options": [
+            {
+                "framing": "neu_answer",
+                "text": "Not applicable; I have satisfactory conditions in stable housing.",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not applicable; I do NOT have stable housing.",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Pests",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Mold",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Lead paint or pipes",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Lack of heat",
+                "value": "Opt_6"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Lack of kitchen",
+                "value": "Opt_7"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Smoke detectors missing or not working",
+                "value": "Opt_8"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Water leaks",
+                "value": "Opt_9"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Other",
+                "value": "Opt_10"
+            }
+        ],
+        "org_text": "Think about the place you live. Do you have any problems with the following? Choose all that apply.",
+        "prefix": "Would you mind telling me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "Opt_10": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "Opt_7": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "Opt_8": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "Opt_9": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            }
+        },
+        "text": "Would you mind telling me think about the place you live. Do you have any problems with the following? Choose all that apply.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "in the past year, were you worried about where you would get your next meal?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Often",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Sometimes",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Never",
+                "value": "Opt_3"
+            }
+        ],
+        "org_text": "In the past year, were you worried about where you would get your next meal?",
+        "prefix": "Moving on, can you",
+        "prefix_class": "q_non_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            }
+        },
+        "text": "Moving on, can you in the past year, were you worried about where you would get your next meal?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "Half of the survey is done, thanks for your patience",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "in the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
+        "org_text": "In the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
+        "prefix": "Going forward, please indicate if",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "Yes": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Going forward, please indicate if in the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
+        "type": "Yes/No"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "in the past year, you were unable to count on reliable transportation to get you to important appointments?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Often",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Sometimes",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Never",
+                "value": "Opt_3"
+            }
+        ],
+        "org_text": "In the past year, were you unable to count on reliable transportation to get you to important appointments?",
+        "prefix": "Would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            }
+        },
+        "text": "Would you say that in the past year, you were unable to count on reliable transportation to get you to important appointments?",
+        "type": "Options"
+    },
+    {
+        "framing": "Negative_frame",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Immigration",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Unpaid tickets",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Eviction",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Outstanding Warrants",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Clearing your record/ expungement",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Child custody",
+                "value": "Opt_6"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Child support",
+                "value": "Opt_7"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Domestic violence/ restraining order",
+                "value": "Opt_8"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Getting an ID or birth certificate",
+                "value": "Opt_9"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Employment issues such as unpaid wages, improper termination, etc.",
+                "value": "Opt_10"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "School issues such as IEP, suspension, truancy, etc.",
+                "value": "Opt_11"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Public benefits such as [CA set, WA set]",
+                "value": "Opt_12"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "None of the above",
+                "value": "Opt_13"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "Opt_10": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "Opt_11": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_12": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_13": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Opt_7": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "Opt_8": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "Opt_9": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            }
+        },
+        "text": "Would you like legal help with any of the following issues?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what is your racial and ethnic background? Check all that apply (multiple may apply if you are of mixed descent).",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Black, African American or African",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Latin American, Central American, Mexican or Mexican American, Hispanic or Chicano",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "American Indian or Alaskan Native",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Pacific Islander: Native Hawaiian, Guamanian/Chamorro, Samoan, Other",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Asian: Indian, Chinese, Filipino, Japanese, Korean, Vietnamese, Other",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Middle Eastern/ Arab",
+                "value": "Opt_6"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "White/ Caucasian",
+                "value": "Opt_7"
+            }
+        ],
+        "org_text": "What is your racial and ethnic background? Check all that apply (multiple may apply if you are of mixed descent).",
+        "prefix": "Continuing, would you mind sharing",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "Opt_7": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Continuing, would you mind sharing what is your racial and ethnic background? Check all that apply (multiple may apply if you are of mixed descent).",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 70% of the survey.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what is your current gender identity? ",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Female",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Male",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Transgender Male/ Trans Man/ Female-to-Male (FTM)",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Transgender Female/ Trans Woman/ Male-to-Female (MTF)",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Nonbinary, genderqueer, gender non-conforming, neither or both male and/or female",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Additional gender category",
+                "value": "Opt_6"
+            }
+        ],
+        "org_text": "What is your current gender identity? ",
+        "prefix": "Would you mind telling me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            }
+        },
+        "text": "Would you mind telling me what is your current gender identity? ",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what type of health insurance do you have?",
+        "options": [
+            {
+                "framing": "neu_answer",
+                "text": "None, I\u2019m not insured",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Medicaid",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Medicaid pending",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Employer",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Medicare",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "COBRA",
+                "value": "Opt_6"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "State children\u2019s health insurance",
+                "value": "Opt_7"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Private health insurance",
+                "value": "Opt_8"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Veteran\u2019s administration",
+                "value": "Opt_9"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Indian health services",
+                "value": "Opt_10"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Other",
+                "value": "Opt_11"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Don\u2019t know",
+                "value": "Opt_12"
+            }
+        ],
+        "org_text": "What type of health insurance do you have?",
+        "prefix": "Further, can you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_10": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_11": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_12": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_7": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_8": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "Opt_9": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            }
+        },
+        "text": "Further, can you tell me what type of health insurance do you have?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "how many years did you go to school?",
+        "org_text": "How many years did you go to school?",
+        "prefix": "Next, could you tell me",
+        "prefix_class": "q_verb_prefix",
+        "text": "Next, could you tell me how many years did you go to school?",
+        "type": "Input_Num_Small"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what is your current marital or relationship status?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Married",
+                "value": "Opt_1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Widowed",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Separated",
+                "value": "Opt_3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Divorced",
+                "value": "Opt_4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Never married/single",
+                "value": "Opt_5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Committed relationship/partnered",
+                "value": "Opt_6"
+            }
+        ],
+        "org_text": "What is your current marital or relationship status?",
+        "prefix": "Moving on, can I ask you",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "Opt_1": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "Opt_6": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            }
+        },
+        "text": "Moving on, can I ask you what is your current marital or relationship status?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We are done! Thanks for your patience.",
+        "type": "End"
+    }
+]

@@ -219,6 +219,29 @@ def study_page():
 
   return template
 
+# Load the conversational survey
+@app.route("/get_survey")
+def get_survey():
+  logging.info("Trying to get survey..")
+
+  survey_file = request.args.get('survey_file')
+  json_resp = json.dumps({'status': 'ERROR', 'message':''})
+
+  if survey_file != None:
+    logging.info("Survey file:"+str(survey_file))
+
+    survey_path = './static/surveys'
+
+    survey_dict = ""
+    with open(survey_path+"/"+survey_file, 'r', encoding='utf-8') as f:
+      survey_dict = json.load(f)
+
+    json_resp = json.dumps({'status': 'OK', 'message':'', 'survey_data':survey_dict})
+  else:
+    json_resp = json.dumps({'status': 'ERROR', 'message':'Missing arguments'})
+
+  return make_response(json_resp, 200, {"content_type":"application/json"})
+
 @app.route('/get_study_responses')
 def get_study_responses():
   key_values = ['user_id','condition','datetime']

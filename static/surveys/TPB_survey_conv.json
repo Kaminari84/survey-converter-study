@@ -1,0 +1,500 @@
+[
+    {
+        "augment_type": "opening",
+        "source": "augmented",
+        "text": "Hey, I am SocialNeedsBot. Let's talk about social needs.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://people.umass.edu/aizen/pdf/tpb.measurement.pdf",
+        "framing": "Positive_frame",
+        "text": "Please think about 'Exercising for at least 20 min, three times per week for the next three months' when answering the questions",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "your exercising for at least 20 minutes, three times per week for the next three months would be good",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "My exercising for at least 20 minutes, three times per week for the next three months would be good",
+        "prefix": "Going forward, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Going forward, please indicate the extent to which your exercising for at least 20 minutes, three times per week for the next three months would be good",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "your exercising for at least 20 minutes, three times per week for the next three months would be pleasant",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "My exercising for at least 20 minutes, three times per week for the next three months would be pleasant",
+        "prefix": "Moving on, can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Moving on, can you say that your exercising for at least 20 minutes, three times per week for the next three months would be pleasant",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "most people who are important to you approve of your exercising for at least 20 minutes, three times per week for the next three months",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "Most people who are important to me approve of my exercising for at least 20 minutes, three times per week for the next three months",
+        "prefix": "Would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Would you say that most people who are important to you approve of your exercising for at least 20 minutes, three times per week for the next three months",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are about half way through",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Most people like me exercised for at least 20 minutes, three times per week in the three months following their major surgery",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you are confident that you can exercise for at least 20 minutes, three times per week for the next three months.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "I am confident that I can exercise for at least 20 minutes, three times per week for the next three months.",
+        "prefix": "Would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Would you say that you are confident that you can exercise for at least 20 minutes, three times per week for the next three months.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "your exercising for at least 20 minutes, three times per week for the next three months is up to me.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "My exercising for at least 20 minutes, three times per week for the next three months is up to me.",
+        "prefix": "Continuing, can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Continuing, can you say that your exercising for at least 20 minutes, three times per week for the next three months is up to me.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you intend to exercise for at least 20 minutes, three times per week for the next three months.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "I intend to exercise for at least 20 minutes, three times per week for the next three months.",
+        "prefix": "Further, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Further, please indicate the extent to which you intend to exercise for at least 20 minutes, three times per week for the next three months.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are almost at the end, thank you for staying that long",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "in the past three months, I have exercised for at least 20 minutes, three times per week.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Definitely agree",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree with reservation",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Only to be used if a definite answer is not possible",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree with reservation",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Definitely disagree",
+                "value": "5"
+            }
+        ],
+        "org_text": "In the past three months, I have exercised for at least 20 minutes, three times per week.",
+        "prefix": "Next, can you tell me if",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            }
+        },
+        "text": "Next, can you tell me if in the past three months, I have exercised for at least 20 minutes, three times per week.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We are done! Thanks.",
+        "type": "End"
+    }
+]
