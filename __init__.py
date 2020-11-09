@@ -177,6 +177,36 @@ def study_main():
 
   return render_template('study_main.html', user_id=user_id, page_no=page_no)
 
+@app.route('/get_study_responses')
+def get_study_responses():
+  key_values = ['user_id','condition','datetime']
+  entry_values = []
+  
+  allEntries = UserEntry.query.order_by(UserEntry.user_id.desc(), UserEntry.timestamp.desc()).limit(1000)
+  for entry in allEntries:
+    #print("Ticker ID:"+alarm.ticker_id)
+
+    for ans in entry.answers:
+      if ans.question_id not in key_values:
+        key_values.append(ans.question_id)
+
+    values = ['' for v in key_values]
+    values[0] = entry.user_id
+    values[1] = entry.condition
+    values[2] = entry.timestamp
+
+    for ans in entry.answers:
+      key_idx = key_values.index(ans.question_id)
+      values[key_idx] = ans.answer
+      
+
+    entry_values.append(values)
+
+  print("Key Values:", key_values)
+  print("Entry Values:", entry_values)
+
+  return render_template('study_responses.html', headers=key_values, entries=entry_values)
+
 # Cast string to int
 def safe_cast(val, to_type, default=None):
   try:

@@ -1,0 +1,23 @@
+<h1>Study Responses</h1>
+
+<b>Responses</b>
+
+<div>
+  <table border=1>
+    <tr>
+    {% for entry in headers %}
+      <th>{{ entry }}</th>
+  
+    {% endfor %}
+    </tr>
+
+    {% for entry in entries %}
+      <tr>
+        {% for value in entry %}
+          <td>{{value}}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+
+  </table>
+</div>
