@@ -25,8 +25,7 @@ def setup_app(app):
   global db
 
   logging.info("Initializing the server, first load env variables...")
-  print("Loading the server, first init global vars...")
-  print("Root path:", app.root_path)
+  logging.info("Root path:", app.root_path)
   load_env(os.path.join(app.root_path,"variables.env"))
 
   db_name = ENV_VARS.get('DB_NAME')
@@ -39,8 +38,7 @@ def setup_app(app):
 
   db = SQLAlchemy(app)
 
-
-  print("Start the actual server...")
+  logging.info("Initialization complete, start the actual server...")
 
 setup_app(app)
 
