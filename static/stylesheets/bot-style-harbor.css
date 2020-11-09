@@ -1,0 +1,42 @@
+.botui-container {
+  background-color: #ffffff;
+  border: 0px solid #e1e1ff;
+  display: table;
+  font-size: 18px;
+}
+
+.botui-app-container {
+    width: 100%;
+    /*min-height: 80vh;*/
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*.botui-messages-container {
+  padding-bottom: 20px;
+  display: table-row-group;
+}
+
+.botui-actions-container {
+  position: absolute;
+  right:0;
+  width: 100vw;
+  overflow: hidden;
+  display: none;
+  background-color: #f8f9fa;
+  box-shadow: 0px -4px 3px rgba(0,0,0,0.1);
+}*/
+
+.fa-edit {
+  color: #3676F4;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.fa-edit:hover {
+  -webkit-filter: brightness(150%);
+}
+
+.right {
+  float:right;
+}
