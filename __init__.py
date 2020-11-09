@@ -267,8 +267,8 @@ def get_study_responses():
 
     entry_values.append(values)
 
-  logging.info("Key Values:", key_values)
-  logging.info("Entry Values:", entry_values)
+  logging.info("Key Values:"+ str(key_values))
+  logging.info("Entry Values:"+str(entry_values))
 
   return render_template('study_responses.html', headers=key_values, entries=entry_values)
 
