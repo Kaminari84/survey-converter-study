@@ -205,6 +205,13 @@ def study_page():
 
     template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions)
 
+  elif page_no > len(pages):
+    #Study completed!
+    add_answer(user_id, "P"+str(page_no), "Completed")
+    template = render_template('p6_completed.html', user_id=user_id, page_no=page_no, token='4654334445')
+
+  return template
+
 @app.route('/get_study_responses')
 def get_study_responses():
   key_values = ['user_id','condition','datetime']
