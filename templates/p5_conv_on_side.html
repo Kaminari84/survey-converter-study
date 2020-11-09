@@ -1,0 +1,336 @@
+<style>
+  .fa-edit {
+    color: #ff0000;
+    cursor:pointer;
+    transition-duration: 0.5s;
+    display:none;
+  }
+
+  .botui-container {
+    background-color: #ffffff;
+    border: 0px solid #e1e1ff;
+    display: table;
+    font-size: 18px;
+  }
+
+  .botui-app-container {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .botui-message-content {
+    background: #E8E8E8;
+    border-radius: 20px;
+    font-family: Roboto;
+    color: #333333;
+    font-size: 14px;
+  }
+
+  .botui-message-content.human {
+    background: #3676F4;
+    border-radius: 20px;	
+    font-family: Roboto;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .botui-message-content.human.text {
+    display: inline-block;
+  }
+
+  .highlight-badge {
+    color: #33333;
+    background-color: #ff9999;
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+    display: inline-block;
+
+    text-align: center;
+  }
+
+</style>
+
+<script>
+  var q_no = 0;
+
+  $( document ).ready(function() {
+    console.log("Chat specific ready 2!!");
+
+    botui1 = new BotUI('bot-message-1');
+    for (let i=0; i<6; i++) {
+      if ((dialogue[i]['type']!='Skip') && !('answer' in dialogue[i])) {
+        let ans_text = "!";
+        let ans_value = "!";
+
+        if (dialogue[i].type == "Yes/No") {
+          ans_text = choose(['Yes','No']);
+          ans_value = ans_text;
+        } else if (dialogue[i].type == "Options") {
+          let opt_pick = choose(dialogue[i].options)
+          ans_value = opt_pick['value'];
+          ans_text = opt_pick['text'];
+        }
+
+        dialogue[i].answer_value = ans_value;
+        dialogue[i].answer = ans_text;
+      }
+    }
+    /*if (!('answer' in dialogue[2])) {
+      dialogue[2].answer_value="Yes";
+      dialogue[2].answer="Yes";
+    }
+    if (!('answer' in dialogue[3])) {
+      dialogue[3].answer_value="Yes";
+      dialogue[3].answer="Yes";
+    }
+    if (!('answer' in dialogue[4])) {
+      dialogue[4].answer_value="Yes";
+      dialogue[4].answer="Yes";
+    }
+    if (!('answer' in dialogue[6])) {
+      dialogue[6].answer_value="No";
+      dialogue[6].answer="No";
+    }*/
+
+    renderDialogueExerpt(0, dialogue.length, botui1);
+    
+  });
+
+  // After conversation is loaded, do the additions
+  function initConvAdditions() {
+    loadDesignQuestionPart(q_no);
+  }
+
+  function addCheckboxes(utterance_class) {
+    // Add checkboxes
+    var nn = 0;
+    console.log("Adding checkboxes for "+utterance_class);
+
+    $('.botui-message.'+utterance_class).map(function() {
+        var oldInnerHTML = this.innerHTML
+
+        if (!this.innerHTML.includes("input")) {
+          this.innerHTML = "<div style='border: 0px solid red'>"+          
+            "<span class='custom-control custom-checkbox' style='display:inline'>"+
+              "<input class='custom-control-input' type='checkbox' id='check_"+nn+"' onclick=\"saveAnswer('d','"+nn+"');\">"+
+              "<label class='custom-control-label' for='check_"+nn+"'>&nbsp;</label>"+
+            "</span>"+oldInnerHTML+"</div>";
+          nn++;
+          console.log("Adding check: "+nn);
+        }
+    })
+  };
+
+  function removeCheckboxes() {
+    console.log("Removing checkboxes...");
+
+    $('.botui-message').map(function() {
+        var oldInnerHTML = this.innerHTML
+
+        if (this.innerHTML.includes("input")) {
+          var chil = this.childNodes;
+          console.log(chil[0].childNodes[1]);
+          this.innerHTML = chil[0].childNodes[1].outerHTML;
+          
+          //console.log("Found existing check:"+this.innerHTML);
+        }
+    })
+  }
+
+  function showAdditionalFeedback(utterance_class) {
+    console.log("Show additional feedback...");
+
+    $('#additionalFeedback').show();
+    // Add new checkboxes
+    /*utterance_class.forEach(function (item, index) {
+      addCheckboxes(item);
+    });*/
+  }
+
+  function highlightUtterances(utterance_class) {
+    console.log("Highlight "+utterance_class);
+
+    // remove highlights from all the other ones
+    $('.botui-message-content.text').css({backgroundColor:"#ebebeb"});
+    $('.human.botui-message-content.text').css({backgroundColor:"#919292"});
+    
+    // add highlight to the new ones
+    utterance_class.forEach(function (item, index) {
+      $('.botui-message-content.text.'+item).css({backgroundColor:"#ff9999"});
+    });
+  }
+
+  // adds unique ID to message element as it is created
+  function addID(utterance_class) {
+    var elems = document.getElementsByClassName('botui-message');
+    var i = elems.length - 1;
+    var message = document.getElementsByClassName('botui-message')[i];
+    message.id = "message_" + i;
+    message.classList.add(utterance_class);
+
+    var c = message.childNodes;
+    for (var n=0; n<c.length; n++) {
+      if (c[n].classList) {
+        c[n].classList.add(utterance_class);
+      }
+    }
+  }
+
+  function renderDialogueExerpt(start, depth, botui) {
+    console.log("Rendering dialogue exerpt at pos:"+start);
+    renderTurn(start, 'question', depth, botui);
+
+  };
+
+  function renderTurn(pos, type, depth, botui) {
+    if (depth == 0) {
+      console.log("Stopped!");
+      initConvAdditions();   
+    } else {
+      console.log("Pos:"+pos+", Depth:"+depth);
+
+      // Question
+      if (type == 'question') {
+        console.log("Question:"+dialogue[pos].text)
+        
+        botui.message.add({
+          content: dialogue[pos].text
+        }).then(function (index) {
+          console.log("CHAT index:"+index) 
+          let augment_type = dialogue[pos]['augment_type'];
+          console.log("Augment type:"+augment_type);
+          
+          addID(augment_type);
+          if ('answer' in dialogue[pos]) {
+            renderTurn(pos, 'answer', --depth, botui);
+          } else {
+            renderTurn(++pos, 'question', --depth, botui);
+          }
+        });
+      // Answer
+      } else if (type == 'answer') {
+        console.log("Answer:"+dialogue[pos].answer)
+        
+        botui.message.add({
+          delay: 0,
+          human: true,
+          content: dialogue[pos].answer
+        }).then(function(index) {
+          console.log("CHAT index:"+index) 
+          addID("user_answer");
+          if ('reactions' in dialogue[pos] && dialogue[pos].answer_value in dialogue[pos].reactions) {
+            renderTurn(pos, 'reaction', --depth, botui);
+          } else {
+            renderTurn(++pos, 'question', --depth, botui);
+          }
+        });
+      // Reaction
+      } else if (type == 'reaction') {
+        console.log("Reaction:"+dialogue[pos].reactions[dialogue[pos].answer_value])
+
+        botui.message.add({
+          content: dialogue[pos].reactions[dialogue[pos].answer_value]['text']
+        }).then(function (index) { 
+          console.log("CHAT index:"+index)
+          let augment_type = dialogue[pos].reactions[dialogue[pos].answer_value]['augment_type'];
+          console.log("Reaction type:"+augment_type);
+          addID(augment_type);
+          if (pos+1 < dialogue.length) {
+            renderTurn(++pos, 'question', --depth, botui);
+          }
+        });
+      }
+      
+    }
+  }
+
+  function saveAnswer(question, answer) {
+    console.log("Question:"+question, ", Response:"+answer)
+  }
+
+  function nextQuestionPart() {
+    console.log("Requesting next question part...");
+
+    if (validateForm() == true) {
+      q_no += 1;
+
+      loadDesignQuestionPart(q_no);
+    }
+  }
+
+  function loadDesignQuestionPart(q_no) {
+    questions = ["empathetic reactions to your answers",
+                 "neutral reactions to your answers",
+                 "progress communication phrases",
+                 "opening & closing", "phrasing of questions"]
+
+    highlight_part = [ ["reaction_positive","reaction_negative"], 
+                      ["reaction_neutral"], 
+                      ["survey_progress"],
+                      ["opening", "closing"],
+                      ["question_rephrazing"]
+                    ]
+
+    q_desc = "Empty";
+    if ((q_no >= 0) && (q_no < questions.length)) {
+      q_desc = questions[q_no];
+
+      // highlight specific parts of the conversation
+      highlightUtterances(highlight_part[q_no]);
+
+      // add checkboxes to specific parts of the conversation
+      //addCheckboxes(highlight_part[q_no]);
+
+      $('#question-part').load('/question_part?q_no='+(q_no+1)+'&total_q_no='+questions.length+'&h_part='+highlight_part[q_no]+'&q_final=0', { 'q_desc': q_desc });
+
+      // Remove old checkboxes
+      removeCheckboxes();
+
+      //$('#additionalFeedback').hide();
+      inValidateForm();
+
+    } else if (q_no == questions.length) {
+      $('#question-part').load('/question_part?q_no='+(q_no+1)+'&total_q_no='+questions.length+'&h_part='+highlight_part[q_no]+'&q_final=1', { 'q_desc': q_desc });
+      inValidateForm();
+      removeCheckboxes();
+      highlightUtterances("none");
+
+    } else {
+      $('#question-part').map(function() {
+        this.innerHTML = "<p class='lead'>Please click <b>\"Continue\"</b> below.</p>";
+      });
+    }
+  }
+
+
+</script>
+
+<h1>Page {{ page_no }} - Feedback on Design Elements</h1>
+
+<p class="mb-3">Here you can see a log of your interaction with the chat. 
+  You can scroll through it to see the full exchange. 
+  Please answer the questions, while referencing the interaction log. </p>
+
+<form action="/submit_form" class="needs-validation" novalidate>
+  <!-- Conversation sample 1 -->
+  <div class='row'>
+    <div class="col-md-6">
+      <div class="botui-app-container text-left" id="bot-message-1" style="border: 0px solid red; width: 100%; height:800px; overflow:auto" >
+        <bot-ui ></bot-ui>
+      </div>      
+    </div>
+    <div class="col-md-6">
+      <div id='question-part'></div>
+    </div>
+  </div>
+
+  <!--Submit button-->
+  <!-- Direct edit: https://jsfiddle.net/n4ky3Lzs/ -->
+  <!-- http://jsfiddle.net/D4gM7/ -->
+  <!-- https://jsbin.com/fukuq/1/edit?html,css,output -->
+  <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>-->
+</form>
+

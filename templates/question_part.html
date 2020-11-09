@@ -1,0 +1,84 @@
+
+{% if q_final is sameas '0'  %}
+<label for="{{ q_desc }}">Question {{ q_no }} of {{ total_q_no }}. <span class="highlight-badge">Highlighted</span> in your conversation on the left are <b>{{ q_desc }}</b>, 
+  how would rate their overal quality?</label>
+
+<div class="d-block my-3">
+  <div class="d-flex flex-row">
+    <div class="p-2">
+      <div class="custom-control custom-radio">
+        <input id="{{ q_no }}_a1" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','1');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="{{ q_no }}_a1">Very<br />poor</label>
+      </div>
+    </div>
+    <div class="p-2">
+      <div class="custom-control custom-radio">
+        <input id="{{ q_no }}_a2" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','2');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="{{ q_no }}_a2">Poor</label>
+      </div>
+    </div>
+    <div class="p-2">
+      <div class="custom-control custom-radio">
+        <input id="{{ q_no }}_a3" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','3');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="{{ q_no }}_a3">Acceptable</label>
+      </div>
+    </div>
+    <div class="p-2">
+      <div class="custom-control custom-radio">
+        <input id="{{ q_no }}_a4" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','4');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="{{ q_no }}_a4">Good</label>
+      </div>
+    </div>
+    <div class="p-2">
+      <div class="custom-control custom-radio">
+        <input id="{{ q_no }}_a5" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','5');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="{{ q_no }}_a5">Very<br />good</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="additionalFeedback" style="display:none">
+  <p>
+    Looking at these highlighted <b>{{ q_desc }}</b>, please share any examples that felt particularly off.
+    This could be due to:
+    <ul class="list-styled">
+      <li>Awkward phrasing of text</li>
+      <li>Mismatched context of use</li>
+      <li>Any other aspect you would consider 'not natural' or 'out of place'</li>
+    </ul>
+  </p>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Please give an example and what felt wrong about it?</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+  </div>
+</div>
+
+{% else %}
+
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Please share one aspect that was <b>missing</b> 
+    in the interaction and that you think would be valuable for improving your experience:</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
+{% endif %}
+
+<button class="btn btn-primary" type="button" 
+  onclick="return nextQuestionPart();">
+  Next Question
+</button>	 
+
+<!--<button style="display:block;" type="button" 
+  onclick="return highlightUtterances('reaction');">
+  Highlight reactions
+</button>	 
+<button style="display:block;" type="button" 
+  onclick="return highlightUtterances('answer');">
+  Highlight answers
+</button>	 
+<button style="display:block;" type="button" 
+  onclick="return highlightUtterances('question');">
+  Highlight questions
+</button>-->

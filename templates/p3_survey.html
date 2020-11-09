@@ -1,0 +1,142 @@
+<style>
+  .odd {
+    background-color: #ffffff;
+  }
+  .even {
+    background-color: #eeeeee;
+  }
+  .h {
+    height: 50px;
+  }
+  .custom-control-input {
+    border-width: 0px;
+    border-radius: 0px;
+  }
+</style>
+
+<h1>Page {{ page_no }} - Feedback on experience</h1>
+<p>On this page we ask you for feedback on your experience when interacting with the chat interface.</p>
+<div style="padding-top: 30px;"></div>
+<h6>Q1. Please answer the following questions about your experience interacting with the chat interface?</h6>
+<br />
+<form class="needs-validation" novalidate>
+
+  <div class="w-500"></div>
+  <div class='h row justify-content-center'>
+    
+    <div class="col-md-6"></div>
+    <div class="col-md-1 text-center">Strongly disagree</div>
+    <div class="col-md-1 text-center">Disagree</div>
+    <div class="col-md-1 text-center">Neutral</div>
+    <div class="col-md-1 text-center">Agree</div>
+    <div class="col-md-1 text-center">Strongly agree</div>
+
+  </div>
+  <hr />
+
+  {% for question in questions %}
+    <div class="h justify-content-center row {{ loop.cycle('odd', 'even') }}">
+
+      <div class="col-md-6"><label for="eng_q{{ loop.index}}">{{ question }}</label></div>
+      
+      <div class="col-md-1 text-center">
+        <div class="custom-control custom-radio">
+          <input id="eng_q{{ loop.index}}_a1" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','1');" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="eng_q{{ loop.index}}_a1"></label>
+        </div>
+      </div>
+      <div class="col-md-1 text-center">
+        <div class="custom-control custom-radio">
+          <input id="eng_q{{ loop.index}}_a2" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','2');" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="eng_q{{ loop.index}}_a2"></label>
+        </div>
+      </div>
+      <div class="col-md-1 text-center">
+        <div class="custom-control custom-radio">
+          <input id="eng_q{{ loop.index}}_a3" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','3');" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="eng_q{{ loop.index}}_a3"></label>
+        </div>
+      </div>
+      <div class="col-md-1 text-center">
+        <div class="custom-control custom-radio">
+          <input id="eng_q{{ loop.index}}_a4" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','4');" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="eng_q{{ loop.index}}_a4"></label>
+        </div>
+      </div>
+      <div class="col-md-1 text-center">
+        <div class="custom-control custom-radio">
+          <input id="eng_q{{ loop.index}}_a5" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','5');" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="eng_q{{ loop.index}}_a5"></label>
+        </div>
+      </div>
+
+    </div>
+  {% endfor %}
+  
+  <div style="padding-top: 50px;"></div>
+
+  <h6>Q2. Please share any aspects of the interaction that you felt were particularly bad or good for your experience:</h6>
+
+  <div class="form-group">
+    <!--<label for="generalFeedbackTextArea1">Please share any aspects of the interaction that you felt were particularly bad or good for your experience:</label>-->
+    <textarea class="form-control" id="generalFeedbackTextArea1" rows="6" required></textarea>
+  </div>
+
+</form>
+
+
+  <!--
+      <td>Strongly disagree</td>
+      <td>Disagree</td>
+      <td>Neutral</td>
+      <td>Agree</td>
+      <td>trongly agree</td>
+    </tr>
+
+    <tr>
+      <td>I was really drawn into answering questions</td>
+      <td>
+        <div class="custom-control custom-radio">
+          <input id="eng_q1_a1" name="eng_q1" onclick="saveAnswer('eng_q1','1');" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="eng_q1_a1"></label>
+        </div>
+      </td>
+      <td>
+        <div class="custom-control custom-radio">
+          <input id="eng_q1_a2" name="eng_q1" onclick="saveAnswer('eng_q1','2');" type="radio" class="custom-control-input" required>
+        </div>
+      </td>
+      <td>
+        <div class="custom-control custom-radio">
+          <input id="eng_q1_a3" name="eng_q1" onclick="saveAnswer('eng_q1','3');" type="radio" class="custom-control-input" required>
+        </div>
+      </td>
+      <td>
+        <div class="custom-control custom-radio">
+          <input id="eng_q1_a4" name="eng_q1" onclick="saveAnswer('eng_q1','4');" type="radio" class="custom-control-input" required>
+        </div>
+      </td>
+      <td>
+        <div class="custom-control custom-radio">
+          <input id="eng_q1_a5" name="eng_q1" onclick="saveAnswer('eng_q1','5');" type="radio" class="custom-control-input" required>
+        </div>
+      </td>
+    </tr>
+
+
+  </table>-->
+
+
+
+
+
+<!--This embed code may be restricted to use on a single domain, see documentation at: https://help.surveygizmo.com/help/iframe-embed#limit-permitted-domains-for-embeds-->
+<!--
+<h3>Survey Gizmo</h3>
+
+<div class="embed-responsive embed-responsive-1by1" style="position:relative; max-height:700px">
+  <iframe src="http://survey.alchemer.com/s3/5966499/ConversationalSurvey-Evaluation?__no_style=true&user_id={{user_id}}" 
+  frameborder="0"
+  allowfullscreen></iframe>
+</div>
+-->

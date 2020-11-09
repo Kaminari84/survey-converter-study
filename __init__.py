@@ -219,6 +219,26 @@ def study_page():
 
   return template
 
+# Load question-part
+@app.route('/question_part', methods = ['GET','POST'])
+def question_part():
+  q_no = request.args.get('q_no')
+  logging.info("q_no:"+str(q_no))
+
+  total_q_no = request.args.get('total_q_no')
+  logging.info("total_q_no:"+str(total_q_no))
+
+  h_part = request.args.get('h_part')
+  logging.info("h_part:"+str(h_part))
+
+  q_desc = request.form.get('q_desc')
+  logging.info("q_desc:"+str(q_desc))
+
+  q_final = request.args.get('q_final')
+  logging.info("q_final:"+str(q_final))
+
+  return render_template('question_part.html', q_no=q_no, total_q_no=total_q_no, q_desc=q_desc, h_part=h_part, q_final=q_final)
+
 # Load the conversational survey
 @app.route("/get_survey")
 def get_survey():
