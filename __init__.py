@@ -14,7 +14,8 @@ def load_env(filename):
 # Server instance initialize
 def setup_app(app):  
   print("Loading the server, first init global vars...")
-  load_env("variables.env")
+  print("Root path:", app.root_path)
+  load_env(os.path.join(app.root_path,"variables.env"))
 
 
   print("Start the actual server...")
