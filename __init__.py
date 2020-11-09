@@ -230,7 +230,7 @@ def get_survey():
   if survey_file != None:
     logging.info("Survey file:"+str(survey_file))
 
-    survey_path = './static/surveys'
+    survey_path = os.path.join(app.root_path,'static/surveys')
 
     survey_dict = ""
     with open(survey_path+"/"+survey_file, 'r', encoding='utf-8') as f:
