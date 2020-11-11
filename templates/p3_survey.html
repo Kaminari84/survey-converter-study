@@ -18,6 +18,8 @@
   $( document ).ready(function() {
     console.log("Survey specific ready, is Mobile:"+isMobile);
 
+    $("html, body").scrollTop(0);
+
     if (isMobile) {
       $('.mobile-label').css({display:"block"});
       $('.desktop-label').css({display:"none"});
