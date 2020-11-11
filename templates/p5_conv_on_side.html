@@ -60,13 +60,19 @@
 
     $("html, body").scrollTop(0);
 
-    if (dialogue==null) {
+    if (dialogue == null) {
       console.log("LOADING SURVEY....");
-      loadSurvey("Harbor_new_conv.json");
+      loadSurvey("Harbor_new_conv.json", processLoadedSurvey);
+      //loadSurvey("TPB_survey_conv.json");
+    } else {
+      console.log("SURVEY ALREADY LOADED....");
+      processLoadedSurvey();
     }
-    //loadSurvey("TPB_survey_conv.json");
+    
+  });
 
-    console.log("Dialogue length:"+dialogue.length);
+  function processLoadedSurvey() {
+    console.log("Processing loaded survey - dialogue length:"+dialogue.length);
 
     botui1 = new BotUI('bot-message-1');
     for (let i=0; i<6; i++) {
@@ -93,7 +99,7 @@
     console.log("Render exerpt!");
 
     renderDialogueExerpt(0, dialogue.length, botui1);
-  });
+  }
 
   // After conversation is loaded, do the additions
   function initConvAdditions() {

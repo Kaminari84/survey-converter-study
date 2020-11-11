@@ -83,7 +83,7 @@
         $('#study_page_content').load('/study_page?page_no='+study_page+'&user_id='+user_id, { 'user_id': user_id });
       }
 
-      function loadSurvey(survey_file) {
+      function loadSurvey(survey_file, callbackFunc=null) {
         console.log("Loading survey: "+survey_file);
 
         var request = $.ajax({
@@ -104,6 +104,12 @@
               console.log("Survey load resp:");
               console.log(obj);
               dialogue = obj.survey_data;
+
+              // execute callbackFunc if set
+              if (callbackFunc != null) {
+                callbackFunc();
+              } 
+
             }
           }
         });
