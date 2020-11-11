@@ -320,30 +320,31 @@
 
 </script>
 
-<div class="py-2 text-center">
-  <h2>Page {{ page_no }} - Feedback on Design Elements</h2>
-  <p>This is a log of your interaction. 
-    You can scroll through it to see the full exchange. 
-    Please answer the questions referencing it.</p>
-</div>
-
-<form action="/submit_form" class="needs-validation" novalidate>
-  <!-- Conversation sample 1 -->
-  <div class='row'>
-    <div class="col-md-6">
-      <div class="botui-app-container text-left" id="bot-message-1" style="border: 0px solid red; width: 100%; height:800px; overflow:auto" >
-        <bot-ui ></bot-ui>
-      </div>      
-    </div>
-    <div class="col-md-6">
-      <div id='question-part'></div>
-    </div>
+<main role="main" class="container" id="content" >
+  <div class="py-2 text-center">
+    <h2>Page {{ page_no }} - Feedback on Design Elements</h2>
+    <p>This is a log of your interaction. 
+      You can scroll through it to see the full exchange. 
+      Please answer the questions referencing it.</p>
   </div>
 
-  <!--Submit button-->
-  <!-- Direct edit: https://jsfiddle.net/n4ky3Lzs/ -->
-  <!-- http://jsfiddle.net/D4gM7/ -->
-  <!-- https://jsbin.com/fukuq/1/edit?html,css,output -->
-  <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>-->
-</form>
+  <form action="/submit_form" class="needs-validation" novalidate>
+    <!-- Conversation sample 1 -->
+    <div class='row'>
+      <div class="col-md-6">
+        <div class="botui-app-container text-left" id="bot-message-1" style="border: 0px solid red; width: 100%; height:800px; overflow:auto" >
+          <bot-ui ></bot-ui>
+        </div>      
+      </div>
+      <div class="col-md-6">
+        <div id='question-part'></div>
+      </div>
+    </div>
 
+    <!--Submit button-->
+    <!-- Direct edit: https://jsfiddle.net/n4ky3Lzs/ -->
+    <!-- http://jsfiddle.net/D4gM7/ -->
+    <!-- https://jsbin.com/fukuq/1/edit?html,css,output -->
+    <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>-->
+  </form>
+</main>

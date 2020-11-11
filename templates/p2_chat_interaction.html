@@ -166,7 +166,9 @@
 					var today = new Date();
 					var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 					var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-					//var dateTime = date+' '+time;
+          //var dateTime = date+' '+time;
+          
+          $('#continue').prop('disabled', false);
 
           break;
         case "Yes/No":
@@ -452,16 +454,26 @@
 
 </script>
 
-<div class="py-2 text-center">
-  <h2>Page {{ page_no }} - Chat interaction</h2>
-  <p class="lead">Please interact with the chat interface below to answer the questions.</p>
-</div>
+<main role="main" class="container" id="content" >
+  <div class="py-2 text-center">
+    <h2>Page {{ page_no }} - Chat interaction</h2>
+    <p class="lead">Please interact with the chat interface below to answer the questions.</p>
+  </div>
 
-<button id="start_button" style="display:block;" type="button" class="btn btn-primary"
-        onclick="return restartDialogue();">
-  Start interaction
-</button>	  
+  <button id="start_button" style="display:block;" type="button" class="btn btn-primary"
+          onclick="return restartDialogue();">
+    Start interaction
+  </button>	  
 
-<div class="botui-app-container text-left" id="bot-interface" >
-  <bot-ui ></bot-ui>
-</div>
+  <div class="botui-app-container text-left" id="bot-interface" >
+    <bot-ui ></bot-ui>
+  </div>
+</main>
+
+<!-- Footer with buttons -->
+<footer class="footer">
+  <div class="container">
+    <button type="button" class="btn btn-primary" onClick="nextPage();" id="continue" disabled>Continue</button>
+  </div>
+</footer>
+

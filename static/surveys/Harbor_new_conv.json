@@ -852,7 +852,7 @@
         "prefix": "Next, could you tell me",
         "prefix_class": "q_verb_prefix",
         "text": "Next, could you tell me how many years did you go to school?",
-        "type": "Input_Num_Small"
+        "type": "Input"
     },
     {
         "augment_type": "question_rephrazing",
