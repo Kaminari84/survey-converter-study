@@ -75,8 +75,8 @@ class UserEntry(db.Model):
 class UserAnswer(db.Model):
   __tablename__ = "user_answer"
   answer_id = db.Column(db.Integer, primary_key=True)
-  question_id = db.Column(db.String(16), nullable=False)
-  answer = db.Column(db.String(128), nullable=False)
+  question_id = db.Column(db.String(64), nullable=False)
+  answer = db.Column(db.String(10000), nullable=False)
   timestamp = db.Column(db.DateTime())
   # Foreign key
   user_id = db.Column(db.String(64), db.ForeignKey('user_entry.user_id'))
@@ -170,9 +170,15 @@ def study_main():
   if page_no == None:
     page_no = 1
 
-  # Generate user id
+  # try getting the user_id from the cookie
+  user_id = request.cookies.get('user_id')
+  if user_id != None:
+    logging.info("Got user id from cookie:"+user_id)
+
+  # Generate user id or get from cookies
   if user_id == None:
     user_id = uuid.uuid1()
+    logging.info("Generated user id:"+str(user_id))
 
     # Add entry to db for user
     userEntry = UserEntry(user_id=str(user_id))
@@ -182,7 +188,16 @@ def study_main():
     db.session.merge(userEntry)
     db.session.commit()
 
-  return render_template('study_main.html', user_id=user_id, page_no=page_no)
+  resp = make_response(render_template('study_main.html', user_id=user_id, page_no=page_no))
+  resp.set_cookie('user_id', str(user_id))
+  return resp
+
+# Clear cookie - just for dev
+@app.route('/clear_cookie')
+def clear_cookie():
+  resp = make_response("<b>Cookie cleared!</b>")
+  resp.set_cookie('user_id', '', expires=0)
+  return resp
 
 # Study page
 @app.route('/study_page', methods = ['GET','POST'])
@@ -292,6 +307,28 @@ def get_study_responses():
 
   return render_template('study_responses.html', headers=key_values, entries=entry_values)
 
+# Add answer
+@app.route('/save_answer', methods = ['GET','POST'])
+def save_answer():
+  logging.info("Trying to save answer...")
+
+  user_id = request.args.get('user_id')
+  print("user_id:",str(user_id))
+
+  q_id = request.args.get('q_id')
+  print("q_id:",str(q_id))
+
+  q_ans = request.form.get('q_ans')
+  print("q_ans:",str(q_ans))
+
+  json_resp = json.dumps({'status': 'ERROR', 'message':''})
+  if add_answer(user_id, q_id, q_ans):
+    json_resp = json.dumps({'status': 'OK', 'message':'', 'q_id':q_id, 'q_ans':q_ans})
+  else:
+    json_resp = json.dumps({'status': 'ERROR', 'message':'Missing arguments'})
+
+  return make_response(json_resp, 200, {"content_type":"application/json"})
+
 # Helper methods
 def add_answer(user_id, q_id, ans):
   userEntry = UserEntry.query.get(user_id)
@@ -300,6 +337,10 @@ def add_answer(user_id, q_id, ans):
     userAnswer = UserAnswer(question_id=q_id, answer=ans)
     userEntry.answers.append(userAnswer)
     db.session.commit()
+
+    return True
+  else:
+    return False
 
 # Cast string to int
 def safe_cast(val, to_type, default=None):
