@@ -1,37 +1,37 @@
 
 {% if q_final is sameas '0'  %}
-<label for="{{ q_desc }}">Question {{ q_no }} of {{ total_q_no }}. <span class="highlight-badge">Highlighted</span> in your conversation on the left are <b>{{ q_desc }}</b>, 
+<label for="{{ q_desc }}">Question {{ q_no }} of {{ total_q_no }}. <span class="highlight-badge">Highlighted</span> in your conversation are <b>{{ q_desc }}</b>, 
   how would rate their overal quality?</label>
 
 <div class="d-block my-3">
   <div class="d-flex flex-row">
     <div class="p-2">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a1" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','1');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a1" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','1');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a1">Very<br />poor</label>
       </div>
     </div>
     <div class="p-2">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a2" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','2');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a2" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','2');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a2">Poor</label>
       </div>
     </div>
     <div class="p-2">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a3" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','3');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a3" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','3');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a3">Acceptable</label>
       </div>
     </div>
     <div class="p-2">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a4" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','4');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a4" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','4');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a4">Good</label>
       </div>
     </div>
     <div class="p-2">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a5" name="{{ q_no }}" onclick="saveAnswer('{{ q_no }}','5');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a5" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','5');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a5">Very<br />good</label>
       </div>
     </div>
@@ -50,17 +50,17 @@
   </p>
 
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Please give an example and what felt wrong about it?</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <label for="txt_d{{ q_no }}">Please give an example and what felt wrong about it?</label>
+    <textarea class="form-control" id="txt_d{{ q_no }}" rows="5"></textarea>
   </div>
 </div>
 
 {% else %}
 
 <div class="form-group">
-  <label for="exampleFormControlTextarea1">Please share one aspect that was <b>missing</b> 
+  <label for="txt_add">Please share one aspect that was <b>missing</b> 
     in the interaction and that you think would be valuable for improving your experience:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea class="form-control" id="txt_add" rows="3"></textarea>
 </div>
 
 {% endif %}
