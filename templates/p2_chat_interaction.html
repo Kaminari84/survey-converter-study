@@ -44,7 +44,15 @@
   var isMuted = true;
 
   $( document ).ready(function() {
-    console.log("Chat specific ready");
+    console.log("Chat specific ready 1!");
+
+    if (dialogue==null) {
+      console.log("LOADING SURVEY....");
+      loadSurvey("Harbor_new_conv.json");
+    }
+    //loadSurvey("TPB_survey_conv.json");
+
+
 
     //$("#bot-interaction").html("<span style='color:red'><b>Added dynamic text!</b></span>")
 
@@ -444,11 +452,12 @@
 
 </script>
 
-<h1>Page {{ page_no }} - Chat interaction</h1>
+<div class="py-2 text-center">
+  <h2>Page {{ page_no }} - Chat interaction</h2>
+  <p class="lead">Please interact with the chat interface below to answer the questions.</p>
+</div>
 
-<b>Please interact with the chat interface below to answer the questions</b>
-
-<button id="start_button" style="display:block;" type="button" 
+<button id="start_button" style="display:block;" type="button" class="btn btn-primary"
         onclick="return restartDialogue();">
   Start interaction
 </button>	  

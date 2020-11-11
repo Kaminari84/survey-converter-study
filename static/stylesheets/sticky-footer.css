@@ -16,6 +16,7 @@ body {
   background-color: #f5f5f5;
 }
 
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
 /* Custom page CSS
 -------------------------------------------------- */

@@ -39,15 +39,14 @@
   .botui-message-content.human.text {
     display: inline-block;
   }
-
+  
   .highlight-badge {
-    color: #33333;
+    columns: #333333;
     background-color: #ff9999;
     padding-right: .6em;
     padding-left: .6em;
     border-radius: 10rem;
     display: inline-block;
-
     text-align: center;
   }
 
@@ -59,9 +58,19 @@
   $( document ).ready(function() {
     console.log("Chat specific ready 2!!");
 
+    if (dialogue==null) {
+      console.log("LOADING SURVEY....");
+      loadSurvey("Harbor_new_conv.json");
+    }
+    //loadSurvey("TPB_survey_conv.json");
+
+    console.log("Dialogue length:"+dialogue.length);
+
     botui1 = new BotUI('bot-message-1');
     for (let i=0; i<6; i++) {
+      console.log("At dialogue item:"+i);
       if ((dialogue[i]['type']!='Skip') && !('answer' in dialogue[i])) {
+        console.log("Dialogue question:"+dialogue[i]['text'])
         let ans_text = "!";
         let ans_value = "!";
 
@@ -78,25 +87,10 @@
         dialogue[i].answer = ans_text;
       }
     }
-    /*if (!('answer' in dialogue[2])) {
-      dialogue[2].answer_value="Yes";
-      dialogue[2].answer="Yes";
-    }
-    if (!('answer' in dialogue[3])) {
-      dialogue[3].answer_value="Yes";
-      dialogue[3].answer="Yes";
-    }
-    if (!('answer' in dialogue[4])) {
-      dialogue[4].answer_value="Yes";
-      dialogue[4].answer="Yes";
-    }
-    if (!('answer' in dialogue[6])) {
-      dialogue[6].answer_value="No";
-      dialogue[6].answer="No";
-    }*/
+
+    console.log("Render exerpt!");
 
     renderDialogueExerpt(0, dialogue.length, botui1);
-    
   });
 
   // After conversation is loaded, do the additions
@@ -158,9 +152,11 @@
     $('.human.botui-message-content.text').css({backgroundColor:"#919292"});
     
     // add highlight to the new ones
-    utterance_class.forEach(function (item, index) {
-      $('.botui-message-content.text.'+item).css({backgroundColor:"#ff9999"});
-    });
+    if (utterance_class) {
+      utterance_class.forEach(function (item, index) {
+        $('.botui-message-content.text.'+item).css({backgroundColor:"#ff9999"});
+      });
+    }
   }
 
   // adds unique ID to message element as it is created
@@ -243,12 +239,7 @@
           }
         });
       }
-      
     }
-  }
-
-  function saveAnswer(question, answer) {
-    console.log("Question:"+question, ", Response:"+answer)
   }
 
   function nextQuestionPart() {
@@ -273,6 +264,18 @@
                       ["opening", "closing"],
                       ["question_rephrazing"]
                     ]
+
+    if (q_no == questions.length) {
+      console.log("IN LAST PART - SAVE IT!!!!");
+    }
+
+    // Get all text areas and save the answers
+    $(function(){
+      $("textarea").each(function(){
+        console.log("Saving text area answer:"+this.id+", ans:"+this.value);
+        saveAnswer(this.id, this.value);
+      });
+    });
 
     q_desc = "Empty";
     if ((q_no >= 0) && (q_no < questions.length)) {
@@ -299,20 +302,22 @@
       highlightUtterances("none");
 
     } else {
-      $('#question-part').map(function() {
+      /*$('#question-part').map(function() {
         this.innerHTML = "<p class='lead'>Please click <b>\"Continue\"</b> below.</p>";
-      });
+      });*/
+      nextPage();
     }
   }
 
 
 </script>
 
-<h1>Page {{ page_no }} - Feedback on Design Elements</h1>
-
-<p class="mb-3">Here you can see a log of your interaction with the chat. 
-  You can scroll through it to see the full exchange. 
-  Please answer the questions, while referencing the interaction log. </p>
+<div class="py-2 text-center">
+  <h2>Page {{ page_no }} - Feedback on Design Elements</h2>
+  <p>This is a log of your interaction. 
+    You can scroll through it to see the full exchange. 
+    Please answer the questions referencing it.</p>
+</div>
 
 <form action="/submit_form" class="needs-validation" novalidate>
   <!-- Conversation sample 1 -->
