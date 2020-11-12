@@ -13,11 +13,12 @@
     font-size: 18px;
   }
 
-  .botui-app-container {
+ .botui-app-container {
     width: 100%;
-    height: 200px;
     margin: 0 auto;
     padding: 0;
+    max-height: 900px;
+    overflow: auto;
   }
 
   .botui-message-content {
@@ -60,10 +61,24 @@
 
     $("html, body").scrollTop(0);
 
+    let viewHeight = $(window).height();
+    let viewWidth = $(window).width();
+
+    if (isMobile) {
+      $("#bot-message-1").height(viewHeight*0.5);
+      $("#instructions").css({"margin-bottom":"0px"});
+    } else {
+      $("#bot-message-1").height("100%");
+    }
+
+    
+
     if (dialogue == null) {
-      console.log("LOADING SURVEY....");
-      loadSurvey("Harbor_new_conv.json", processLoadedSurvey);
-      //loadSurvey("TPB_survey_conv.json");
+      console.log("LOADING SURVEY....{{ condition_id }}");
+      loadSurvey("{{ condition_id }}", processLoadedSurvey);
+      //loadSurvey("rc_4_conv.json", processLoadedSurvey);
+      //loadSurvey("Harbor_new_conv.json", processLoadedSurvey);
+      //loadSurvey("TPB_survey_conv.json", processLoadedSurvey);
     } else {
       console.log("SURVEY ALREADY LOADED....");
       processLoadedSurvey();
@@ -75,12 +90,12 @@
     console.log("Processing loaded survey - dialogue length:"+dialogue.length);
 
     botui1 = new BotUI('bot-message-1');
-    for (let i=0; i<6; i++) {
+    for (let i=0; i<dialogue.length; i++) {
       console.log("At dialogue item:"+i);
-      if ((dialogue[i]['type']!='Skip') && !('answer' in dialogue[i])) {
+      if ((dialogue[i]['type']!='Skip') && (dialogue[i]['type']!='End') && !('answer' in dialogue[i])) {
         console.log("Dialogue question:"+dialogue[i]['text'])
-        let ans_text = "!";
-        let ans_value = "!";
+        let ans_text = "write in";
+        let ans_value = "write in";
 
         if (dialogue[i].type == "Yes/No") {
           ans_text = choose(['Yes','No']);
@@ -98,7 +113,7 @@
 
     console.log("Render exerpt!");
 
-    renderDialogueExerpt(0, dialogue.length, botui1);
+    renderDialogueExerpt(0, dialogue.length+50, botui1);
   }
 
   // After conversation is loaded, do the additions
@@ -152,6 +167,22 @@
     });*/
   }
 
+  function getNumUtterances(utterance_class) {
+    let totalNum = 0;
+
+    if (utterance_class) {
+      utterance_class.forEach(function (item, index) {
+        let numElem = $("."+item).map(function() {
+          return this.innerHTML;
+        }).get();
+
+        totalNum += numElem.length;
+      });
+    }
+
+    return totalNum;
+  }
+
   function highlightUtterances(utterance_class) {
     console.log("Highlight "+utterance_class);
 
@@ -189,8 +220,31 @@
 
   };
 
+  function getDialogueProgressSteps(givenPosition, latest_answer) {
+    let addSteps = 1
+    
+    //Does the response have jump conditions
+    if ("jumpConditions" in dialogue[givenPosition]) {
+      //Check if we have this answer option, if not that is programmers error!
+      if (latest_answer in dialogue[givenPosition]["jumpConditions"]) {
+        addSteps = parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]) || 1;
+      } else {
+        if ("all" in dialogue[givenPosition]["jumpConditions"]) {
+          addSteps = parseInt(dialogue[givenPosition]["jumpConditions"]["all"]["steps"]) || 1;
+        } else {
+          //No jump for this answer option, progress at a normal pace
+          addSteps = 1;
+        }
+      } 
+    } else { // No jump conditions
+      addSteps = 1;
+    }
+
+    return addSteps;
+  }
+
   function renderTurn(pos, type, depth, botui) {
-    if (depth == 0) {
+    if (depth == 0 || pos>=dialogue.length) {
       console.log("Stopped!");
       initConvAdditions();   
     } else {
@@ -208,7 +262,7 @@
           console.log("Augment type:"+augment_type);
           
           addID(augment_type);
-          if ('answer' in dialogue[pos]) {
+          if ('answer' in dialogue[pos] && dialogue[pos].answer != null) {
             renderTurn(pos, 'answer', --depth, botui);
           } else {
             renderTurn(++pos, 'question', --depth, botui);
@@ -228,7 +282,10 @@
           if ('reactions' in dialogue[pos] && dialogue[pos].answer_value in dialogue[pos].reactions) {
             renderTurn(pos, 'reaction', --depth, botui);
           } else {
-            renderTurn(++pos, 'question', --depth, botui);
+            // get jump
+            let addStep = getDialogueProgressSteps(pos, dialogue[pos].answer_value)
+            console.log("ADD STEPS IN ANSWER:"+addStep);
+            renderTurn(pos+addStep, 'question', --depth, botui);
           }
         });
       // Reaction
@@ -243,7 +300,10 @@
           console.log("Reaction type:"+augment_type);
           addID(augment_type);
           if (pos+1 < dialogue.length) {
-            renderTurn(++pos, 'question', --depth, botui);
+            // get jump
+            let addStep = getDialogueProgressSteps(pos, dialogue[pos].answer_value)
+            console.log("ADD STEPS IN REACTION:"+addStep);
+            renderTurn(pos+addStep, 'question', --depth, botui);
           }
         });
       }
@@ -256,26 +316,23 @@
     if (validateForm() == true) {
       q_no += 1;
 
-      loadDesignQuestionPart(q_no);
+      while (loadDesignQuestionPart(q_no) == false) {
+        q_no += 1;
+      }
     }
   }
 
   function loadDesignQuestionPart(q_no) {
-    questions = ["empathetic reactions to your answers",
-                 "neutral reactions to your answers",
+    questions = ["reactions to your answers",
                  "progress communication phrases",
-                 "opening & closing", "phrasing of questions"]
+                 "opening & closing", 
+                 "phrasing of questions"]
 
-    highlight_part = [ ["reaction_positive","reaction_negative"], 
-                      ["reaction_neutral"], 
+    highlight_part = [ ["reaction_positive","reaction_negative","reaction_neutral"], 
                       ["survey_progress"],
                       ["opening", "closing"],
                       ["question_rephrazing"]
                     ]
-
-    if (q_no == questions.length) {
-      console.log("IN LAST PART - SAVE IT!!!!");
-    }
 
     // Get all text areas and save the answers
     $(function(){
@@ -288,6 +345,13 @@
     q_desc = "Empty";
     if ((q_no >= 0) && (q_no < questions.length)) {
       q_desc = questions[q_no];
+
+      let numH = getNumUtterances(highlight_part[q_no]);
+      console.log("H part:<"+highlight_part[q_no]+"> -> "+numH);
+
+      if (numH == 0) {
+        return false;
+      }
 
       // highlight specific parts of the conversation
       highlightUtterances(highlight_part[q_no]);
@@ -315,6 +379,8 @@
       });*/
       nextPage();
     }
+
+    return true;
   }
 
 
@@ -323,7 +389,7 @@
 <main role="main" class="container" id="content" >
   <div class="py-2 text-center">
     <h2>Page {{ page_no }} - Feedback on Design Elements</h2>
-    <p>This is a log of your interaction. 
+    <p id="instructions">This is a log of your interaction. 
       You can scroll through it to see the full exchange. 
       Please answer the questions referencing it.</p>
   </div>
@@ -332,8 +398,8 @@
     <!-- Conversation sample 1 -->
     <div class='row'>
       <div class="col-md-6">
-        <div class="botui-app-container text-left" id="bot-message-1" style="border: 0px solid red; width: 100%; height:800px; overflow:auto" >
-          <bot-ui ></bot-ui>
+        <div class="botui-app-container text-left" id="bot-message-1" style="border: 0px solid red; overflow:auto" >
+          <bot-ui></bot-ui>
         </div>      
       </div>
       <div class="col-md-6">
@@ -348,3 +414,9 @@
     <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>-->
   </form>
 </main>
+
+<script>
+  $("bot-message-1").height(300);
+
+</script>
+
