@@ -1,0 +1,179 @@
+[
+    {
+        "augment_type": "opening",
+        "source": "augmented",
+        "text": "Hi, I am PhysicalActivityBot. Let's talk a bit about physical activity.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "jumpConditions": {
+            "1": {
+                "steps": 2
+            }
+        },
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Never",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "At least one day",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A few days",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Every day",
+                "value": "4"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            }
+        },
+        "text": "How many days did you meet your activity goal this week?",
+        "type": "Options"
+    },
+    {
+        "framing": "Neutral_frame",
+        "jumpConditions": {
+            "1": {
+                "steps": 2
+            },
+            "2": {
+                "steps": 2
+            },
+            "3": {
+                "steps": 2
+            }
+        },
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Nothing",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A lot",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Not sure",
+                "value": "3"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "What did you do on days when you met that daily goal?",
+        "type": "Options"
+    },
+    {
+        "framing": "Negative_frame",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Nothing",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A lot",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Not sure",
+                "value": "3"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Why didn\u2019t you meet your goal on any day?",
+        "type": "Options"
+    },
+    {
+        "framing": "Negative_frame",
+        "text": "You can do this. Get out there and be the best you. Inside and out.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Neutral_frame",
+        "text": "Do 12-15 jumping jacks now!",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Done",
+                "value": "1"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "Let me know when you completed it",
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We've completed the whole survey! Thanks a lot!",
+        "type": "End"
+    }
+]

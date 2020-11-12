@@ -1,0 +1,124 @@
+[
+    {
+        "augment_type": "opening",
+        "source": "augmented",
+        "text": "Hi, I am PhysicalActivityBot. I'd like to ask you a few questions about physical activity.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "jumpConditions": {
+            "1": {
+                "steps": 2
+            },
+            "3": {
+                "steps": 3
+            }
+        },
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "No",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Not sure",
+                "value": "3"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            }
+        },
+        "text": "Do you think you can be more active?",
+        "type": "Options"
+    },
+    {
+        "framing": "Positive_frame",
+        "jumpConditions": {
+            "all": {
+                "steps": 3
+            }
+        },
+        "prefix_class": "q_none",
+        "text": "What small changes (daily repeatable) can you make to be more active?",
+        "type": "Input"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "jumpConditions": {
+            "all": {
+                "steps": 2
+            }
+        },
+        "mod_text": "what barriers prevent you from being more active?",
+        "org_text": "What barriers prevent you from being more active?",
+        "prefix": "Continuing, would you mind telling me",
+        "prefix_class": "q_verb_prefix",
+        "text": "Continuing, would you mind telling me what barriers prevent you from being more active?",
+        "type": "Input"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you want to be more physically active?",
+        "org_text": "Do you want to be more physically active?",
+        "prefix": "Then, can I ask you",
+        "prefix_class": "q_verb_prefix",
+        "text": "Then, can I ask you do you want to be more physically active?",
+        "type": "Input"
+    },
+    {
+        "framing": "Neutral_frame",
+        "text": "Everyone's health is your health. Exercise daily. Start today.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Neutral_frame",
+        "text": "Do 2-3 push-ups now!",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Done",
+                "value": "1"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "Let me know when you completed it",
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We've completed the whole survey! Thanks a lot!",
+        "type": "End"
+    }
+]

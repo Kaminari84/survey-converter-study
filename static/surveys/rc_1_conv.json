@@ -1,0 +1,131 @@
+[
+    {
+        "augment_type": "opening",
+        "source": "augmented",
+        "text": "Hi, I am PhysicalActivityBot. I'd like to ask you a few questions about physical activity.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Neutral_frame",
+        "jumpConditions": {
+            "2": {
+                "steps": 2
+            },
+            "3": {
+                "steps": 3
+            }
+        },
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Yes",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "No",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Not sure",
+                "value": "3"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Can you spot any weekly patterns in your data?",
+        "type": "Options"
+    },
+    {
+        "framing": "Neutral_frame",
+        "jumpConditions": {
+            "all": {
+                "steps": 3
+            }
+        },
+        "prefix_class": "q_none",
+        "text": "What can weekly patterns tell you?",
+        "type": "Input"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you follow a consistent schedule for physical activities?",
+        "org_text": "Do you follow a consistent schedule for physical activities?",
+        "prefix": "Further, can you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "Yes": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            }
+        },
+        "text": "Further, can you tell me do you follow a consistent schedule for physical activities?",
+        "type": "Yes/No"
+    },
+    {
+        "framing": "Neutral_frame",
+        "prefix_class": "q_none",
+        "text": "What could patterns tell you?",
+        "type": "Input"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "Half of the survey is done, thanks for your patience",
+        "type": "Skip"
+    },
+    {
+        "framing": "Negative_frame",
+        "text": "To have a healthy and intelligent mind, one must have a healthy body.",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "text": "Do 12-15 jumping jacks now!",
+        "type": "Skip"
+    },
+    {
+        "framing": "Positive_frame",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Done",
+                "value": "1"
+            }
+        ],
+        "prefix_class": "q_none",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            }
+        },
+        "text": "Let me know when you completed it",
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "This is it! Thank you for your time.",
+        "type": "End"
+    }
+]
