@@ -42,18 +42,20 @@
   var botui;
   var calc_delay = 0;
   var isMuted = true;
+  var latest_answer = "Default";
+  var dialogue_position = 0;
 
   $( document ).ready(function() {
     console.log("Chat specific ready 1!");
 
     if (dialogue==null) {
-      console.log("LOADING SURVEY....");
-      loadSurvey("Harbor_new_conv.json");
+      console.log("LOADING SURVEY....{{ condition_id }}");
+      loadSurvey("{{ condition_id }}");
+      //loadSurvey("rc_4_conv.json");
+      //loadSurvey("Harbor_new_conv.json");
+      //loadSurvey("TPB_survey_conv.json");
     }
-    //loadSurvey("TPB_survey_conv.json");
-
-
-
+  
     //$("#bot-interaction").html("<span style='color:red'><b>Added dynamic text!</b></span>")
 
     /* https://docs.botui.org/guide.html */
@@ -75,6 +77,36 @@
 	  //botui.message.removeAll();
     progressDialogue();
 
+  }
+
+  function getDialogueProgressSteps(givenPosition, latest_answer) {
+    let addSteps = 1
+    
+    //Does the response have jump conditions
+    if ("jumpConditions" in dialogue[givenPosition]) {
+      console.log("PROCESSING JUMP CONDITIONS...")
+      console.log("The latest answer I have:"+latest_answer);
+      //Check if we have this answer option, if not that is programmers error!
+      if (latest_answer in dialogue[givenPosition]["jumpConditions"]) {
+        console.log("-> [Before JUMP] - position:", dialogue_position);
+        console.log("Jump value raw: "+dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]);
+        console.log("Jump value parsed: "+parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]));
+        addSteps = parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]) || 1;
+        console.log("-> [After JUMP] - position:", dialogue_position);
+      } else {
+        if ("all" in dialogue[givenPosition]["jumpConditions"]) {
+          addSteps = parseInt(dialogue[givenPosition]["jumpConditions"]["all"]["steps"]) || 1;
+        } else {
+          console.log("No jump for this option...");
+          //No jump for this answer option, progress at a normal pace
+          addSteps = 1;
+        }
+      } 
+    } else { // No jump conditions
+      addSteps = 1;
+    }
+
+    return addSteps;
   }
 
   function progressDialogue(givenPosition = dialogue_position, alt = false, isReaction = false) {
@@ -137,24 +169,7 @@
               previous_dialogue_position = 0;
             } else {
               //Does the response have jump conditions
-              if ("jumpConditions" in dialogue[givenPosition]) {
-                console.log("PROCESSING JUMP CONDITIONS...")
-                console.log("The latest answer I have:"+latest_answer);
-                //Check if we have this answer option, if not that is programmers error!
-                if (latest_answer in dialogue[givenPosition]["jumpConditions"]) {
-                  console.log("-> [Before JUMP] - position:", dialogue_position);
-                  console.log("Jump value raw: "+dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]);
-                  console.log("Jump value parsed: "+parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]));
-                  dialogue_position += parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]) || 1;
-                  console.log("-> [After JUMP] - position:", dialogue_position);
-                } else {
-                  console.log("No jump for this option...");
-                  //No jump for this answer option, progress at a normal pace
-                  dialogue_position += 1;
-                } 
-              } else { // No jump conditions
-                dialogue_position += 1;
-              }
+              dialogue_position += getDialogueProgressSteps(givenPosition, latest_answer);
 			  		}
 		  			progressDialogue();
 					}
@@ -254,13 +269,13 @@
             latest_answer = res.value;
             //Log answer in the dialogue structure itself
             dialogue[givenPosition]['answer_value'] = res.value;
-            dialogue[givenPosition]['answer'] = res.text;
+            dialogue[givenPosition]['answer'] = res.value;
 
             if (previous_dialogue_position != 0) {
               dialogue_position = previous_dialogue_position;
               previous_dialogue_position = 0;
             } else {
-              dialogue_position += 1;
+              dialogue_position += getDialogueProgressSteps(givenPosition, latest_answer);
             }
             progressDialogue();
           });
@@ -312,24 +327,7 @@
 								previous_dialogue_position = 0;
 							} else {
 								//Does the response have jump conditions
-								if ("jumpConditions" in dialogue[givenPosition]) {
-									console.log("PROCESSING JUMP CONDITIONS...")
-									console.log("The latest answer I have:"+latest_answer);
-									//Check if we have this answer option, if not that is programmers error!
-									if (latest_answer in dialogue[givenPosition]["jumpConditions"]) {
-										console.log("-> [Before JUMP] - position:", dialogue_position);
-										console.log("Jump value raw: "+dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]);
-										console.log("Jump value parsed: "+parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]));
-										dialogue_position += parseInt(dialogue[givenPosition]["jumpConditions"][latest_answer]["steps"]) || 1;
-										console.log("-> [After JUMP] - position:", dialogue_position);
-									} else {
-										console.log("No jump for this option...");
-										//No jump for this answer option, progress at a normal pace
-										dialogue_position += 1;
-									} 
-								} else { // No jump conditions
-									dialogue_position += 1;
-								}
+								dialogue_position += getDialogueProgressSteps(givenPosition, latest_answer);
 							}
 								
 							progressDialogue();
