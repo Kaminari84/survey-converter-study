@@ -35,6 +35,7 @@
     <!--SCRIPT-->
     <script>
       var user_id = ( "{{user_id}}"=="None" ? null : "{{user_id}}" );
+      var condition_id = ( "{{condition_id}}"=="None" ? null : "{{condition_id}}" );
       var page_no = {{ page_no }};
       var isMobile = false; //initiate as false
       var dialogue;
@@ -80,7 +81,7 @@
       }
 
       function loadStudyPage(study_page) {
-        $('#study_page_content').load('/study_page?page_no='+study_page+'&user_id='+user_id, { 'user_id': user_id });
+        $('#study_page_content').load('/study_page?page_no='+study_page+'&user_id='+user_id+'&condition_id='+condition_id, { 'user_id': user_id });
       }
 
       function loadSurvey(survey_file, callbackFunc=null) {
