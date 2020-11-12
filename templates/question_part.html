@@ -1,6 +1,6 @@
 
 {% if q_final is sameas '0'  %}
-<label for="{{ q_desc }}">Question {{ q_no }} of {{ total_q_no }}. <span class="highlight-badge">Highlighted</span> in your conversation are <b>{{ q_desc }}</b>, 
+<label for="{{ q_desc }}">Q {{ q_no }}/{{ total_q_no }}. <span class="highlight-badge">Highlighted</span> in your conversation are <b>{{ q_desc }}</b>, 
   how would rate their overal quality?</label>
 
 <div class="d-block my-3">
@@ -39,8 +39,9 @@
 </div>
 
 <div id="additionalFeedback" style="display:none">
+  {% if q_no is sameas '1'  %}
   <p>
-    Looking at these highlighted <b>{{ q_desc }}</b>, please share any examples that felt particularly off.
+    Looking at these, please share any examples that felt particularly off.
     This could be due to:
     <ul class="list-styled">
       <li>Awkward phrasing of text</li>
@@ -48,6 +49,7 @@
       <li>Any other aspect you would consider 'not natural' or 'out of place'</li>
     </ul>
   </p>
+  {% endif %}
 
   <div class="form-group">
     <label for="txt_d{{ q_no }}">Please give an example and what felt wrong about it?</label>
