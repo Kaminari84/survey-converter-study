@@ -1,6 +1,7 @@
 import os
 import sys
 import logging
+import random
 import json
 import uuid
 from datetime import datetime
@@ -167,6 +168,9 @@ def study_main():
   page_no = safe_cast(request.args.get('page_no'), int)
   logging.info("Page no:" + str(page_no))
 
+  condition_id = request.args.get('condition_id')
+  logging.info("Condition ID:" + str(condition_id))
+
   if page_no == None:
     page_no = 1
 
@@ -174,23 +178,42 @@ def study_main():
   user_id = request.cookies.get('user_id')
   if user_id != None:
     logging.info("Got user id from cookie:"+user_id)
-
-  # Generate user id or get from cookies
-  if user_id == None:
+  else:
+    # Generate user id 
     user_id = uuid.uuid1()
     logging.info("Generated user id:"+str(user_id))
 
+    # get condition - random, provided or existing db
+    condition_id = getCondition(condition_id, user_id)
+
     # Add entry to db for user
     userEntry = UserEntry(user_id=str(user_id))
-    userEntry.condition = "Cond 1"
+    userEntry.condition = condition_id
 
     logging.info("Adding entry to DB...")
     db.session.merge(userEntry)
     db.session.commit()
 
-  resp = make_response(render_template('study_main.html', user_id=user_id, page_no=page_no))
+  # get condition - random, provided or existing db
+  condition_id = getCondition(condition_id, user_id)
+
+  resp = make_response(render_template('study_main.html', user_id=user_id, page_no=page_no, condition_id=condition_id))
   resp.set_cookie('user_id', str(user_id))
   return resp
+
+def getCondition(condition_id, user_id):
+  conditions = ['Harbor_new_conv.json','rc_1_conv.json','TPB_survey_conv.json']
+
+  # Get condition - not given as param, take form DB
+  if condition_id == None:
+    entry = UserEntry.query.get(str(user_id))
+    if entry:
+      condition_id = entry.condition
+    else:
+      # Randomly select condition
+      condition_id = random.choice(conditions)
+
+  return condition_id
 
 # Clear cookie - just for dev
 @app.route('/clear_cookie')
@@ -208,12 +231,16 @@ def study_page():
   page_no = safe_cast(request.args.get('page_no'), int)
   logging.info("Page no:"+str(page_no))
 
+  condition_id = request.args.get('condition_id')
+  logging.info("Condition ID:" + str(condition_id))
+
   pages = ['p1_introduction.html', 'p2_chat_interaction.html', 'p3_survey.html',
            'p5_conv_on_side.html', ]
 
   template = "No such page!"
   if page_no > 0 and page_no <= len(pages):
-    add_answer(user_id, "P"+str(page_no), "Yes")
+    add_answer(user_id, "page", str(page_no))
+    add_answer(user_id, "complete", "false")
     
     questions = []
     if pages[page_no-1] == 'p3_survey.html':
@@ -225,12 +252,13 @@ def study_page():
                     "I was absorbed in answering questions"
                   ]
 
-    template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions)
+    template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions, condition_id=condition_id)
 
   elif page_no > len(pages):
     #Study completed!
-    add_answer(user_id, "P"+str(page_no), "Completed")
-    template = render_template('p6_completed.html', user_id=user_id, page_no=page_no, token='4654334445')
+    add_answer(user_id, "page", str(page_no))
+    add_answer(user_id, "complete", "true")
+    template = render_template('p6_completed.html', user_id=user_id, page_no=page_no, token=user_id)
 
   return template
 
