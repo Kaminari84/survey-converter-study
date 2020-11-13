@@ -2,7 +2,7 @@
     {
         "augment_type": "opening",
         "source": "augmented",
-        "text": "Hi, my name is PhysicalActivityBot. I would like to talk to you about physical activity.",
+        "text": "Hi, my name is PhysicalActivityBot. Let's start by talking about physical activity.",
         "type": "Skip"
     },
     {
@@ -43,31 +43,31 @@
             }
         ],
         "org_text": "My exercising for at least 20 minutes, three times per week for the next three months would be good",
-        "prefix": "Then, would you say that",
+        "prefix": "Next, do you think that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "Great!"
+                "text": "That sounds positive"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "Sounds nice"
+                "text": "Good to hear that"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Thank you for your answer"
+                "text": "Thanks for sharing"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "That's hard to hear"
+                "text": "That is frustrating"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "I am sorry to hear that"
+                "text": "So sorry about that"
             }
         },
-        "text": "Then, would you say that your exercising for at least 20 minutes, three times per week for the next three months would be good",
+        "text": "Next, do you think that your exercising for at least 20 minutes, three times per week for the next three months would be good",
         "type": "Options"
     },
     {
@@ -102,7 +102,7 @@
             }
         ],
         "org_text": "My exercising for at least 20 minutes, three times per week for the next three months would be pleasant",
-        "prefix": "Does it make sense to say that",
+        "prefix": "Do you think it's fair to say that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
@@ -111,23 +111,29 @@
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "That's really great!"
+                "text": "Okay, that's good"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Thanks for letting me know"
+                "text": "Got it"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "Thanks for sharing that"
+                "text": "I am sorry to hear that"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "That is frustrating"
+                "text": "That sounds stressful"
             }
         },
-        "text": "Does it make sense to say that your exercising for at least 20 minutes, three times per week for the next three months would be pleasant",
+        "text": "Do you think it's fair to say that your exercising for at least 20 minutes, three times per week for the next three months would be pleasant",
         "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are currently at question 3 out of 9.",
+        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
@@ -161,38 +167,32 @@
             }
         ],
         "org_text": "Most people who are important to me approve of my exercising for at least 20 minutes, three times per week for the next three months",
-        "prefix": "Continuing, can you say that",
+        "prefix": "Then, please indicate the extent to which",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "I am happy that's the case"
+                "text": "Great!"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "That sounds positive"
+                "text": "I am glad to hear that"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Noted"
+                "text": "Thank you for your answer"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "That sounds stressful"
+                "text": "That's hard to hear"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "So sorry about that"
+                "text": "That is frustrating"
             }
         },
-        "text": "Continuing, can you say that most people who are important to you approve of your exercising for at least 20 minutes, three times per week for the next three months",
+        "text": "Then, please indicate the extent to which most people who are important to you approve of your exercising for at least 20 minutes, three times per week for the next three months",
         "type": "Options"
-    },
-    {
-        "augment_type": "survey_progress",
-        "source": "augmented",
-        "text": "We are about half way through",
-        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
@@ -226,31 +226,31 @@
             }
         ],
         "org_text": "Most people like me exercised for at least 20 minutes, three times per week in the three months following their major surgery",
-        "prefix": "So, is it fair to say that",
+        "prefix": "Would you say that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "I am glad to hear that"
+                "text": "Good to hear that"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "That's good"
+                "text": "That sounds positive"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Okay, I'm getting a better idea of your answers"
+                "text": "Noted"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "So sorry about that"
+                "text": "I am sorry to hear that"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "I am sorry to hear that"
+                "text": "That's hard to hear"
             }
         },
-        "text": "So, is it fair to say that most people like you exercised for at least 20 minutes, three times per week in the three months following their major surgery",
+        "text": "Would you say that most people like you exercised for at least 20 minutes, three times per week in the three months following their major surgery",
         "type": "Options"
     },
     {
@@ -285,32 +285,38 @@
             }
         ],
         "org_text": "I am confident that I can exercise for at least 20 minutes, three times per week for the next three months.",
-        "prefix": "Moving on, please indicate the extent to which",
+        "prefix": "Further, does it make sense to say that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "Okay, that's good"
+                "text": "That's really great!"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "Good to hear that"
+                "text": "Sounds good"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Thanks for letting me know"
+                "text": "Noted"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "Thanks for sharing that"
+                "text": "So sorry about that"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "That's hard to hear"
+                "text": "That sounds stressful"
             }
         },
-        "text": "Moving on, please indicate the extent to which you are confident that you can exercise for at least 20 minutes, three times per week for the next three months.",
+        "text": "Further, does it make sense to say that you are confident that you can exercise for at least 20 minutes, three times per week for the next three months.",
         "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 60% of the survey.",
+        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
@@ -344,12 +350,12 @@
             }
         ],
         "org_text": "My exercising for at least 20 minutes, three times per week for the next three months is up to me.",
-        "prefix": "Do you think that",
+        "prefix": "So, do you think it's fair to say that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "That sounds positive"
+                "text": "Sounds nice"
             },
             "2": {
                 "augment_type": "reaction_positive",
@@ -357,18 +363,18 @@
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Sure"
+                "text": "Thank you for your answer"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "That is frustrating"
+                "text": "Thanks for sharing that"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "That sounds stressful"
+                "text": "That's hard to hear"
             }
         },
-        "text": "Do you think that your exercising for at least 20 minutes, three times per week for the next three months is up to me.",
+        "text": "So, do you think it's fair to say that your exercising for at least 20 minutes, three times per week for the next three months is up to me.",
         "type": "Options"
     },
     {
@@ -403,20 +409,20 @@
             }
         ],
         "org_text": "I intend to exercise for at least 20 minutes, three times per week for the next three months.",
-        "prefix": "Do you think it's fair to say that",
+        "prefix": "Continuing, can you say that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "Sounds good"
+                "text": "That's good"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "Good to hear that"
+                "text": "That's really great!"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Sure"
+                "text": "Thanks for sharing"
             },
             "4": {
                 "augment_type": "reaction_negative",
@@ -424,17 +430,11 @@
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "So sorry about that"
+                "text": "Thanks for sharing that"
             }
         },
-        "text": "Do you think it's fair to say that you intend to exercise for at least 20 minutes, three times per week for the next three months.",
+        "text": "Continuing, can you say that you intend to exercise for at least 20 minutes, three times per week for the next three months.",
         "type": "Options"
-    },
-    {
-        "augment_type": "survey_progress",
-        "source": "augmented",
-        "text": "We are almost done, thanks for your patience",
-        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
@@ -468,37 +468,37 @@
             }
         ],
         "org_text": "In the past three months, I have exercised for at least 20 minutes, three times per week.",
-        "prefix": "Please indicate the extent to which",
+        "prefix": "Do you think that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "Great!"
+                "text": "Sounds good"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "Sounds nice"
+                "text": "Good to hear that"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Got it"
+                "text": "Sure"
             },
             "4": {
                 "augment_type": "reaction_negative",
-                "text": "That's hard to hear"
+                "text": "That sounds stressful"
             },
             "5": {
                 "augment_type": "reaction_negative",
-                "text": "That sounds stressful"
+                "text": "So sorry about that"
             }
         },
-        "text": "Please indicate the extent to which in the past three months, you have exercised for at least 20 minutes, three times per week.",
+        "text": "Do you think that in the past three months, you have exercised for at least 20 minutes, three times per week.",
         "type": "Options"
     },
     {
         "augment_type": "closing",
         "source": "augmented",
-        "text": "We are done! Thanks for your patience.",
+        "text": "That's it, thanks a lot!",
         "type": "End"
     }
 ]
