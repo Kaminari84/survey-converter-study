@@ -14,7 +14,7 @@
   }
 
  .botui-app-container {
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
     padding: 0;
     max-height: 900px;
@@ -68,7 +68,7 @@
       $("#bot-message-1").height(viewHeight*0.5);
       $("#instructions").css({"margin-bottom":"0px"});
     } else {
-      $("#bot-message-1").height("100%");
+      $("#bot-message-1").height("95%");
     }
 
     
@@ -388,10 +388,9 @@
 
 <main role="main" class="container" id="content" >
   <div class="py-2 text-center">
-    <h2>Page {{ page_no }} - Feedback on Design Elements</h2>
+    <h2>Page {{ page_no }} - Chat Elements</h2>
     <p id="instructions">This is a log of your interaction. 
-      You can scroll through it to see the full exchange. 
-      Please answer the questions referencing it.</p>
+      You can scroll through it to answer the questions below.</p>
   </div>
 
   <form action="/submit_form" class="needs-validation" novalidate>
@@ -414,9 +413,3 @@
     <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>-->
   </form>
 </main>
-
-<script>
-  $("bot-message-1").height(300);
-
-</script>
-

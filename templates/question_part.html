@@ -3,33 +3,33 @@
 <label for="{{ q_desc }}">Q {{ q_no }}/{{ total_q_no }}. <span class="highlight-badge">Highlighted</span> in your conversation are <b>{{ q_desc }}</b>, 
   how would rate their overal quality?</label>
 
-<div class="d-block my-3">
-  <div class="d-flex flex-row">
-    <div class="p-2">
+<div class="d-block my-2">
+  <div class="d-flex">
+    <div class="p-1">
       <div class="custom-control custom-radio">
         <input id="{{ q_no }}_a1" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','1');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a1">Very<br />poor</label>
       </div>
     </div>
-    <div class="p-2">
+    <div class="p-1">
       <div class="custom-control custom-radio">
         <input id="{{ q_no }}_a2" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','2');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a2">Poor</label>
       </div>
     </div>
-    <div class="p-2">
+    <div class="p-1">
       <div class="custom-control custom-radio">
         <input id="{{ q_no }}_a3" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','3');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a3">Acceptable</label>
       </div>
     </div>
-    <div class="p-2">
+    <div class="p-1">
       <div class="custom-control custom-radio">
         <input id="{{ q_no }}_a4" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','4');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a4">Good</label>
       </div>
     </div>
-    <div class="p-2">
+    <div class="p-1">
       <div class="custom-control custom-radio">
         <input id="{{ q_no }}_a5" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','5');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a5">Very<br />good</label>

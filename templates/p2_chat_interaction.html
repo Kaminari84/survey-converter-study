@@ -21,6 +21,8 @@
     font-family: Roboto;
     color: #333333;
     font-size: 14px;
+    -webkit-box-shadow: -2px 2px 3px #888;
+    -moz-box-shadow: -2px -2px 3px #888;
   }
 
   .botui-message-content.human {
@@ -33,8 +35,47 @@
 
   .botui-message-content.human.text {
     display: inline-block;
+    -webkit-box-shadow: 2px 2px 4px #888;
+    -moz-box-shadow: 2px 2px 4px #888;
   }
 
+  .botui-message-content.human.text:after {
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 80%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #3676F4;
+    border-right: 0;
+    border-bottom: 0;
+    margin-top: -3.5px;
+    margin-right: -3px;
+    margin-left: 0px;
+    filter: drop-shadow(5px 2px 3px #888);
+  }
+
+  .botui-actions-buttons-button {
+    color: #222;
+    background-color: #dddddd;
+    background: #f8f9fa;
+    border: 1.5px solid #3676F4; 
+    border-radius: 4px;
+    color: #3676F4;
+    font-family: Roboto;
+  }
+
+  .botui-actions-buttons-button:hover {
+    color: #fff;
+    background-color: #007bff;
+    background: #3676F4;
+    border: 1.5px solid #3676F4; 
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 18 pt;
+  }
 
 </style>
 
@@ -47,6 +88,7 @@
 
   $( document ).ready(function() {
     console.log("Chat specific ready 1!");
+    $('.footer').hide();
 
     if (dialogue==null) {
       console.log("LOADING SURVEY....{{ condition_id }}");
@@ -184,6 +226,7 @@
           //var dateTime = date+' '+time;
           
           $('#continue').prop('disabled', false);
+          $('.footer').show();
 
           break;
         case "Yes/No":
@@ -246,6 +289,8 @@
             }
 					});
           break;
+        case "Input_Num_Small":
+        case "Input_Num_Large":
         case "Input":
 					/*showActionBar();
 					if(alt) {
@@ -334,9 +379,6 @@
 						}
 					});
 					break;
-
-          
-        
       }
     });
   
@@ -448,7 +490,6 @@
   function addPlay(message, q_id, isAlt) {
 
 	}
-
 
 </script>
 

@@ -34,16 +34,16 @@
 <main role="main" class="container" id="content" >
   <div class="py-2 text-center">
     <h2>Page {{ page_no }} - Feedback on experience</h2>
-    <p class="lead">On this page we ask you for feedback on your experience when interacting with the chat interface.</p>
+    <p class="lead">Please provide for feedback on your experience with the chat interface.</p>
   </div>
 
   <form class="needs-validation" novalidate>
     <div class="row">
       <div class="col-md-12 order-md-1">
         
-        <h6 class="mb-3">
-          Q1. Please answer the following questions about your experience interacting with the chat interface
-        </h6>
+        <!--<h6 class="mb-3">
+          Please answer the following questions:
+        </h6>-->
 
         <!-- Top labels for Likert-->
         <div class="row">
@@ -59,35 +59,37 @@
 
         <!-- Sub-question 1-->
         {% for question in questions %}
-        <div class="row">
-          <div class="col-md-5 mb-3">
-            {{ question }}
+        <div class="row {{ loop.cycle('odd', 'even') }}">
+          <div class="col-md-5 mb-1 mt-2">
+            <h6 class="mb-1">
+              {{ loop.index}}. {{ question }}
+            </h6>
           </div>
-          <div class="col-md mb-3">
+          <div class="col-md mb-2 mt-2">
             <div class="custom-control custom-radio">
               <input id="eng_q{{ loop.index}}_a1" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','1');" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="eng_q{{ loop.index}}_a1"><span class="mobile-label">Strongly disagree</span></label>
             </div>
           </div>
-          <div class="col-md mb-3">
+          <div class="col-md mb-2 mt-2">
             <div class="custom-control custom-radio">
               <input id="eng_q{{ loop.index}}_a2" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','2');" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="eng_q{{ loop.index}}_a2"><span class="mobile-label">Disagree</span></label>
             </div>
           </div>
-          <div class="col-md mb-3">
+          <div class="col-md mb-2 mt-2">
             <div class="custom-control custom-radio">
               <input id="eng_q{{ loop.index}}_a3" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','3');" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="eng_q{{ loop.index}}_a3"><span class="mobile-label">Neutral</span></label>
             </div>
           </div>
-          <div class="col-md mb-3">
+          <div class="col-md mb-2 mt-2">
             <div class="custom-control custom-radio">
               <input id="eng_q{{ loop.index}}_a4" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','4');" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="eng_q{{ loop.index}}_a4"><span class="mobile-label">Agree</span></label>
             </div>
           </div>
-          <div class="col-md mb-3">
+          <div class="col-md mb-2 mt-2">
             <div class="custom-control custom-radio">
               <input id="eng_q{{ loop.index}}_a5" name="eng_q{{ loop.index}}" onclick="saveAnswer('eng_q{{ loop.index}}','5');" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="eng_q{{ loop.index}}_a5"><span class="mobile-label">Strongly agree</span></label>
@@ -100,9 +102,9 @@
     {% endfor %}
 
     <div class="row">
-      <div class="col-md-12 order-md-1">
+      <div class="col-md-12 mt-4">
         <h6 class="mb-3">
-          Q2. Please share any aspects of the interaction that you felt were particularly bad or good for your experience:
+          7. Please share any aspects of the interaction that you felt were particularly bad or good for your experience:
         </h6>
         <div class="form-group">
           <!--<label for="generalFeedbackTextArea1">Please share any aspects of the interaction that you felt were particularly bad or good for your experience:</label>-->
