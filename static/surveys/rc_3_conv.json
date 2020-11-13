@@ -2,10 +2,11 @@
     {
         "augment_type": "opening",
         "source": "augmented",
-        "text": "Hey, I am PhysicalActivityBot. Let's talk about physical activity.",
+        "text": "Hi, my name is PhysicalActivityBot. I would like to talk to you about physical activity.",
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "jumpConditions": {
             "1": {
@@ -36,11 +37,11 @@
         "reactions": {
             "1": {
                 "augment_type": "reaction_negative",
-                "text": "That is frustrating"
+                "text": "So sorry about that"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "Good to hear that"
+                "text": "That sounds positive"
             },
             "3": {
                 "augment_type": "reaction_neutral",
@@ -51,6 +52,7 @@
         "type": "Options"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "jumpConditions": {
             "all": {
@@ -81,28 +83,31 @@
         "framing": "Positive_frame",
         "mod_text": "do you want to be more physically active?",
         "org_text": "Do you want to be more physically active?",
-        "prefix": "Continuing, would you mind telling me",
+        "prefix": "Can I ask you",
         "prefix_class": "q_verb_prefix",
-        "text": "Continuing, would you mind telling me do you want to be more physically active?",
+        "text": "Can I ask you do you want to be more physically active?",
         "type": "Input"
     },
     {
         "augment_type": "survey_progress",
         "source": "augmented",
-        "text": "We are about half way through",
+        "text": "Half of the survey is done, thanks for your patience",
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Neutral_frame",
         "text": "Everyone's health is your health. Exercise daily. Start today.",
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "text": "Do 2-3 push-ups now!",
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "options": [
             {
@@ -115,7 +120,7 @@
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "Great!"
+                "text": "That's good"
             }
         },
         "text": "Let me know when you completed it",
@@ -124,7 +129,7 @@
     {
         "augment_type": "closing",
         "source": "augmented",
-        "text": "We are done! Thanks.",
+        "text": "That's it, thanks a lot!",
         "type": "End"
     }
 ]

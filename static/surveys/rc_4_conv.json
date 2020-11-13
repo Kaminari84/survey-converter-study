@@ -2,7 +2,7 @@
     {
         "augment_type": "opening",
         "source": "augmented",
-        "text": "Hi, my name is PhysicalActivityBot. I would like to talk to you about physical activity.",
+        "text": "Hey, I am PhysicalActivityBot. Let's talk about physical activity.",
         "type": "Skip"
     },
     {
@@ -43,16 +43,16 @@
             }
         ],
         "org_text": "What are some of the ways that your work has impacted your physical activity this week?",
-        "prefix": "Can you tell me",
+        "prefix": "Would you mind sharing",
         "prefix_class": "q_verb_prefix",
         "reactions": {
             "Negative_impact": {
                 "augment_type": "reaction_neutral",
-                "text": "Thank you for your answer"
+                "text": "Okay, I'm getting a better idea of your answers"
             },
             "No_impact": {
                 "augment_type": "reaction_neutral",
-                "text": "Noted"
+                "text": "Thanks for sharing"
             },
             "None": {
                 "augment_type": "reaction_neutral",
@@ -60,13 +60,14 @@
             },
             "Positive_impact": {
                 "augment_type": "reaction_neutral",
-                "text": "Sure"
+                "text": "Thank you for your answer"
             }
         },
-        "text": "Can you tell me what are some of the ways that your work has impacted your physical activity this week?",
+        "text": "Would you mind sharing what are some of the ways that your work has impacted your physical activity this week?",
         "type": "Options"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "jumpConditions": {
             "all": {
@@ -103,15 +104,15 @@
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "Sounds good"
+                "text": "Okay, that's good"
             },
             "3": {
                 "augment_type": "reaction_negative",
-                "text": "That sounds stressful"
+                "text": "That is frustrating"
             },
             "4": {
                 "augment_type": "reaction_neutral",
-                "text": "Okay, I'm getting a better idea of your answers"
+                "text": "Noted"
             }
         },
         "text": "What could you do to prevent your work from impacting your physical activity?",
@@ -127,12 +128,13 @@
         },
         "mod_text": "how could you set up your work to help maintain your activity in the future?",
         "org_text": "How could you set up your work to help maintain your activity in the future?",
-        "prefix": "Moving on, would you please",
+        "prefix": "Further, can you",
         "prefix_class": "q_non_verb_prefix",
-        "text": "Moving on, would you please how could you set up your work to help maintain your activity in the future?",
+        "text": "Further, can you how could you set up your work to help maintain your activity in the future?",
         "type": "Input"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "jumpConditions": {
             "all": {
@@ -143,11 +145,11 @@
         "reactions": {
             "No": {
                 "augment_type": "reaction_negative",
-                "text": "So sorry about that"
+                "text": "Thanks for sharing that"
             },
             "Yes": {
                 "augment_type": "reaction_positive",
-                "text": "Great!"
+                "text": "I am glad to hear that"
             }
         },
         "text": "Do you think you could set it up to be more active?",
@@ -160,22 +162,26 @@
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Neutral_frame",
         "prefix_class": "q_none",
         "text": "How can you modify your work routines to improve your physical activity?",
         "type": "Input"
     },
     {
+        "augment_type": "none",
         "framing": "Negative_frame",
         "text": "Work hard to reach personal goals, exercise to meet fitness goals.",
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "text": "Do 12-15 jumping-jacks now!",
         "type": "Skip"
     },
     {
+        "augment_type": "none",
         "framing": "Positive_frame",
         "options": [
             {
@@ -197,7 +203,7 @@
     {
         "augment_type": "closing",
         "source": "augmented",
-        "text": "We've completed everything! Thanks a lot!",
+        "text": "This is it! Thank you for your time.",
         "type": "End"
     }
 ]
