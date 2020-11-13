@@ -2,7 +2,7 @@
     {
         "augment_type": "opening",
         "source": "augmented",
-        "text": "Hi, I am PhysicalActivityBot. I'd like to ask you a few questions about physical activity.",
+        "text": "Hey, I am PhysicalActivityBot. Let's talk about physical activity.",
         "type": "Skip"
     },
     {
@@ -36,15 +36,15 @@
         "reactions": {
             "1": {
                 "augment_type": "reaction_negative",
-                "text": "I am sorry to hear that"
+                "text": "That is frustrating"
             },
             "2": {
                 "augment_type": "reaction_positive",
-                "text": "That's really great!"
+                "text": "Good to hear that"
             },
             "3": {
                 "augment_type": "reaction_neutral",
-                "text": "Noted"
+                "text": "Thank you for your answer"
             }
         },
         "text": "Do you think you can be more active?",
@@ -71,9 +71,9 @@
         },
         "mod_text": "what barriers prevent you from being more active?",
         "org_text": "What barriers prevent you from being more active?",
-        "prefix": "Continuing, would you mind telling me",
+        "prefix": "Going forward, can you tell me",
         "prefix_class": "q_verb_prefix",
-        "text": "Continuing, would you mind telling me what barriers prevent you from being more active?",
+        "text": "Going forward, can you tell me what barriers prevent you from being more active?",
         "type": "Input"
     },
     {
@@ -81,10 +81,16 @@
         "framing": "Positive_frame",
         "mod_text": "do you want to be more physically active?",
         "org_text": "Do you want to be more physically active?",
-        "prefix": "Then, can I ask you",
+        "prefix": "Continuing, would you mind telling me",
         "prefix_class": "q_verb_prefix",
-        "text": "Then, can I ask you do you want to be more physically active?",
+        "text": "Continuing, would you mind telling me do you want to be more physically active?",
         "type": "Input"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are about half way through",
+        "type": "Skip"
     },
     {
         "framing": "Neutral_frame",
@@ -92,7 +98,7 @@
         "type": "Skip"
     },
     {
-        "framing": "Neutral_frame",
+        "framing": "Positive_frame",
         "text": "Do 2-3 push-ups now!",
         "type": "Skip"
     },
@@ -109,7 +115,7 @@
         "reactions": {
             "1": {
                 "augment_type": "reaction_positive",
-                "text": "That sounds positive"
+                "text": "Great!"
             }
         },
         "text": "Let me know when you completed it",
@@ -118,7 +124,7 @@
     {
         "augment_type": "closing",
         "source": "augmented",
-        "text": "We've completed the whole survey! Thanks a lot!",
+        "text": "We are done! Thanks.",
         "type": "End"
     }
 ]
