@@ -65,7 +65,7 @@
     let viewWidth = $(window).width();
 
     if (isMobile) {
-      $("#bot-message-1").height(viewHeight*0.5);
+      $("#bot-message-1").height(viewHeight*0.6);
       $("#instructions").css({"margin-bottom":"0px"});
     } else {
       $("#bot-message-1").height("95%");
@@ -397,9 +397,9 @@
     <!-- Conversation sample 1 -->
     <div class='row'>
       <div class="col-md-6">
-        <div class="botui-app-container text-left" id="bot-message-1" style="border: 0px solid red; overflow:auto" >
+        <div class="botui-app-container text-left" id="bot-message-1" >
           <bot-ui></bot-ui>
-        </div>      
+        </div>   
       </div>
       <div class="col-md-6">
         <div id='question-part'></div>
