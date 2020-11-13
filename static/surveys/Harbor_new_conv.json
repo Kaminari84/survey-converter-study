@@ -2,7 +2,7 @@
     {
         "augment_type": "opening",
         "source": "augmented",
-        "text": "Hi, I am SocialNeedsBot. Let's talk a bit about social needs.",
+        "text": "Hey, my name is SocialNeedsBot. Let's chat a bit.",
         "type": "Skip"
     },
     {
@@ -49,58 +49,69 @@
         "framing": "Positive_frame",
         "mod_text": "do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
         "org_text": "Do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
-        "prefix": "Moving on, can you tell me",
-        "prefix_class": "q_verb_prefix",
+        "prefix": "So, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
         "reactions": {
             "No": {
                 "augment_type": "reaction_negative",
-                "text": "I am sorry to hear that"
+                "text": "That is frustrating"
             },
             "Yes": {
                 "augment_type": "reaction_positive",
-                "text": "Sounds nice"
+                "text": "I am glad to hear that"
             }
         },
-        "text": "Moving on, can you tell me do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
+        "text": "So, please indicate the extent to which do you have the resources to pay for the very basics like food, housing, medical care, and heating?",
         "type": "Yes/No"
     },
     {
         "augment_type": "question_rephrazing",
         "mod_text": "do you have any significant outstanding bills or debts?",
         "org_text": "Do you have any significant outstanding bills or debts?",
-        "prefix": "Would you mind telling me",
+        "prefix": "Would you mind sharing",
         "prefix_class": "q_verb_prefix",
-        "text": "Would you mind telling me do you have any significant outstanding bills or debts?",
+        "text": "Would you mind sharing do you have any significant outstanding bills or debts?",
         "type": "Yes/No"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are currently at question 3 out of 11.",
+        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
         "framing": "Negative_frame",
         "mod_text": "do you want help finding a job, or keeping your curren't work?",
         "org_text": "Do you want help finding a job, or keeping your curren't work?",
-        "prefix": "Further, could you tell me",
+        "prefix": "Continuing, can you tell me",
         "prefix_class": "q_verb_prefix",
         "reactions": {
             "No": {
                 "augment_type": "reaction_positive",
-                "text": "Okay, that's good"
+                "text": "Great!"
             },
             "Yes": {
                 "augment_type": "reaction_negative",
                 "text": "That's hard to hear"
             }
         },
-        "text": "Further, could you tell me do you want help finding a job, or keeping your curren't work?",
+        "text": "Continuing, can you tell me do you want help finding a job, or keeping your curren't work?",
         "type": "Yes/No"
     },
     {
-        "augment_type": "survey_progress",
-        "source": "augmented",
-        "text": "We are currently at question 4 out of 16.",
-        "type": "Skip"
-    },
-    {
+        "framing": "Negative_frame",
         "prefix_class": "q_none",
+        "reactions": {
+            "No": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "Yes": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
         "text": "Do you want help with school or training? ",
         "type": "Yes/No"
     },
@@ -130,10 +141,16 @@
             }
         ],
         "org_text": "What is your living situation today?",
-        "prefix": "Would you mind sharing",
+        "prefix": "Moving on, would you mind sharing",
         "prefix_class": "q_verb_prefix",
-        "text": "Would you mind sharing what is your living situation today?",
+        "text": "Moving on, would you mind sharing what is your living situation today?",
         "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We're half way there, still 5 questions to go",
+        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
@@ -192,97 +209,108 @@
             }
         ],
         "org_text": "Think about the place you live. Do you have any problems with the following? Choose all that apply.",
-        "prefix": "Can I ask you",
+        "prefix": "Further, can I ask you",
         "prefix_class": "q_verb_prefix",
         "reactions": {
             "Opt_1": {
                 "augment_type": "reaction_neutral",
-                "text": "Got it! Thanks for sharing"
+                "text": "Thank you for your answer"
             },
             "Opt_10": {
                 "augment_type": "reaction_negative",
-                "text": "That sounds stressful"
+                "text": "I am sorry to hear that"
             },
             "Opt_2": {
                 "augment_type": "reaction_positive",
-                "text": "I am happy that's the case"
+                "text": "Sounds nice"
             },
             "Opt_3": {
                 "augment_type": "reaction_negative",
-                "text": "Thanks for sharing that"
+                "text": "That is frustrating"
             },
             "Opt_4": {
                 "augment_type": "reaction_negative",
-                "text": "So sorry about that"
+                "text": "That's hard to hear"
             },
             "Opt_5": {
                 "augment_type": "reaction_positive",
-                "text": "Great!"
+                "text": "Okay, that's good"
             },
             "Opt_6": {
                 "augment_type": "reaction_neutral",
-                "text": "Got it"
+                "text": "Noted"
             },
             "Opt_7": {
                 "augment_type": "reaction_neutral",
-                "text": "Thanks for letting me know"
+                "text": "Got it! Thanks for sharing"
             },
             "Opt_8": {
                 "augment_type": "reaction_positive",
-                "text": "That's really great!"
+                "text": "That's good"
             },
             "Opt_9": {
                 "augment_type": "reaction_negative",
-                "text": "That is frustrating"
+                "text": "Thanks for sharing that"
             }
         },
-        "text": "Can I ask you think about the place you live. Do you have any problems with the following? Choose all that apply.",
+        "text": "Further, can I ask you think about the place you live. Do you have any problems with the following? Choose all that apply.",
         "type": "Options"
-    },
-    {
-        "options": [
-            {
-                "text": "Often",
-                "value": "Opt_1"
-            },
-            {
-                "text": "Sometimes",
-                "value": "Opt_2"
-            },
-            {
-                "text": "Never",
-                "value": "Opt_3"
-            }
-        ],
-        "prefix_class": "q_none",
-        "text": "In the past year, were you worried about where you would get your next meal?",
-        "type": "Options"
-    },
-    {
-        "augment_type": "survey_progress",
-        "source": "augmented",
-        "text": "We are about half way through",
-        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
         "framing": "Negative_frame",
-        "mod_text": "in the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
-        "org_text": "In the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
-        "prefix": "Then, could I ask you whether",
-        "prefix_class": "q_prefix_if_you",
-        "reactions": {
-            "No": {
-                "augment_type": "reaction_positive",
-                "text": "Good to hear that"
+        "mod_text": "in the past year, were you worried about where you would get your next meal?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Often",
+                "value": "Opt_1"
             },
-            "Yes": {
+            {
+                "framing": "pos_answer",
+                "text": "Sometimes",
+                "value": "Opt_2"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Never",
+                "value": "Opt_3"
+            }
+        ],
+        "org_text": "In the past year, were you worried about where you would get your next meal?",
+        "prefix": "Moving on, would you please",
+        "prefix_class": "q_non_verb_prefix",
+        "reactions": {
+            "Opt_1": {
                 "augment_type": "reaction_negative",
-                "text": "I am sorry to hear that"
+                "text": "That sounds stressful"
+            },
+            "Opt_2": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
             }
         },
-        "text": "Then, could I ask you whether in the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
+        "text": "Moving on, would you please in the past year, were you worried about where you would get your next meal?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "mod_text": "in the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
+        "org_text": "In the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
+        "prefix": "Can you tell me if",
+        "prefix_class": "q_prefix_if_you",
+        "text": "Can you tell me if in the past year, has the electric, gas, oil or water company threatened to shut off services in your home?",
         "type": "Yes/No"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are done with 9 questions, still 2 to go.",
+        "type": "Skip"
     },
     {
         "augment_type": "question_rephrazing",
@@ -306,306 +334,160 @@
             }
         ],
         "org_text": "In the past year, were you unable to count on reliable transportation to get you to important appointments?",
-        "prefix": "Next, would you say that",
+        "prefix": "Can you say that",
         "prefix_class": "q_prefix_if_i",
         "reactions": {
             "Opt_1": {
                 "augment_type": "reaction_negative",
-                "text": "That sounds stressful"
+                "text": "That is frustrating"
             },
             "Opt_2": {
                 "augment_type": "reaction_negative",
-                "text": "That is frustrating"
+                "text": "I am sorry to hear that"
             },
             "Opt_3": {
                 "augment_type": "reaction_positive",
-                "text": "Sounds good"
+                "text": "Great!"
             }
         },
-        "text": "Next, would you say that in the past year, you were unable to count on reliable transportation to get you to important appointments?",
+        "text": "Can you say that in the past year, you were unable to count on reliable transportation to get you to important appointments?",
         "type": "Options"
     },
     {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "would you like legal help with any of the following issues?",
         "options": [
             {
+                "framing": "pos_answer",
                 "text": "Immigration",
                 "value": "Opt_1"
             },
             {
+                "framing": "pos_answer",
                 "text": "Unpaid tickets",
                 "value": "Opt_2"
             },
             {
+                "framing": "pos_answer",
                 "text": "Eviction",
                 "value": "Opt_3"
             },
             {
+                "framing": "pos_answer",
                 "text": "Outstanding Warrants",
                 "value": "Opt_4"
             },
             {
+                "framing": "pos_answer",
                 "text": "Clearing your record/ expungement",
                 "value": "Opt_5"
             },
             {
+                "framing": "pos_answer",
                 "text": "Child custody",
                 "value": "Opt_6"
             },
             {
+                "framing": "pos_answer",
                 "text": "Child support",
                 "value": "Opt_7"
             },
             {
+                "framing": "pos_answer",
                 "text": "Domestic violence/ restraining order",
                 "value": "Opt_8"
             },
             {
+                "framing": "neg_answer",
                 "text": "Getting an ID or birth certificate",
                 "value": "Opt_9"
             },
             {
+                "framing": "pos_answer",
                 "text": "Employment issues such as unpaid wages, improper termination, etc.",
                 "value": "Opt_10"
             },
             {
+                "framing": "pos_answer",
                 "text": "School issues such as IEP, suspension, truancy, etc.",
                 "value": "Opt_11"
             },
             {
+                "framing": "neu_answer",
                 "text": "Public benefits such as [CA set, WA set]",
                 "value": "Opt_12"
             },
             {
+                "framing": "neu_answer",
                 "text": "None of the above",
                 "value": "Opt_13"
             }
         ],
-        "prefix_class": "q_none",
-        "text": "Would you like legal help with any of the following issues?",
-        "type": "Options"
-    },
-    {
-        "augment_type": "question_rephrazing",
-        "framing": "Neutral_frame",
-        "mod_text": "what is your racial and ethnic background? Check all that apply (multiple may apply if you are of mixed descent).",
-        "options": [
-            {
-                "framing": "neg_answer",
-                "text": "Black, African American or African",
-                "value": "Opt_1"
-            },
-            {
-                "framing": "neg_answer",
-                "text": "Latin American, Central American, Mexican or Mexican American, Hispanic or Chicano",
-                "value": "Opt_2"
-            },
-            {
-                "framing": "neg_answer",
-                "text": "American Indian or Alaskan Native",
-                "value": "Opt_3"
-            },
-            {
-                "framing": "pos_answer",
-                "text": "Pacific Islander: Native Hawaiian, Guamanian/Chamorro, Samoan, Other",
-                "value": "Opt_4"
-            },
-            {
-                "framing": "pos_answer",
-                "text": "Asian: Indian, Chinese, Filipino, Japanese, Korean, Vietnamese, Other",
-                "value": "Opt_5"
-            },
-            {
-                "framing": "pos_answer",
-                "text": "Middle Eastern/ Arab",
-                "value": "Opt_6"
-            },
-            {
-                "framing": "pos_answer",
-                "text": "White/ Caucasian",
-                "value": "Opt_7"
-            }
-        ],
-        "org_text": "What is your racial and ethnic background? Check all that apply (multiple may apply if you are of mixed descent).",
-        "prefix": "Can I ask you",
-        "prefix_class": "q_verb_prefix",
+        "org_text": "Would you like legal help with any of the following issues?",
+        "prefix": "Going forward, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
         "reactions": {
             "Opt_1": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "Opt_10": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "Opt_11": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "Opt_12": {
                 "augment_type": "reaction_neutral",
                 "text": "Got it"
             },
-            "Opt_2": {
-                "augment_type": "reaction_neutral",
-                "text": "Thank you for your answer"
-            },
-            "Opt_3": {
-                "augment_type": "reaction_neutral",
-                "text": "Got it! Thanks for sharing"
-            },
-            "Opt_4": {
-                "augment_type": "reaction_neutral",
-                "text": "Got it"
-            },
-            "Opt_5": {
+            "Opt_13": {
                 "augment_type": "reaction_neutral",
                 "text": "Okay, I'm getting a better idea of your answers"
             },
+            "Opt_2": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "Opt_3": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "Opt_5": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
             "Opt_6": {
-                "augment_type": "reaction_neutral",
-                "text": "Thanks for sharing"
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
             },
             "Opt_7": {
-                "augment_type": "reaction_neutral",
-                "text": "Thanks for letting me know"
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "Opt_8": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "Opt_9": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
             }
         },
-        "text": "Can I ask you what is your racial and ethnic background? Check all that apply (multiple may apply if you are of mixed descent).",
-        "type": "Options"
-    },
-    {
-        "augment_type": "survey_progress",
-        "source": "augmented",
-        "text": "We are done with 70% of our questions.",
-        "type": "Skip"
-    },
-    {
-        "augment_type": "question_rephrazing",
-        "mod_text": "what is your current gender identity? ",
-        "options": [
-            {
-                "text": "Female",
-                "value": "Opt_1"
-            },
-            {
-                "text": "Male",
-                "value": "Opt_2"
-            },
-            {
-                "text": "Transgender Male/ Trans Man/ Female-to-Male (FTM)",
-                "value": "Opt_3"
-            },
-            {
-                "text": "Transgender Female/ Trans Woman/ Male-to-Female (MTF)",
-                "value": "Opt_4"
-            },
-            {
-                "text": "Nonbinary, genderqueer, gender non-conforming, neither or both male and/or female",
-                "value": "Opt_5"
-            },
-            {
-                "text": "Additional gender category",
-                "value": "Opt_6"
-            }
-        ],
-        "org_text": "What is your current gender identity? ",
-        "prefix": "Continuing, would you mind telling me",
-        "prefix_class": "q_verb_prefix",
-        "text": "Continuing, would you mind telling me what is your current gender identity? ",
-        "type": "Options"
-    },
-    {
-        "augment_type": "question_rephrazing",
-        "mod_text": "what type of health insurance do you have?",
-        "options": [
-            {
-                "text": "None, I\u2019m not insured",
-                "value": "Opt_1"
-            },
-            {
-                "text": "Medicaid",
-                "value": "Opt_2"
-            },
-            {
-                "text": "Medicaid pending",
-                "value": "Opt_3"
-            },
-            {
-                "text": "Employer",
-                "value": "Opt_4"
-            },
-            {
-                "text": "Medicare",
-                "value": "Opt_5"
-            },
-            {
-                "text": "COBRA",
-                "value": "Opt_6"
-            },
-            {
-                "text": "State children\u2019s health insurance",
-                "value": "Opt_7"
-            },
-            {
-                "text": "Private health insurance",
-                "value": "Opt_8"
-            },
-            {
-                "text": "Veteran\u2019s administration",
-                "value": "Opt_9"
-            },
-            {
-                "text": "Indian health services",
-                "value": "Opt_10"
-            },
-            {
-                "text": "Other",
-                "value": "Opt_11"
-            },
-            {
-                "text": "Don\u2019t know",
-                "value": "Opt_12"
-            }
-        ],
-        "org_text": "What type of health insurance do you have?",
-        "prefix": "So, can you tell me",
-        "prefix_class": "q_verb_prefix",
-        "text": "So, can you tell me what type of health insurance do you have?",
-        "type": "Options"
-    },
-    {
-        "framing": "Positive_frame",
-        "prefix_class": "q_none",
-        "text": "How many years did you go to school?",
-        "type": "Input_Num_Small"
-    },
-    {
-        "augment_type": "question_rephrazing",
-        "mod_text": "what is your current marital or relationship status?",
-        "options": [
-            {
-                "text": "Married",
-                "value": "Opt_1"
-            },
-            {
-                "text": "Widowed",
-                "value": "Opt_2"
-            },
-            {
-                "text": "Separated",
-                "value": "Opt_3"
-            },
-            {
-                "text": "Divorced",
-                "value": "Opt_4"
-            },
-            {
-                "text": "Never married/single",
-                "value": "Opt_5"
-            },
-            {
-                "text": "Committed relationship/partnered",
-                "value": "Opt_6"
-            }
-        ],
-        "org_text": "What is your current marital or relationship status?",
-        "prefix": "Going forward, would you mind sharing",
-        "prefix_class": "q_verb_prefix",
-        "text": "Going forward, would you mind sharing what is your current marital or relationship status?",
+        "text": "Going forward, is it fair to say that would you like legal help with any of the following issues?",
         "type": "Options"
     },
     {
         "augment_type": "closing",
         "source": "augmented",
-        "text": "We are done! Thanks for your patience.",
+        "text": "We've completed everything! Thanks a lot!",
         "type": "End"
     }
 ]

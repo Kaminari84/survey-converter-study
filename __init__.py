@@ -202,7 +202,7 @@ def study_main():
   return resp
 
 def getCondition(condition_id, user_id):
-  conditions = ['Harbor_new_conv.json','rc_1_conv.json','TPB_survey_conv.json']
+  conditions = ['Harbor_new_conv.json','rc_3_conv.json','rc_4_conv.json','TPB_survey_conv.json']
 
   # Get condition - not given as param, take form DB
   if condition_id == None:
