@@ -1,0 +1,981 @@
+[
+    {
+        "augment_type": "opening",
+        "source": "augmented",
+        "text": "Hey, my name is SurveyBot. Let's chat a bit.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://www.surveymonkey.com/r/7HD377B",
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "how do you feel about your ability to manage your own finances?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not sure at all - I wish I knew a lot more about money management",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not too sure - I wish I knew more about money management",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Somewhat Sure - I understand most of what I need to know about money management",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very sure - I understand money management very well",
+                "value": "4"
+            }
+        ],
+        "org_text": "How do you feel about your ability to manage your own finances?",
+        "prefix": "Can I ask you",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Can I ask you how do you feel about your ability to manage your own finances?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "as it relates to matters of personal finance, what topics do you feel you could use more information on?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Budgeting",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Credit",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Wills",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Life Insurance",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Disability Insurance",
+                "value": "5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Health Insurance",
+                "value": "6"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Long Term Care Insurance",
+                "value": "7"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Loans/Debt",
+                "value": "8"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Saving",
+                "value": "9"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Investing",
+                "value": "10"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Other (please specify)",
+                "value": "11"
+            }
+        ],
+        "org_text": "As it relates to matters of personal finance, what topics do you feel you could use more information on?",
+        "prefix": "Can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "10": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "11": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "5": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "6": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "7": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "8": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "9": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            }
+        },
+        "text": "Can you say that as it relates to matters of personal finance, what topics do you feel you could use more information on?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel in control of your current financial situation.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel in control of my current financial situation.",
+        "prefix": "Let's carry on, does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            }
+        },
+        "text": "Let's carry on, does it make sense to say that you feel in control of your current financial situation.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel capable of using your current income to achieve your financial goals.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel capable of using my current income to achieve my financial goals.",
+        "prefix": "Going forward, do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            }
+        },
+        "text": "Going forward, do you think that you feel capable of using your current income to achieve your financial goals.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 20% of the survey.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you have an emergency savings fund established to cover 3 to 6 months of expenses should you lose the ability to work.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I have an emergency savings fund established to cover 3 to 6 months of expenses should I lose the ability to work.",
+        "prefix": "Then, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            }
+        },
+        "text": "Then, is it fair to say that you have an emergency savings fund established to cover 3 to 6 months of expenses should you lose the ability to work.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "my finances are a significant source of worry for me.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "My finances are a significant source of worry for me.",
+        "prefix": "So, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "So, do you think it's fair to say that my finances are a significant source of worry for me.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel capable of handling your financial future overall.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel capable of handling my financial future overall.",
+        "prefix": "Going forward, would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            }
+        },
+        "text": "Going forward, would you say that you feel capable of handling your financial future overall.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "saving and investing is important to me.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "Saving and investing is important to me.",
+        "prefix": "Then, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            }
+        },
+        "text": "Then, do you think it's fair to say that saving and investing is important to me.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are about half way through",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you believe you have adequate information to help make the best financial decisions for you and your family.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I believe I have adequate information to help make the best financial decisions for me and my family.",
+        "prefix": "Further, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            }
+        },
+        "text": "Further, please indicate the extent to which you believe you have adequate information to help make the best financial decisions for you and your family.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel you have a good grasp on the importance of insurance in all of its forms. (life, health, disability, Long Term Care)",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel I have a good grasp on the importance of insurance in all of its forms. (life, health, disability, Long Term Care)",
+        "prefix": "Let's carry on, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            }
+        },
+        "text": "Let's carry on, is it fair to say that you feel you have a good grasp on the importance of insurance in all of its forms. (life, health, disability, Long Term Care)",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel comfortable about your financial future because you have adequately planned for it.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel comfortable about my financial future because I have adequately planned for it.",
+        "prefix": "Moving on, can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            }
+        },
+        "text": "Moving on, can you say that you feel comfortable about your financial future because you have adequately planned for it.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you know what it will take in order for you to retire.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all true",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat untrue",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat true",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very true",
+                "value": "4"
+            }
+        ],
+        "org_text": "I know what it will take in order for me to retire.",
+        "prefix": "Do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            }
+        },
+        "text": "Do you think that you know what it will take in order for you to retire.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are done with 12 questions, still 5 to go.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what kind of financial accounts do you currently have?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Savings",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Checking",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Money Market",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Stocks, bonds and/or mutual funds",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "CDs",
+                "value": "5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "IRA",
+                "value": "6"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "401k or 403b",
+                "value": "7"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Teacher Retirement System",
+                "value": "8"
+            }
+        ],
+        "org_text": "What kind of financial accounts do you currently have?",
+        "prefix": "Would you mind telling me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "7": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "8": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            }
+        },
+        "text": "Would you mind telling me what kind of financial accounts do you currently have?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you have the following types of insurance.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Life",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Health",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Auto",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Homeowner's/Renter's",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Disability",
+                "value": "5"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Long Term Care",
+                "value": "6"
+            }
+        ],
+        "org_text": "I have the following types of insurance.",
+        "prefix": "Next, does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            }
+        },
+        "text": "Next, does it make sense to say that you have the following types of insurance.",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "how necessary or important do you feel it is for you to work with a financial advisor?",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Not important",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Somewhat unimportant",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neutral",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat important",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Very important",
+                "value": "4"
+            }
+        ],
+        "org_text": "How necessary or important do you feel it is for you to work with a financial advisor?",
+        "prefix": "Continuing, can you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            }
+        },
+        "text": "Continuing, can you tell me how necessary or important do you feel it is for you to work with a financial advisor?",
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what other matters regarding your personal finances would you like to have a better understanding of?",
+        "org_text": "What other matters regarding your personal finances would you like to have a better understanding of?",
+        "prefix": "Is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "text": "Is it fair to say that what other matters regarding your personal finances would you like to have a better understanding of?",
+        "type": "Input"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are almost done, thanks for your patience",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what personal financial goals would you like more information or assistance in reaching?",
+        "org_text": "What personal financial goals would you like more information or assistance in reaching?",
+        "prefix": "Going forward, have you experienced",
+        "prefix_class": "q_add_question",
+        "text": "Going forward, have you experienced what personal financial goals would you like more information or assistance in reaching?",
+        "type": "Input"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "This is it! Thank you for your time.",
+        "type": "End"
+    }
+]
