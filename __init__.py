@@ -414,15 +414,18 @@ def get_study_responses():
       .filter(UserAnswer.user_id == entry.user_id)\
         .order_by(UserAnswer.timestamp.desc()).first()
 
-    logging.info("Last activity:"+ str(last_activity.timestamp)+", start:"+str(entry.timestamp))
-    duration = round((last_activity.timestamp - entry.timestamp).total_seconds() / 60.0,2)
-    values[3] = duration
+    if last_activity != None:
+      logging.info("Last activity:"+ str(last_activity.timestamp)+", start:"+str(entry.timestamp))
+      duration = round((last_activity.timestamp - entry.timestamp).total_seconds() / 60.0,2)
+      values[3] = duration
 
-    #get elapsed time since last activity
-    #print("Now:", datetime.now())
-    pacific = timezone('US/Pacific')
-    values[4] = round((pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / (60.0*60.0),2)
-
+      #get elapsed time since last activity
+      pacific = timezone('US/Pacific')
+      values[4] = round((pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / (60.0*60.0),2)
+    else:
+      values[3] = 0
+      values[4] = 0
+   
     entry_values.append(values)
 
   #logging.info("Key Values:"+ str(key_values))
@@ -443,12 +446,15 @@ def get_study_responses():
           .order_by(UserAnswer.timestamp.desc()).first()
 
       #likely expired
-      pacific = timezone('US/Pacific')
-      minutes_passed = (pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / 60.0
-      if (minutes_passed > 60):
-        conditionCounts[ans.userEntry.condition]["pending_old"] += 1
+      if last_activity != None:
+        pacific = timezone('US/Pacific')
+        minutes_passed = (pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / 60.0
+        if (minutes_passed > 60):
+          conditionCounts[ans.userEntry.condition]["pending_old"] += 1
+        else:
+          conditionCounts[ans.userEntry.condition]["pending_fresh"] += 1
       else:
-        conditionCounts[ans.userEntry.condition]["pending_fresh"] += 1
+        pass
 
   logging.info("Conditions counts:" + str(conditionCounts))
 
