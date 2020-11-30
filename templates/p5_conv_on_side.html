@@ -71,8 +71,6 @@
       $("#bot-message-1").height("95%");
     }
 
-    
-
     if (dialogue == null) {
       console.log("LOADING SURVEY....{{ condition_id }}");
       loadSurvey("{{ condition_id }}", processLoadedSurvey);
@@ -89,31 +87,62 @@
   function processLoadedSurvey() {
     console.log("Processing loaded survey - dialogue length:"+dialogue.length);
 
-    botui1 = new BotUI('bot-message-1');
-    for (let i=0; i<dialogue.length; i++) {
-      console.log("At dialogue item:"+i);
-      if ((dialogue[i]['type']!='Skip') && (dialogue[i]['type']!='End') && !('answer' in dialogue[i])) {
-        console.log("Dialogue question:"+dialogue[i]['text'])
-        let ans_text = "write in";
-        let ans_value = "write in";
+    //Load saved chat answers
+    var request = $.ajax({
+      url: "/get_chat_answers?user_id="+user_id,
+      type: "GET",
+      data: {},
+      dataType: "html",
+      async: true, 
+      success : function (msg)
+      {
+        var obj = JSON.parse(msg);
 
-        if (dialogue[i].type == "Yes/No") {
-          ans_text = choose(['Yes','No']);
-          ans_value = ans_text;
-        } else if (dialogue[i].type == "Options") {
-          let opt_pick = choose(dialogue[i].options)
-          ans_value = opt_pick['value'];
-          ans_text = opt_pick['text'];
+        if (obj.status !== "OK") {
+            console.log("Something went wrong and event did not log: "+obj.message);
+        } else {
+          console.log("Called save answer successfully!");
+
+          console.log("----CHAT ANSWERS LOADED----")
+          console.log(obj.chat_answers)
+
+          botui1 = new BotUI('bot-message-1');
+          for (let i=0; i<dialogue.length; i++) {
+            console.log("At dialogue item:"+i);
+            if ((dialogue[i]['type']!='Skip') && (dialogue[i]['type']!='End') && !('answer' in dialogue[i])) {
+              console.log("Dialogue question:"+dialogue[i]['text'])
+              let ans_text = "write in";
+              let ans_value = "write in";
+
+              // load saved answer
+              if (dialogue[i]['text'] in obj.chat_answers) {
+                ans_text = obj.chat_answers[dialogue[i]['text']].text
+                ans_value = obj.chat_answers[dialogue[i]['text']].opt_id
+              } else {
+              // no saved answer, pick one randomly
+                if (dialogue[i].type == "Yes/No") {
+                  ans_text = choose(['Yes','No']);
+                  ans_value = ans_text;
+                } else if (dialogue[i].type == "Options") {
+                  let opt_pick = choose(dialogue[i].options)
+                  ans_value = opt_pick['value'];
+                  ans_text = opt_pick['text'];
+                }
+              }
+
+              dialogue[i].answer_value = ans_value;
+              dialogue[i].answer = ans_text;
+            }
+          }
+
+          console.log("Render exerpt!");
+
+          renderDialogueExerpt(0, dialogue.length+50, botui1);
+          
         }
-
-        dialogue[i].answer_value = ans_value;
-        dialogue[i].answer = ans_text;
       }
-    }
+    });
 
-    console.log("Render exerpt!");
-
-    renderDialogueExerpt(0, dialogue.length+50, botui1);
   }
 
   // After conversation is loaded, do the additions
@@ -157,10 +186,24 @@
     })
   }
 
-  function showAdditionalFeedback(utterance_class) {
+  function showAdditionalFeedback(utterance_class, ans_num) {
     console.log("Show additional feedback...");
 
     $('#additionalFeedback').show();
+
+    if (ans_num < 3) {
+      $('#qual_instruction').html("Looking at these, please share any examples that felt particularly off. This could be due to:")
+      $('#qual_question').html("Please give an example and share what felt wrong about it.")
+      $('#list_bad_things').show()
+      $('#list_good_things').hide()
+    } 
+    else {
+      $('#qual_instruction').html("Looking at these, please share any examples that could still be improved. This could be by:")
+      $('#qual_question').html("If anything could still be improved, please give an example.")
+      $('#list_bad_things').hide()
+      $('#list_good_things').show()
+    }
+
     // Add new checkboxes
     /*utterance_class.forEach(function (item, index) {
       addCheckboxes(item);
@@ -323,13 +366,13 @@
   }
 
   function loadDesignQuestionPart(q_no) {
-    questions = ["reactions to your answers",
-                 "progress communication phrases",
-                 "opening & closing", 
-                 "phrasing of questions"]
+    questions = ["Reactions to your answers",
+                 "Progress communication phrases",
+                 "Opening & closing phrases", 
+                 "Chat questions"]
 
     highlight_part = [ ["reaction_positive","reaction_negative","reaction_neutral"], 
-                      ["survey_progress"],
+                      ["survey_progress", "topic_info"],
                       ["opening", "closing"],
                       ["question_rephrazing", "none"]
                     ]
