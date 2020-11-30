@@ -185,9 +185,6 @@ def study_main():
   condition_id = request.args.get('condition_id')
   logging.info("Condition ID:" + str(condition_id))
 
-  if page_no == None:
-    page_no = 1
-
   # try getting the user_id from the cookie
   user_id = request.cookies.get('user_id')
   if user_id != None:
@@ -212,7 +209,8 @@ def study_main():
   condition_id = getCondition(condition_id, user_id)
 
   # get the last study page visited
-  page_no = getLastStudyPage(user_id)
+  if page_no == None:
+    page_no = getLastStudyPage(user_id)
 
   resp = make_response(render_template('study_main.html', user_id=user_id, page_no=page_no, condition_id=condition_id))
   resp.set_cookie('user_id', str(user_id))
@@ -292,6 +290,7 @@ def study_page():
     add_survey_answer(user_id, "complete", "false", replace=True)
     
     questions = []
+    questions2 = []
     if pages[page_no-1] == 'p3_survey.html':
       questions = [ "I was really drawn into answering questions", 
                     "I felt involved in answering questions",
@@ -300,6 +299,16 @@ def study_page():
                     "I was so involved in answering questions that I ignored everything around me",
                     "I was absorbed in answering questions"
                   ]
+      questions2 = [ "The chat messages felt natural", 
+                     #"The chat messages felt fake",
+                     "The chat messages felt human-like",
+                     #"The chat messages felt machine-like",
+                     "The chat messages felt artificial",
+                     "The chat language felt consistent",
+                     "The chat messages felt different from one another",
+                     "The chat messages felt repetitive"
+                  ]
+        
     elif pages[page_no-1] == 'p4_sus.html':
       questions = [ "I think that I would like to use this chat interaction frequently.", 
                     "I found the chat interaction unnecessarily complex.",
@@ -316,8 +325,9 @@ def study_page():
 
     #randomize question ordering
     random.shuffle(questions)
+    random.shuffle(questions2)
 
-    template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions, condition_id=condition_id)
+    template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions, questions2=questions2, condition_id=condition_id)
 
   elif page_no > len(pages):
     #Study completed!
