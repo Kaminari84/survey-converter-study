@@ -292,35 +292,35 @@ def study_page():
     questions = []
     questions2 = []
     if pages[page_no-1] == 'p3_survey.html':
-      questions = [ "I was really drawn into answering questions", 
-                    "I felt involved in answering questions",
-                    "This experience of answering questions was fun",
-                    "I forgot about my immediate surroundings while answering questions",
-                    "I was so involved in answering questions that I ignored everything around me",
-                    "I was absorbed in answering questions"
+      questions = [ {"q_id": "eng_q1", "text":"I was really drawn into answering questions"}, 
+                    {"q_id": "eng_q2", "text":"I felt involved in answering questions"},
+                    {"q_id": "eng_q3", "text":"This experience of answering questions was fun"},
+                    {"q_id": "eng_q4", "text":"I forgot about my immediate surroundings while answering questions"},
+                    {"q_id": "eng_q5", "text":"I was so involved in answering questions that I ignored everything around me"},
+                    {"q_id": "eng_q6", "text":"I was absorbed in answering questions"}
                   ]
-      questions2 = [ "The chat messages felt natural", 
+      questions2 = [ {"q_id": "prp_q1", "text": "The chat messages felt natural"}, 
                      #"The chat messages felt fake",
-                     "The chat messages felt human-like",
+                     {"q_id": "prp_q2", "text": "The chat messages felt human-like"},
                      #"The chat messages felt machine-like",
-                     "The chat messages felt artificial",
-                     "The chat language felt consistent",
-                     "The chat messages felt different from one another",
-                     "The chat messages felt repetitive"
+                     {"q_id": "prp_q3", "text": "The chat messages felt artificial"},
+                     {"q_id": "prp_q4", "text": "The chat language felt consistent"},
+                     {"q_id": "prp_q5", "text": "The chat messages felt different from one another"},
+                     {"q_id": "prp_q6", "text": "The chat messages felt repetitive"}
                   ]
         
     elif pages[page_no-1] == 'p4_sus.html':
-      questions = [ "I think that I would like to use this chat interaction frequently.", 
-                    "I found the chat interaction unnecessarily complex.",
-                    "I thought the chat interaction was easy to use.",
-                    "I think that I would need the support of a technical person to be able to use this chat interaction.",
-                    "I found the various functions in this chat interaction were well integrated.",
-                    "I thought there was too much inconsistency in this chat interaction.",
-                    "I would imagine that most people would learn to use this chat interaction very quickly.",
-                    "I found the chat interaction very cumbersome to use.",
-                    "I felt very confident using the chat interaction.",
-                    "I needed to learn a lot of things before I could get going with this chat interaction.",
-                    "If you are reading this, please select 'Agree'"
+      questions = [ {"q_id": "sus_q1", "text": "I think that I would like to use this chat interaction frequently."}, 
+                    {"q_id": "sus_q2", "text": "I found the chat interaction unnecessarily complex."},
+                    {"q_id": "sus_q3", "text": "I thought the chat interaction was easy to use."},
+                    {"q_id": "sus_q4", "text": "I think that I would need the support of a technical person to be able to use this chat interaction."},
+                    {"q_id": "sus_q5", "text": "I found the various functions in this chat interaction were well integrated."},
+                    {"q_id": "sus_q6", "text": "I thought there was too much inconsistency in this chat interaction."},
+                    {"q_id": "sus_q7", "text": "I would imagine that most people would learn to use this chat interaction very quickly."},
+                    {"q_id": "sus_q8", "text": "I found the chat interaction very cumbersome to use."},
+                    {"q_id": "sus_q9", "text": "I felt very confident using the chat interaction."},
+                    {"q_id": "sus_q10", "text": "I needed to learn a lot of things before I could get going with this chat interaction."},
+                    {"q_id": "sus_q11", "text": "If you are reading this, please select 'Agree'"}
                   ]
 
     #randomize question ordering
