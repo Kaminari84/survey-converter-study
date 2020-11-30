@@ -146,13 +146,13 @@
         }
       }
 
-      function saveAnswer(q_id, answer) {
+      function saveAnswer(q_id, answer, opt_id=null, source="survey") {
         console.log("Question:"+q_id, ", Response:"+answer)
 
         var request = $.ajax({
-          url: "/save_answer?user_id="+user_id+"&q_id="+q_id,
+          url: "/save_answer?user_id="+user_id+"&q_id="+q_id+"&source="+source,
           type: "POST",
-          data: {q_ans: answer},
+          data: {q_ans: answer, opt_id: opt_id},
           dataType: "html",
           async: true, 
           success : function (msg)
