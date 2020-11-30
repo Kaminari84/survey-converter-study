@@ -15,6 +15,7 @@ from pytz import country_timezones
 from flask import Flask, request, make_response, render_template, current_app, g
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy
+from sqlalchemy import func
 from sqlalchemy.orm import relationship
 
 from flask_cors import CORS
@@ -40,6 +41,9 @@ logging.basicConfig(level=logging.INFO,
                     format='[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s',
                     handlers=handlers)
 logging.info("Server loading...")
+
+conditions = ["_big_5_conv.json", "_fitness_survey_conv.json", "_personal_financial_survey_conv.json", 
+  "_political_views_conv.json", "_pvq_values_conv.json", "_sleep_quality_conv.json"]
 
 # Load environmental variables
 def load_env(filename):
@@ -83,7 +87,7 @@ class UserAnswer(db.Model):
   user_id = db.Column(db.String(64), db.ForeignKey('user_entry.user_id'))
 
   # Relationship
-  userEntry = relationship("UserEntry", back_populates="answers")
+  userEntry = relationship("UserEntry", back_populates="answers") #backref=db.backref('answers', lazy='dynamic')
 
   def __init__(self, question_id, answer):
     self.question_id = question_id
@@ -97,6 +101,36 @@ class UserAnswer(db.Model):
 UserEntry.answers = relationship("UserAnswer", 
   order_by=UserAnswer.answer_id, 
   back_populates="userEntry",
+  #lazy='dynamic',
+  #passive_deletes=True,
+  cascade="all, delete-orphan")
+
+class ChatAnswer(db.Model):
+  __tablename__ = "chat_answer"
+  answer_id = db.Column(db.Integer, primary_key=True)
+  question_id = db.Column(db.String(1024), nullable=False)
+  answer = db.Column(db.String(10000), nullable=False)
+  timestamp = db.Column(db.DateTime())
+  # Foreign key
+  user_id = db.Column(db.String(64), db.ForeignKey('user_entry.user_id'))
+
+  # Relationship
+  userEntry = relationship("UserEntry", back_populates="chatAnswers") #backref=db.backref('answers', lazy='dynamic')
+
+  def __init__(self, question_id, answer):
+    self.question_id = question_id
+    self.answer = answer
+    self.timestamp = pstnow()
+
+  def __repr__(self):
+    return "<ChatAnswer(answer_id='%s', question_id='%s', answer='%s')>" % (
+      self.answer_id, self.question_id, self.answer)
+
+UserEntry.chatAnswers = relationship("ChatAnswer", 
+  order_by=ChatAnswer.answer_id, 
+  back_populates="userEntry",
+  #lazy='dynamic',
+  #passive_deletes=True,
   cascade="all, delete-orphan")
 
 # Server instance initialize
@@ -138,28 +172,6 @@ def setup_app(app):
 setup_app(app)
 
 # Main study
-@app.route('/test', methods = ['GET','POST'])
-def test():
-  # Generate user id
-  #user_id = uuid.uuid1()
-
-  # Add entry to db for user
-  #userEntry = UserEntry(user_id=str(user_id))
-  #userEntry.condition = "Cond 1"
-
-  logging.info("Adding entry to DB...")
-  #db.session.merge(userEntry)
-  #db.session.commit()
-
-  webHTML = "<b>Test-Almost all is ready!</b> <br />"
-  webHTML += "DB_USER="+str(ENV_VARS.get('DB_USER'))+"<br />"
-  webHTML += "DB_PASS="+str(ENV_VARS.get('DB_PASS'))+"<br />"
-  webHTML += "DB_NAME="+str(ENV_VARS.get('DB_NAME'))+"<br />"
-  webHTML += "TEST_VAR="+str(ENV_VARS.get('TEST_VAR'))+"<br />"
-
-  return webHTML 
-
-# Main study
 @app.route('/', methods = ['GET','POST'])
 def study_main():
   user_id = request.args.get('user_id')
@@ -197,23 +209,58 @@ def study_main():
   # get condition - random, provided or existing db
   condition_id = getCondition(condition_id, user_id)
 
+  # get the last study page visited
+  page_no = getLastStudyPage(user_id)
+
   resp = make_response(render_template('study_main.html', user_id=user_id, page_no=page_no, condition_id=condition_id))
   resp.set_cookie('user_id', str(user_id))
   return resp
 
 def getCondition(condition_id, user_id):
-  conditions = ['Harbor_new_conv.json','rc_3_conv.json','rc_4_conv.json','TPB_survey_conv.json']
-
-  # Get condition - not given as param, take form DB
+  # Get condition - not given as param, take from DB
   if condition_id == None:
     entry = UserEntry.query.get(str(user_id))
     if entry:
       condition_id = entry.condition
     else:
+      # Get the existing conditions
+      conditionCounts = dict((cond,0) for cond in conditions) 
+      completedAnswers = UserAnswer.query.filter_by(question_id="complete", answer="true")
+      for ans in completedAnswers:
+        conditionCounts[ans.userEntry.condition] += 1
+
+      logging.info("Conditions counts:" + str(conditionCounts))
+
+      sorted_by_freq = sorted(conditionCounts.items(), key=lambda kv: kv[1], reverse = False)
+      least_freq = None
+      choices = []
+
+      logging.info("Sorted counts:" + str(sorted_by_freq))
+
+      for cond, freq in sorted_by_freq:
+        if least_freq == None:
+          least_freq = freq
+        
+        if freq <= least_freq:
+          choices.append(cond)
+
+      logging.info("Condition choices:" +str(choices))
+
+      condition_id = random.choice(choices)
+
       # Randomly select condition
-      condition_id = random.choice(conditions)
+      #condition_id = random.choice(conditions)
 
   return condition_id
+
+def getLastStudyPage(user_id):
+  entry = UserEntry.query.get(str(user_id))
+  page_no = 1
+  for ans in entry.answers:
+    if ans.question_id == "page":
+      page_no = ans.answer
+
+  return page_no
 
 # Clear cookie - just for dev
 @app.route('/clear_cookie')
@@ -235,12 +282,12 @@ def study_page():
   logging.info("Condition ID:" + str(condition_id))
 
   pages = ['p1_introduction.html', 'p2_chat_interaction.html', 'p3_survey.html',
-           'p5_conv_on_side.html', ]
+           'p4_sus.html', 'p5_conv_on_side.html', ]
 
   template = "No such page!"
   if page_no > 0 and page_no <= len(pages):
-    add_answer(user_id, "page", str(page_no))
-    add_answer(user_id, "complete", "false")
+    add_survey_answer(user_id, "page", str(page_no))
+    add_survey_answer(user_id, "complete", "false", replace=True)
     
     questions = []
     if pages[page_no-1] == 'p3_survey.html':
@@ -251,13 +298,29 @@ def study_page():
                     "I was so involved in answering questions that I ignored everything around me",
                     "I was absorbed in answering questions"
                   ]
+    elif pages[page_no-1] == 'p4_sus.html':
+      questions = [ "I think that I would like to use this chat interaction frequently.", 
+                    "I found the chat interaction unnecessarily complex.",
+                    "I thought the chat interaction was easy to use.",
+                    "I think that I would need the support of a technical person to be able to use this chat interaction.",
+                    "I found the various functions in this chat interaction were well integrated.",
+                    "I thought there was too much inconsistency in this chat interaction.",
+                    "I would imagine that most people would learn to use this chat interaction very quickly.",
+                    "I found the chat interaction very cumbersome to use.",
+                    "I felt very confident using the chat interaction.",
+                    "I needed to learn a lot of things before I could get going with this chat interaction.",
+                    "If you are reading this, please select 'Agree'"
+                  ]
+
+    #randomize question ordering
+    random.shuffle(questions)
 
     template = render_template(pages[page_no-1], user_id=user_id, page_no=page_no, questions=questions, condition_id=condition_id)
 
   elif page_no > len(pages):
     #Study completed!
-    add_answer(user_id, "page", str(page_no))
-    add_answer(user_id, "complete", "true")
+    add_survey_answer(user_id, "page", str(page_no))
+    add_survey_answer(user_id, "complete", "true", replace=True)
     template = render_template('p6_completed.html', user_id=user_id, page_no=page_no, token=user_id)
 
   return template
@@ -307,10 +370,11 @@ def get_survey():
 
 @app.route('/get_study_responses')
 def get_study_responses():
-  key_values = ['user_id','condition','datetime']
+  key_values = ['user_id','condition','datetime','duration (min)','last_activity (h)']
   entry_values = []
-  
-  allEntries = UserEntry.query.order_by(UserEntry.user_id.desc(), UserEntry.timestamp.desc()).limit(1000)
+
+  # Get the responses
+  allEntries = UserEntry.query.order_by(UserEntry.timestamp.desc()).limit(1000)
   for entry in allEntries:
     #print("Ticker ID:"+alarm.ticker_id)
 
@@ -327,13 +391,48 @@ def get_study_responses():
       key_idx = key_values.index(ans.question_id)
       values[key_idx] = ans.answer
       
+    #get duration from start till last activity
+    last_activity = db.session.query(UserAnswer)\
+      .filter(UserAnswer.user_id == entry.user_id)\
+        .order_by(UserAnswer.timestamp.desc()).first()
+
+    print("Last activity:", last_activity.timestamp,", start:", entry.timestamp)
+    duration = round((last_activity.timestamp - entry.timestamp).total_seconds() / 60.0,2)
+    values[3] = duration
+
+    #get elapsed time since last activity
+    #print("Now:", datetime.now())
+    values[4] = round((datetime.now() - last_activity.timestamp).total_seconds() / (60.0*60.0),2)
 
     entry_values.append(values)
 
-  logging.info("Key Values:"+ str(key_values))
-  logging.info("Entry Values:"+str(entry_values))
+  #logging.info("Key Values:"+ str(key_values))
+  #logging.info("Entry Values:"+str(entry_values))
 
-  return render_template('study_responses.html', headers=key_values, entries=entry_values)
+  # Get the summary of responses per condition
+  conditionCounts = dict((cond,{"all":0, "complete":0, "pending":0, "pending_old":0, "pending_fresh":0}) for cond in conditions) 
+  allAnswers = UserAnswer.query.filter_by(question_id="complete")
+  for ans in allAnswers:
+    conditionCounts[ans.userEntry.condition]["all"] += 1
+    if ans.answer == "true":
+      conditionCounts[ans.userEntry.condition]["complete"] += 1
+    elif ans.answer == "false":
+      conditionCounts[ans.userEntry.condition]["pending"] += 1
+      #last activity
+      last_activity = db.session.query(UserAnswer)\
+        .filter(UserAnswer.user_id == ans.user_id)\
+          .order_by(UserAnswer.timestamp.desc()).first()
+
+      #likely expired
+      minutes_passed = (datetime.now() - last_activity.timestamp).total_seconds() / 60.0
+      if (minutes_passed > 60):
+        conditionCounts[ans.userEntry.condition]["pending_old"] += 1
+      else:
+        conditionCounts[ans.userEntry.condition]["pending_fresh"] += 1
+
+  logging.info("Conditions counts:" + str(conditionCounts))
+
+  return render_template('study_responses.html', headers=key_values, entries=entry_values, condition_summary=conditionCounts)
 
 # Add answer
 @app.route('/save_answer', methods = ['GET','POST'])
@@ -343,6 +442,9 @@ def save_answer():
   user_id = request.args.get('user_id')
   print("user_id:",str(user_id))
 
+  source = request.args.get('source')
+  print("source:",str(source))
+
   q_id = request.args.get('q_id')
   print("q_id:",str(q_id))
 
@@ -350,20 +452,65 @@ def save_answer():
   print("q_ans:",str(q_ans))
 
   json_resp = json.dumps({'status': 'ERROR', 'message':''})
-  if add_answer(user_id, q_id, q_ans):
+  add_func = add_survey_answer
+  if source == "chat":
+    add_func = add_chat_answer
+
+  if add_func(user_id, q_id, q_ans, replace=True):
     json_resp = json.dumps({'status': 'OK', 'message':'', 'q_id':q_id, 'q_ans':q_ans})
   else:
     json_resp = json.dumps({'status': 'ERROR', 'message':'Missing arguments'})
 
   return make_response(json_resp, 200, {"content_type":"application/json"})
 
-# Helper methods
-def add_answer(user_id, q_id, ans):
+# Helper method - add survey answer
+def add_survey_answer(user_id, q_id, ans, replace=False):
   userEntry = UserEntry.query.get(user_id)
 
   if userEntry != None:
     userAnswer = UserAnswer(question_id=q_id, answer=ans)
-    userEntry.answers.append(userAnswer)
+    
+    found = False
+    for answer in userEntry.answers:
+      if answer.question_id == q_id:
+        if replace == True:
+          answer.answer = ans
+          found = True
+        else:
+          if answer.answer == ans:
+            found = True
+      
+    # answer does not exist yet
+    if found == False:
+      userEntry.answers.append(userAnswer)
+
+    db.session.commit()
+
+    return True
+  else:
+    return False
+
+# Helper method - add chat answer
+def add_chat_answer(user_id, q_id, ans, replace=False):
+  userEntry = UserEntry.query.get(user_id)
+
+  if userEntry != None:
+    chatAnswer = ChatAnswer(question_id=q_id, answer=ans)
+    
+    found = False
+    for answer in userEntry.chatAnswers:
+      if answer.question_id == q_id:
+        if replace == True:
+          answer.answer = ans
+          found = True
+        else:
+          if answer.answer == ans:
+            found = True
+      
+    # answer does not exist yet
+    if found == False:
+      userEntry.chatAnswers.append(chatAnswer)
+
     db.session.commit()
 
     return True
