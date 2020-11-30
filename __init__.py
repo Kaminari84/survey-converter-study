@@ -414,13 +414,13 @@ def get_study_responses():
       .filter(UserAnswer.user_id == entry.user_id)\
         .order_by(UserAnswer.timestamp.desc()).first()
 
-    print("Last activity:", last_activity.timestamp,", start:", entry.timestamp)
+    logging.info("Last activity:"+ str(last_activity.timestamp)+", start:"+str(entry.timestamp))
     duration = round((last_activity.timestamp - entry.timestamp).total_seconds() / 60.0,2)
     values[3] = duration
 
     #get elapsed time since last activity
     #print("Now:", datetime.now())
-    values[4] = round((datetime.now() - last_activity.timestamp).total_seconds() / (60.0*60.0),2)
+    values[4] = round((pstnow() - last_activity.timestamp).total_seconds() / (60.0*60.0),2)
 
     entry_values.append(values)
 
@@ -442,7 +442,7 @@ def get_study_responses():
           .order_by(UserAnswer.timestamp.desc()).first()
 
       #likely expired
-      minutes_passed = (datetime.now() - last_activity.timestamp).total_seconds() / 60.0
+      minutes_passed = (pstnow() - last_activity.timestamp).total_seconds() / 60.0
       if (minutes_passed > 60):
         conditionCounts[ans.userEntry.condition]["pending_old"] += 1
       else:
@@ -458,10 +458,10 @@ def save_answer():
   logging.info("Trying to save answer...")
 
   user_id = request.args.get('user_id')
-  print("user_id:",str(user_id))
+  logging.info("user_id:"+str(user_id))
 
   source = request.args.get('source')
-  print("source:",str(source))
+  logging.info("source:"+str(source))
 
   q_id = request.args.get('q_id')
   print("q_id:",str(q_id))
