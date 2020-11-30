@@ -62,7 +62,7 @@
         <div class="row {{ loop.cycle('odd', 'even') }}">
           <div class="col-md-5 mb-1 mt-2">
             <h6 class="mb-1">
-              {{ loop.index}}. {{ question }}
+              {{ loop.index }}. {{ question }}
             </h6>
           </div>
           <div class="col-md mb-2 mt-2">
@@ -101,10 +101,73 @@
     </div>
     {% endfor %}
 
+    <div class="row mt-3">
+      <div class="col-md-12 order-md-2">
+        
+        <!--<h6 class="mb-3">
+          Please answer the following questions:
+        </h6>-->
+
+        <!-- Top labels for Likert-->
+        <div class="row">
+          <div class="col-md-5 mb-0">
+            <span class="desktop-label"></span>
+          </div>
+          <div class="col-md mb-0"><span class="desktop-label">Strongy disagree</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Disagree</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Neutral</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Agree</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Strongly agree</span></div>
+        </div>
+
+        <!-- Sub-question 1-->
+        {% for question in questions2 %}
+        <div class="row {{ loop.cycle('odd', 'even') }}">
+          <div class="col-md-5 mb-1 mt-2">
+            <h6 class="mb-1">
+              {{ loop.index + questions|length }}. {{ question }}
+            </h6>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="prop_q{{ loop.index}}_a1" name="prop_q{{ loop.index}}" onclick="saveAnswer('prop_q{{ loop.index}}','1');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="prop_q{{ loop.index}}_a1"><span class="mobile-label">Strongly disagree</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="prop_q{{ loop.index}}_a2" name="prop_q{{ loop.index}}" onclick="saveAnswer('prop_q{{ loop.index}}','2');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="prop_q{{ loop.index}}_a2"><span class="mobile-label">Disagree</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="prop_q{{ loop.index}}_a3" name="prop_q{{ loop.index}}" onclick="saveAnswer('prop_q{{ loop.index}}','3');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="prop_q{{ loop.index}}_a3"><span class="mobile-label">Neutral</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="prop_q{{ loop.index}}_a4" name="prop_q{{ loop.index}}" onclick="saveAnswer('prop_q{{ loop.index}}','4');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="prop_q{{ loop.index}}_a4"><span class="mobile-label">Agree</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="prop_q{{ loop.index}}_a5" name="prop_q{{ loop.index}}" onclick="saveAnswer('prop_q{{ loop.index}}','5');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="prop_q{{ loop.index}}_a5"><span class="mobile-label">Strongly agree</span></label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
     <div class="row">
       <div class="col-md-12 mt-4">
         <h6 class="mb-3">
-          7. Please share any aspects of the interaction that you felt were particularly bad or good for your experience:
+          {{ questions|length + questions2|length +1 }}. Please share any aspects of the interaction that you felt were particularly bad or good for your experience:
         </h6>
         <div class="form-group">
           <!--<label for="generalFeedbackTextArea1">Please share any aspects of the interaction that you felt were particularly bad or good for your experience:</label>-->
