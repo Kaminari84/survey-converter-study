@@ -464,13 +464,13 @@ def save_answer():
   logging.info("source:"+str(source))
 
   q_id = request.args.get('q_id')
-  print("q_id:",str(q_id))
+  logging.info("q_id:" +str(q_id))
 
   q_ans = request.form.get('q_ans')
-  print("q_ans:",str(q_ans))
+  logging.info("q_ans:"+str(q_ans))
 
   opt_id = request.form.get('opt_id')
-  print("Answer option id:",str(opt_id))
+  logging.info("Answer option id:"+str(opt_id))
 
   json_resp = json.dumps({'status': 'ERROR', 'message':''})
   save_result = False
