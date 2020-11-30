@@ -1,7 +1,23 @@
 <h1>Study Responses</h1>
 
-<b>Responses</b>
+<b>Summary</b>
+<div>
+  <table border=1>
+    <tr><th>Condition</th><th>All</th><th>Complete</th><th>Pending</th><th>Pending Old</th><th>Pending Fresh</th></tr>
+    {% for cond_name, cond_counts in condition_summary.items() %}
+    <tr>
+      <td>{{ cond_name }}</td>
+      <td>{{ cond_counts.all }} </td>
+      <td>{{ cond_counts.complete }}</td>
+      <td>{{ cond_counts.pending }}</td>
+      <td>{{ cond_counts.pending_old }}</td>
+      <td>{{ cond_counts.pending_fresh }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 
+<b>Responses</b>
 <div>
   <table border=1>
     <tr>
