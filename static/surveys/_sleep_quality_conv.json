@@ -1,0 +1,1210 @@
+[
+    {
+        "augment_type": "opening",
+        "domain": "sleep",
+        "source": "augmented",
+        "text": "Hi, I am SleepBot. Let's talk a bit about sleep.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://www.med.upenn.edu/cbti/assets/user-content/documents/Sleep%20Quality%20Scale%20(SQS).pdf",
+        "augment_type": "none",
+        "framing": "Neutral_frame",
+        "text": "The following survey is to know the quality of sleep you had for the last one month. Read the question and check the closest answer.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you have difficulty falling asleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I have difficulty falling asleep.",
+        "prefix": "Next, would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Next, would you say that you have difficulty falling asleep.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you fall into a deep sleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I fall into a deep sleep.",
+        "prefix": "So, can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            }
+        },
+        "text": "So, can you say that you fall into a deep sleep.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you wake up while sleeping.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I wake up while sleeping.",
+        "prefix": "Moving on, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            }
+        },
+        "text": "Moving on, do you think it's fair to say that you wake up while sleeping.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are currently at question 4 out of 19.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you have difficulty getting back to sleep once you wake up in middle of the night.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I have difficulty getting back to sleep once I wake up in middle of the night.",
+        "prefix": "Continuing, do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Continuing, do you think that you have difficulty getting back to sleep once you wake up in middle of the night.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 47,
+                "from": "I ",
+                "start": 45,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you wake up easily because of noise.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I wake up easily because of noise.",
+        "prefix": "Then, do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Then, do you wake up easily because of noise.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let's move on to some other questions...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you toss and turn.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I toss and turn.",
+        "prefix": "Let's carry on, do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Let's carry on, do you toss and turn.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are done with 7 questions, still 12 to go.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you never go back to sleep after awakening during sleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I never go back to sleep after awakening during sleep.",
+        "prefix": "Further, do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            }
+        },
+        "text": "Further, do you never go back to sleep after awakening during sleep.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel refreshed after sleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel refreshed after sleep.",
+        "prefix": "Going forward, do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            }
+        },
+        "text": "Going forward, do you feel refreshed after sleep.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel unlikely to sleep after sleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel unlikely to sleep after sleep.",
+        "prefix": "Let's carry on, do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "Let's carry on, do you feel unlikely to sleep after sleep.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "poor sleep give you headaches.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "Poor sleep gives me headaches.",
+        "prefix": "So, could you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "So, could you say that poor sleep give you headaches.",
+        "text_changes": [
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you."
+            },
+            {
+                "end": 16,
+                "from": "gives",
+                "start": 11,
+                "to": "give"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We're half way there, still 8 questions to go",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Thank you for your answers, let's move on to talking about few more things...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "poor sleep make you irritated.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "Poor sleep makes me irritated.",
+        "prefix": "Next, is it true that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Next, is it true that poor sleep make you irritated.",
+        "text_changes": [
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you."
+            },
+            {
+                "end": 16,
+                "from": "makes",
+                "start": 11,
+                "to": "make"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you would like to sleep more after waking up.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I would like to sleep more after waking up.",
+        "prefix": "Further, does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            }
+        },
+        "text": "Further, does it make sense to say that you would like to sleep more after waking up.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "your sleep hours are enough.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "My sleep hours are enough.",
+        "prefix": "Moving on, do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            }
+        },
+        "text": "Moving on, do you think that your sleep hours are enough.",
+        "text_changes": [
+            {
+                "end": 3,
+                "from": "my ",
+                "start": 0,
+                "to": "your "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 70% of the survey.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "poor sleep make you lose your appetite.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "Poor sleep makes me lose my appetite.",
+        "prefix": "Then, can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            }
+        },
+        "text": "Then, can you say that poor sleep make you lose your appetite.",
+        "text_changes": [
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 28,
+                "from": " my ",
+                "start": 24,
+                "to": " your "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you."
+            },
+            {
+                "end": 16,
+                "from": "makes",
+                "start": 11,
+                "to": "make"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "poor sleep make hard for you to think.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "Poor sleep makes hard for me to think.",
+        "prefix": "Is it true that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Is it true that poor sleep make hard for you to think.",
+        "text_changes": [
+            {
+                "end": 29,
+                "from": " me ",
+                "start": 25,
+                "to": " you "
+            },
+            {
+                "end": 29,
+                "from": " me ",
+                "start": 25,
+                "to": " you "
+            },
+            {
+                "end": 29,
+                "from": " me ",
+                "start": 25,
+                "to": " you."
+            },
+            {
+                "end": 16,
+                "from": "makes",
+                "start": 11,
+                "to": "make"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you feel vigorous after sleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "I feel vigorous after sleep.",
+        "prefix": "Continuing, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            }
+        },
+        "text": "Continuing, do you think it's fair to say that you feel vigorous after sleep.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let me ask you some more...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "poor sleep make you lose interest in work or others.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "Poor sleep makes me lose interest in work or others.",
+        "prefix": "Going forward, would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Going forward, would you say that poor sleep make you lose interest in work or others.",
+        "text_changes": [
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you "
+            },
+            {
+                "end": 20,
+                "from": " me ",
+                "start": 16,
+                "to": " you."
+            },
+            {
+                "end": 16,
+                "from": "makes",
+                "start": 11,
+                "to": "make"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "your fatigue is relieved after sleep.",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Rarely: None or 1-3 times a month",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Sometimes: 1-2 times a week",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Often: 3-5 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Almost always: 6-7 times a week",
+                "value": "4"
+            }
+        ],
+        "org_text": "My fatigue is relieved after sleep.",
+        "prefix": "Next, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            }
+        },
+        "text": "Next, please indicate the extent to which your fatigue is relieved after sleep.",
+        "text_changes": [
+            {
+                "end": 3,
+                "from": "my ",
+                "start": 0,
+                "to": "your "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We are done! Thanks for your patience.",
+        "type": "End"
+    }
+]

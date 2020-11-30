@@ -1,0 +1,1294 @@
+[
+    {
+        "augment_type": "opening",
+        "domain": "personality",
+        "source": "augmented",
+        "text": "Hi, my name is PersonalityBot. I would like to talk to you about personality.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://www.europeansocialsurvey.org/docs/methodology/core_ess_questionnaire/ESS_core_questionnaire_human_values.pdf",
+        "augment_type": "none",
+        "framing": "Neutral_frame",
+        "text": "Here we briefly describe some people. Please read each description and think about how much each person is or is not like you. Pick an answer that shows how much the person in the description is like you.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "none",
+        "framing": "Neutral_frame",
+        "text": "How much is this person like you?",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "thinking up new ideas and being creative is important to you. You like to do things in your own original way.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "Thinking up new ideas and being creative is important to him. He likes to do things in his own original way.",
+        "prefix": "Let's carry on, can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Let's carry on, can you say that thinking up new ideas and being creative is important to you. You like to do things in your own original way.",
+        "text_changes": [
+            {
+                "end": 61,
+                "from": " him.",
+                "start": 56,
+                "to": " you."
+            },
+            {
+                "end": 65,
+                "from": " He ",
+                "start": 61,
+                "to": " You "
+            },
+            {
+                "end": 91,
+                "from": " his ",
+                "start": 86,
+                "to": " your "
+            },
+            {
+                "end": 91,
+                "from": " his ",
+                "start": 86,
+                "to": " your "
+            },
+            {
+                "end": 70,
+                "from": "likes",
+                "start": 65,
+                "to": "like"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "it is important to you to be rich. You want to have a lot of money and expensive things.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It is important to him to be rich. He wants to have a lot of money and expensive things.",
+        "prefix": "Going forward, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            }
+        },
+        "text": "Going forward, is it fair to say that it is important to you to be rich. You want to have a lot of money and expensive things.",
+        "text_changes": [
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you "
+            },
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you."
+            },
+            {
+                "end": 38,
+                "from": " He ",
+                "start": 34,
+                "to": " You "
+            },
+            {
+                "end": 43,
+                "from": "wants",
+                "start": 38,
+                "to": "want"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are currently at question 4 out of 14.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you think it is important that every person in the world should be treated equally. You believe everyone should have equal opportunities in life.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "He thinks it is important that every person in the world should be treated equally. He believes everyone should have equal opportunities in life.",
+        "prefix": "Do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            }
+        },
+        "text": "Do you think it is important that every person in the world should be treated equally. You believe everyone should have equal opportunities in life.",
+        "text_changes": [
+            {
+                "end": 86,
+                "from": " He",
+                "start": 83,
+                "to": " You"
+            },
+            {
+                "end": 3,
+                "from": "he ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 9,
+                "from": "thinks",
+                "start": 3,
+                "to": "think"
+            },
+            {
+                "end": 95,
+                "from": "believes",
+                "start": 87,
+                "to": "believe"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "it's important to you to show your abilities. You want people to admire what you do.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It's important to him to show his abilities. He wants people to admire what he does.",
+        "prefix": "Let's carry on, does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            }
+        },
+        "text": "Let's carry on, does it make sense to say that it's important to you to show your abilities. You want people to admire what you do.",
+        "text_changes": [
+            {
+                "end": 22,
+                "from": " him ",
+                "start": 17,
+                "to": " you "
+            },
+            {
+                "end": 22,
+                "from": " him ",
+                "start": 17,
+                "to": " you."
+            },
+            {
+                "end": 79,
+                "from": " he ",
+                "start": 75,
+                "to": " you "
+            },
+            {
+                "end": 48,
+                "from": " He ",
+                "start": 44,
+                "to": " You "
+            },
+            {
+                "end": 34,
+                "from": " his ",
+                "start": 29,
+                "to": " your "
+            },
+            {
+                "end": 34,
+                "from": " his ",
+                "start": 29,
+                "to": " your "
+            },
+            {
+                "end": 53,
+                "from": "wants",
+                "start": 48,
+                "to": "want"
+            },
+            {
+                "end": 83,
+                "from": "does",
+                "start": 79,
+                "to": "do"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let's talk about a few more things...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "it is important to you to live in secure surroundings. You avoid anything that might endanger your safety.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It is important to him to live in secure surroundings. He avoids anything that might endanger his safety.",
+        "prefix": "Moving on, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "6": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Moving on, do you think it's fair to say that it is important to you to live in secure surroundings. You avoid anything that might endanger your safety.",
+        "text_changes": [
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you "
+            },
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you."
+            },
+            {
+                "end": 58,
+                "from": " He ",
+                "start": 54,
+                "to": " You "
+            },
+            {
+                "end": 98,
+                "from": " his ",
+                "start": 93,
+                "to": " your "
+            },
+            {
+                "end": 98,
+                "from": " his ",
+                "start": 93,
+                "to": " your "
+            },
+            {
+                "end": 64,
+                "from": "avoids",
+                "start": 58,
+                "to": "avoid"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "Half of the survey is done, thanks for your patience",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you like surprises and is always looking for new things to do. You think it is important to do lots of different things in life.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "He likes surprises and is always looking for new things to do. He thinks it is important to do lots of different things in life.",
+        "prefix": "Continuing, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "6": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Continuing, please indicate the extent to which you like surprises and is always looking for new things to do. You think it is important to do lots of different things in life.",
+        "text_changes": [
+            {
+                "end": 66,
+                "from": " He ",
+                "start": 62,
+                "to": " You "
+            },
+            {
+                "end": 3,
+                "from": "he ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 8,
+                "from": "likes",
+                "start": 3,
+                "to": "like"
+            },
+            {
+                "end": 72,
+                "from": "thinks",
+                "start": 66,
+                "to": "think"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you believe that people should do what they are told. You think people should follow rules at all times, even when no-one is watching.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "He believes that people should do what they are told. He thinks people should follow rules at all times, even when no-one is watching.",
+        "prefix": "Next, is it true that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            }
+        },
+        "text": "Next, is it true that you believe that people should do what they are told. You think people should follow rules at all times, even when no-one is watching.",
+        "text_changes": [
+            {
+                "end": 57,
+                "from": " He ",
+                "start": 53,
+                "to": " You "
+            },
+            {
+                "end": 3,
+                "from": "he ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 11,
+                "from": "believes",
+                "start": 3,
+                "to": "believe"
+            },
+            {
+                "end": 63,
+                "from": "thinks",
+                "start": 57,
+                "to": "think"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "it is important to you to listen to people who are different from you. Even when you disagree with them, you still want to understand them.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It is important to him to listen to people who are different from him. Even when he disagrees with them, he still wants to understand them.",
+        "prefix": "Do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            }
+        },
+        "text": "Do you think that it is important to you to listen to people who are different from you. Even when you disagree with them, you still want to understand them.",
+        "text_changes": [
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you "
+            },
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you."
+            },
+            {
+                "end": 70,
+                "from": " him.",
+                "start": 65,
+                "to": " you."
+            },
+            {
+                "end": 84,
+                "from": " he ",
+                "start": 80,
+                "to": " you "
+            },
+            {
+                "end": 108,
+                "from": " he ",
+                "start": 104,
+                "to": " you "
+            },
+            {
+                "end": 93,
+                "from": "disagrees",
+                "start": 84,
+                "to": "disagree"
+            },
+            {
+                "end": 119,
+                "from": "wants",
+                "start": 114,
+                "to": "want"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "it is important to you to be humble and modest. You try not to draw attention to yourself.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It is important to him to be humble and modest. He tries not to draw attention to himself.",
+        "prefix": "Then, would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            }
+        },
+        "text": "Then, would you say that it is important to you to be humble and modest. You try not to draw attention to yourself.",
+        "text_changes": [
+            {
+                "end": 89,
+                "from": "himself",
+                "start": 82,
+                "to": "yourself"
+            },
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you "
+            },
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you."
+            },
+            {
+                "end": 86,
+                "from": " hims",
+                "start": 81,
+                "to": " you."
+            },
+            {
+                "end": 51,
+                "from": " He ",
+                "start": 47,
+                "to": " You "
+            },
+            {
+                "end": 56,
+                "from": "tries",
+                "start": 51,
+                "to": "try"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 70% of the survey.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Just few other things I wanted to ask you about...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "having a good time is important to you. You like to \u201cspoil\u201d yourself.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "Having a good time is important to him. He likes to \u201cspoil\u201d himself.",
+        "prefix": "So, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            }
+        },
+        "text": "So, please indicate the extent to which having a good time is important to you. You like to \u201cspoil\u201d yourself.",
+        "text_changes": [
+            {
+                "end": 67,
+                "from": "himself",
+                "start": 60,
+                "to": "yourself"
+            },
+            {
+                "end": 39,
+                "from": " him.",
+                "start": 34,
+                "to": " you."
+            },
+            {
+                "end": 64,
+                "from": " hims",
+                "start": 59,
+                "to": " you."
+            },
+            {
+                "end": 43,
+                "from": " He ",
+                "start": 39,
+                "to": " You "
+            },
+            {
+                "end": 48,
+                "from": "likes",
+                "start": 43,
+                "to": "like"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "it is important to you to make your own decisions about what you do. You like to be free and not depend on others.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It is important to him to make his own decisions about what he does. He likes to be free and not depend on others.",
+        "prefix": "Going forward, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "6": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Going forward, is it fair to say that it is important to you to make your own decisions about what you do. You like to be free and not depend on others.",
+        "text_changes": [
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you "
+            },
+            {
+                "end": 23,
+                "from": " him ",
+                "start": 18,
+                "to": " you."
+            },
+            {
+                "end": 63,
+                "from": " he ",
+                "start": 59,
+                "to": " you "
+            },
+            {
+                "end": 72,
+                "from": " He ",
+                "start": 68,
+                "to": " You "
+            },
+            {
+                "end": 35,
+                "from": " his ",
+                "start": 30,
+                "to": " your "
+            },
+            {
+                "end": 35,
+                "from": " his ",
+                "start": 30,
+                "to": " your "
+            },
+            {
+                "end": 67,
+                "from": "does",
+                "start": 63,
+                "to": "do"
+            },
+            {
+                "end": 77,
+                "from": "likes",
+                "start": 72,
+                "to": "like"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "it's very important to you to help the people around you. You want to care for their well-being.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "Very much like me",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Like me",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Somewhat like me",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "A little like me",
+                "value": "4"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me",
+                "value": "5"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Not like me at all",
+                "value": "6"
+            }
+        ],
+        "org_text": "It's very important to him to help the people around him. He wants to care for their well-being.",
+        "prefix": "Further, do you feel that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "6": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            }
+        },
+        "text": "Further, do you feel that it's very important to you to help the people around you. You want to care for their well-being.",
+        "text_changes": [
+            {
+                "end": 27,
+                "from": " him ",
+                "start": 22,
+                "to": " you "
+            },
+            {
+                "end": 27,
+                "from": " him ",
+                "start": 22,
+                "to": " you."
+            },
+            {
+                "end": 57,
+                "from": " him.",
+                "start": 52,
+                "to": " you."
+            },
+            {
+                "end": 61,
+                "from": " He ",
+                "start": 57,
+                "to": " You "
+            },
+            {
+                "end": 66,
+                "from": "wants",
+                "start": 61,
+                "to": "want"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "That's it, thanks a lot!",
+        "type": "End"
+    }
+]

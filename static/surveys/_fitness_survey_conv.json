@@ -1,0 +1,550 @@
+[
+    {
+        "augment_type": "opening",
+        "domain": "physical activity",
+        "source": "augmented",
+        "text": "Hi, I am PhysicalActivityBot. I'd like to ask you a few questions about physical activity.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://www.fitfatherproject.com/take-personal-survey/",
+        "augment_type": "none",
+        "framing": "Neutral_frame",
+        "text": "Here are a few questions you should be asking yourself; it's important to be honest regarding the answers.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "how often do you workout?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not at all",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Occasionally",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "2-3 times a week",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Every day",
+                "value": "4"
+            }
+        ],
+        "org_text": "How often do you workout?",
+        "prefix": "Can you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            }
+        },
+        "text": "Can you tell me how often do you workout?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "how healthy is the food you eat?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not sure: I eat whatever is in front of me.",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Okay: I count calories but I'm not too strict.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Good: I always think about what I'm eating and don't over eat.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Excellent: I've adopted the perfect plate and feel great.",
+                "value": "4"
+            }
+        ],
+        "org_text": "How healthy is the food you eat?",
+        "prefix": "Then, could you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            }
+        },
+        "text": "Then, could you tell me how healthy is the food you eat?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you know what the perfect plate is?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "No; is it a plate that fits your home d\u00e9cor perfectly?",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Yes: it balances food intake for I never use it.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes: 1/2 vegetables, 1/4 protein & 1/4 carbohydrates. I use it when I remember.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes: It sums up my approach to every meal.",
+                "value": "4"
+            }
+        ],
+        "org_text": "Do you know what the perfect plate is?",
+        "prefix": "Would you mind sharing",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            }
+        },
+        "text": "Would you mind sharing do you know what the perfect plate is?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are currently at question 4 out of 11.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "how hard do you work out?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Not very hard, it depends on the mood I'm in.",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "I start hard but usually tail off part of the way through.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "I make sure to feel the burn by the end.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Hard enough to ensure I have given it my all. By the end I can barely stand.",
+                "value": "4"
+            }
+        ],
+        "org_text": "How hard do you work out?",
+        "prefix": "Can I ask you",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Okay, that's good"
+            }
+        },
+        "text": "Can I ask you how hard do you work out?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you have a workout buddy?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "No, I've never felt the need or reason to have one.",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Yes but I only see them once every month or two.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes: they are more dedicated than I am, but I still try.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes; My buddy and I push each other to do better every time.",
+                "value": "4"
+            }
+        ],
+        "org_text": "Do you have a workout buddy?",
+        "prefix": "So, would you mind telling me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            }
+        },
+        "text": "So, would you mind telling me do you have a workout buddy?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let's talk about a few more things...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "how do you feel after a workout?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Relieved that I made it through the session.",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Good, maybe a little out of breath.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Aching but feeling good to be alive!",
+                "value": "3"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Shattered like I just pushed myself to the limit and maybe passed it.",
+                "value": "4"
+            }
+        ],
+        "org_text": "How do you feel after a workout?",
+        "prefix": "Further, can I ask you",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            }
+        },
+        "text": "Further, can I ask you how do you feel after a workout?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are done with 7 questions, still 4 to go.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "what's your motivation to exercise?",
+        "options": [
+            {
+                "framing": "neu_answer",
+                "text": "I think that I should.",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "I need to lose weight for a special occasion.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "I'm thinking about the future and staying healthy.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "I want to be the best I can be today and in the future.",
+                "value": "4"
+            }
+        ],
+        "org_text": "What's your motivation to exercise?",
+        "prefix": "Going forward, can you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Going forward, can you tell me what's your motivation to exercise?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you have an exercise plan?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "No, I just do whatever activity I feel like.",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Yes but I don't always stick to it.",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Yes: I stick to it but I'm not sure how effective it is.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes, it's designed to work all muscle groups with alternating exercises.",
+                "value": "4"
+            }
+        ],
+        "org_text": "Do you have an exercise plan?",
+        "prefix": "Could you tell me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "Could you tell me do you have an exercise plan?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "do you have access to fitness and diet plans?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "No; I don't see the need as long as I'm doing something.",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Yes but I don't really use them.",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Yes although I find it hard to stick to them.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Yes; they make all the difference to success in weight loss.",
+                "value": "4"
+            }
+        ],
+        "org_text": "Do you have access to fitness and diet plans?",
+        "prefix": "Moving on, would you mind telling me",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            }
+        },
+        "text": "Moving on, would you mind telling me do you have access to fitness and diet plans?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "what would you say is your current level of fitness?",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Pretty poor; I get out of breath just walking up the stairs.",
+                "value": "1"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Okay: I'm constantly active although not necessarily with formal exercise.",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Good; I exercise regularly and watch what I eat.",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Excellent; I'm always at the gym and avoid all foods that are bad.",
+                "value": "4"
+            }
+        ],
+        "org_text": "What would you say is your current level of fitness?",
+        "prefix": "Continuing, would you mind sharing",
+        "prefix_class": "q_verb_prefix",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            }
+        },
+        "text": "Continuing, would you mind sharing what would you say is your current level of fitness?",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We are done! Thanks for your patience.",
+        "type": "End"
+    }
+]

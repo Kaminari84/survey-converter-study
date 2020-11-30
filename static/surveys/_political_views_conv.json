@@ -1,0 +1,976 @@
+[
+    {
+        "augment_type": "opening",
+        "domain": "personality",
+        "source": "augmented",
+        "text": "Hey, I am PersonalityBot. Let's talk about personality.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://webspace.ship.edu/cgboer/valuestest.html",
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "a good government should aim chiefly at more aid for the poor, sick, and old",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "A good government should aim chiefly at more aid for the poor, sick, and old",
+        "prefix": "Can you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "That's really great!"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            }
+        },
+        "text": "Can you say that a good government should aim chiefly at more aid for the poor, sick, and old",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "a good government should aim chiefly at the development of manufacturing and trade.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "A good government should aim chiefly at the development of manufacturing and trade.",
+        "prefix": "Continuing, do you feel that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Good to hear that"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            }
+        },
+        "text": "Continuing, do you feel that a good government should aim chiefly at the development of manufacturing and trade.",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "a good government should aim chiefly at introducing the highest ethical principles into its policies.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "A good government should aim chiefly at introducing the highest ethical principles into its policies.",
+        "prefix": "Moving on, please indicate the extent to which",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            }
+        },
+        "text": "Moving on, please indicate the extent to which a good government should aim chiefly at introducing the highest ethical principles into its policies.",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "a good government should aim chiefly at establishing a position of power and respect among nations.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "A good government should aim chiefly at establishing a position of power and respect among nations.",
+        "prefix": "Do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "3": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            }
+        },
+        "text": "Do you think that a good government should aim chiefly at establishing a position of power and respect among nations.",
+        "text_changes": [],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are done with 4 questions, still 12 to go.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "someone who work all week would best spend the weekend keeping up on the latest in scientific advances.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "Someone who works all week would best spend the weekend keeping up on the latest in scientific advances.",
+        "prefix": "Could you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            }
+        },
+        "text": "Could you say that someone who work all week would best spend the weekend keeping up on the latest in scientific advances.",
+        "text_changes": [
+            {
+                "end": 17,
+                "from": "works",
+                "start": 12,
+                "to": "work"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "someone who work all week would best spend the weekend trying to win at golf or other sport.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "Someone who works all week would best spend the weekend trying to win at golf or other sport.",
+        "prefix": "Then, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            }
+        },
+        "text": "Then, is it fair to say that someone who work all week would best spend the weekend trying to win at golf or other sport.",
+        "text_changes": [
+            {
+                "end": 17,
+                "from": "works",
+                "start": 12,
+                "to": "work"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let's switch to something else...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "someone who work all week would best spend the weekend going to a classical music concert or art museum.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "Someone who works all week would best spend the weekend going to a classical music concert or art museum.",
+        "prefix": "Going forward, is it true that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            }
+        },
+        "text": "Going forward, is it true that someone who work all week would best spend the weekend going to a classical music concert or art museum.",
+        "text_changes": [
+            {
+                "end": 17,
+                "from": "works",
+                "start": 12,
+                "to": "work"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are about half way through",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "someone who work all week would best spend the weekend reading religious or philosophical books.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "Someone who works all week would best spend the weekend reading religious or philosophical books.",
+        "prefix": "Would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            }
+        },
+        "text": "Would you say that someone who work all week would best spend the weekend reading religious or philosophical books.",
+        "text_changes": [
+            {
+                "end": 17,
+                "from": "works",
+                "start": 12,
+                "to": "work"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "if you could influence the educational policies of the public schools of some city, you would try to promote the study of and participation in music and the fine arts.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "If I could influence the educational policies of the public schools of some city, I would try to promote the study of and participation in music and the fine arts.",
+        "prefix": "Next, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            }
+        },
+        "text": "Next, do you think it's fair to say that if you could influence the educational policies of the public schools of some city, you would try to promote the study of and participation in music and the fine arts.",
+        "text_changes": [
+            {
+                "end": 5,
+                "from": "I ",
+                "start": 3,
+                "to": "you "
+            },
+            {
+                "end": 84,
+                "from": "I ",
+                "start": 82,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "if you could influence the educational policies of the public schools of some city, you would try to encourage the study of social problems.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "If I could influence the educational policies of the public schools of some city, I would try to encourage the study of social problems.",
+        "prefix": "Next, does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            }
+        },
+        "text": "Next, does it make sense to say that if you could influence the educational policies of the public schools of some city, you would try to encourage the study of social problems.",
+        "text_changes": [
+            {
+                "end": 5,
+                "from": "I ",
+                "start": 3,
+                "to": "you "
+            },
+            {
+                "end": 84,
+                "from": "I ",
+                "start": 82,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "if you could influence the educational policies of the public schools of some city, you would try to provide additional laboratory facilities.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "If I could influence the educational policies of the public schools of some city, I would try to provide additional laboratory facilities.",
+        "prefix": "Then, do you feel that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            }
+        },
+        "text": "Then, do you feel that if you could influence the educational policies of the public schools of some city, you would try to provide additional laboratory facilities.",
+        "text_changes": [
+            {
+                "end": 5,
+                "from": "I ",
+                "start": 3,
+                "to": "you "
+            },
+            {
+                "end": 84,
+                "from": "I ",
+                "start": 82,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 60% of the survey.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let me ask you some more questions...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "if you could influence the educational policies of the public schools of some city, you would try to increase the practical value of courses.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "If I could influence the educational policies of the public schools of some city, I would try to increase the practical value of courses.",
+        "prefix": "Moving on, could you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            }
+        },
+        "text": "Moving on, could you say that if you could influence the educational policies of the public schools of some city, you would try to increase the practical value of courses.",
+        "text_changes": [
+            {
+                "end": 5,
+                "from": "I ",
+                "start": 3,
+                "to": "you "
+            },
+            {
+                "end": 84,
+                "from": "I ",
+                "start": 82,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you would prefer a friend who is practical, efficient, and hard working.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "I would prefer a friend who is practical, efficient, and hard working.",
+        "prefix": "Continuing, could I ask you whether",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it"
+            }
+        },
+        "text": "Continuing, could I ask you whether you would prefer a friend who is practical, efficient, and hard working.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you would prefer a friend who is seriously interested in thinking out his or her philosophy of life.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "I would prefer a friend who is seriously interested in thinking out his or her philosophy of life.",
+        "prefix": "Further, please indicate whether",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            }
+        },
+        "text": "Further, please indicate whether you would prefer a friend who is seriously interested in thinking out his or her philosophy of life.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are almost at the end, thank you for staying that long",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you would prefer a friend who has leadership and organizational skills.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "I would prefer a friend who has leadership and organizational skills.",
+        "prefix": "So, could you tell me whether",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            }
+        },
+        "text": "So, could you tell me whether you would prefer a friend who has leadership and organizational skills.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you would prefer a friend who shows artistic sensitivity.",
+        "options": [
+            {
+                "framing": "pos_answer",
+                "text": "highest preference",
+                "value": "1"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "second preference",
+                "value": "2"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "third preference",
+                "value": "3"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "lowest preference",
+                "value": "4"
+            }
+        ],
+        "org_text": "I would prefer a friend who shows artistic sensitivity.",
+        "prefix": "Please indicate if",
+        "prefix_class": "q_prefix_if_you",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            }
+        },
+        "text": "Please indicate if you would prefer a friend who shows artistic sensitivity.",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "This is it! Thank you for your time.",
+        "type": "End"
+    }
+]

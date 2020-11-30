@@ -1,0 +1,794 @@
+[
+    {
+        "augment_type": "opening",
+        "domain": "personality",
+        "source": "augmented",
+        "text": "Hi, I am PersonalityBot. Let's talk a bit about personality.",
+        "type": "Skip"
+    },
+    {
+        "//": "https://socialwork.buffalo.edu/content/dam/socialwork/home/self-care-kit/brief-big-five-personality-inventory.pdf",
+        "augment_type": "none",
+        "framing": "Neutral_frame",
+        "text": "How well do the following statements describe your personality?",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Neutral_frame",
+        "mod_text": "you see yourself as someone who is reserved",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who is reserved",
+        "prefix": "Moving on, is it fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "2": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            },
+            "5": {
+                "augment_type": "reaction_neutral",
+                "text": "Got it! Thanks for sharing"
+            }
+        },
+        "text": "Moving on, is it fair to say that you see yourself as someone who is reserved",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you see yourself as someone who is generally trusting",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who is generally trusting",
+        "prefix": "Could you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "5": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            }
+        },
+        "text": "Could you say that you see yourself as someone who is generally trusting",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you see yourself as someone who tend to be lazy",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who tends to be lazy",
+        "prefix": "Going forward, do",
+        "prefix_class": "q_prefix_if_i_simple",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "I am happy that's the case"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            }
+        },
+        "text": "Going forward, do you see yourself as someone who tend to be lazy",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            },
+            {
+                "end": 33,
+                "from": "tends",
+                "start": 28,
+                "to": "tend"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We have completed 30% of the survey.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you see yourself as someone who is relaxed, handless stress well",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who is relaxed, handless stress well",
+        "prefix": "Next, does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            },
+            "5": {
+                "augment_type": "reaction_positive",
+                "text": "That's good"
+            }
+        },
+        "text": "Next, does it make sense to say that you see yourself as someone who is relaxed, handless stress well",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you see yourself as someone who has few artistic interests",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who has few artistic interests",
+        "prefix": "Let's carry on, do you think it's fair to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds nice"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Noted"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "So sorry about that"
+            }
+        },
+        "text": "Let's carry on, do you think it's fair to say that you see yourself as someone who has few artistic interests",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "topic_info",
+        "source": "augmented",
+        "text": "Let's move on to some other questions...",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you see yourself as someone who is outgoing, sociable",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who is outgoing, sociable",
+        "prefix": "Let's carry on, is it true that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "That sounds stressful"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Sure"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "5": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "Let's carry on, is it true that you see yourself as someone who is outgoing, sociable",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "survey_progress",
+        "source": "augmented",
+        "text": "We are currently at question 7 out of 11.",
+        "type": "Skip"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you see yourself as someone who tend to find fault with others",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who tends to find fault with others",
+        "prefix": "Does it make sense to say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Great!"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thank you for your answer"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "Thanks for sharing that"
+            }
+        },
+        "text": "Does it make sense to say that you see yourself as someone who tend to find fault with others",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            },
+            {
+                "end": 33,
+                "from": "tends",
+                "start": 28,
+                "to": "tend"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you see yourself as someone who do a thorough job",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who does a thorough job",
+        "prefix": "Do you feel that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "That is frustrating"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Okay, I'm getting a better idea of your answers"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            },
+            "5": {
+                "augment_type": "reaction_positive",
+                "text": "That sounds positive"
+            }
+        },
+        "text": "Do you feel that you see yourself as someone who do a thorough job",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            },
+            {
+                "end": 32,
+                "from": "does",
+                "start": 28,
+                "to": "do"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Negative_frame",
+        "mod_text": "you see yourself as someone who get nervous easily",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who gets nervous easily",
+        "prefix": "Would you say that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "2": {
+                "augment_type": "reaction_positive",
+                "text": "Sounds good"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for letting me know"
+            },
+            "4": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            },
+            "5": {
+                "augment_type": "reaction_negative",
+                "text": "That's hard to hear"
+            }
+        },
+        "text": "Would you say that you see yourself as someone who get nervous easily",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            },
+            {
+                "end": 32,
+                "from": "gets",
+                "start": 28,
+                "to": "get"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "question_rephrazing",
+        "framing": "Positive_frame",
+        "mod_text": "you see yourself as someone who has an active imagination",
+        "options": [
+            {
+                "framing": "neg_answer",
+                "text": "Disagree strongly",
+                "value": "1"
+            },
+            {
+                "framing": "neg_answer",
+                "text": "Disagree a little",
+                "value": "2"
+            },
+            {
+                "framing": "neu_answer",
+                "text": "Neither agree nor disagree",
+                "value": "3"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree a little",
+                "value": "4"
+            },
+            {
+                "framing": "pos_answer",
+                "text": "Agree strongly",
+                "value": "5"
+            }
+        ],
+        "org_text": "I see myself as someone who has an active imagination",
+        "prefix": "Next, do you think that",
+        "prefix_class": "q_prefix_if_i",
+        "reactions": {
+            "1": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "2": {
+                "augment_type": "reaction_negative",
+                "text": "I am sorry to hear that"
+            },
+            "3": {
+                "augment_type": "reaction_neutral",
+                "text": "Thanks for sharing"
+            },
+            "4": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            },
+            "5": {
+                "augment_type": "reaction_positive",
+                "text": "I am glad to hear that"
+            }
+        },
+        "text": "Next, do you think that you see yourself as someone who has an active imagination",
+        "text_changes": [
+            {
+                "end": 2,
+                "from": "i ",
+                "start": 0,
+                "to": "you "
+            },
+            {
+                "end": 12,
+                "from": "myself",
+                "start": 6,
+                "to": "yourself"
+            }
+        ],
+        "type": "Options"
+    },
+    {
+        "augment_type": "closing",
+        "source": "augmented",
+        "text": "We've completed everything! Thanks a lot!",
+        "type": "End"
+    }
+]

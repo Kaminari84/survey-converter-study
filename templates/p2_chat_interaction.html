@@ -115,6 +115,7 @@
   var isMuted = true;
   var latest_answer = "Default";
   var dialogue_position = 0;
+  var survey_name = "{{ condition_id }}"
 
   $( document ).ready(function() {
     console.log("Chat specific ready 1!");
@@ -133,6 +134,11 @@
     /* https://docs.botui.org/guide.html */
     botui = new BotUI('bot-interface');
 
+    //Chat intro
+    /*if (survey_name == "_big_5_conv.json") {
+      $('#chat_intro').html("Please press 'Start interaction' below to answer a few questions via chat.")
+    }*/
+
   });
 
   function restartDialogue() {
@@ -143,6 +149,7 @@
     
     // Hide the start conversation button
     $("#start_button").hide()
+    $('#chat_intro').hide()
 	    	  
 	  dialogue_position = 0;
 	  previous_dialogue_position = 0; 
@@ -291,32 +298,31 @@
             dialogue[givenPosition]['answer_value'] = res.value;
             dialogue[givenPosition]['answer'] = res.text;
 
-            if (res.text === "Explain") {
-              progressDialogue(givenPosition, true);
-            } 
-			  		else {
-              //This block has a reaction, first process this before jumping back
-              isProgressDialogue = true;
-              if ('reactions' in dialogue[givenPosition] ) {
-                console.log("---Block has REACTIONS, processing....");
-                if (latest_answer in dialogue[givenPosition]["reactions"]) {
-                  console.log("Response has a reaction!!!");
-                  isProgressDialogue = false;
-                  progressDialogue(givenPosition, false, true);
-                }
-              }
+            //Save answer
+            saveAnswer(dialogue[givenPosition]["text"], res.text, "chat");
 
-              if (isProgressDialogue == true) {
-                console.log("---NO REACTIONS, progressing dialogue as normal...");
-                if (previous_dialogue_position != 0) {
-                  dialogue_position = previous_dialogue_position;
-                  previous_dialogue_position = 0;
-                } else {
-                  dialogue_position += 1;
-                }
-                progressDialogue();
+            //This block has a reaction, first process this before jumping back
+            isProgressDialogue = true;
+            if ('reactions' in dialogue[givenPosition] ) {
+              console.log("---Block has REACTIONS, processing....");
+              if (latest_answer in dialogue[givenPosition]["reactions"]) {
+                console.log("Response has a reaction!!!");
+                isProgressDialogue = false;
+                progressDialogue(givenPosition, false, true);
               }
             }
+
+            if (isProgressDialogue == true) {
+              console.log("---NO REACTIONS, progressing dialogue as normal...");
+              if (previous_dialogue_position != 0) {
+                dialogue_position = previous_dialogue_position;
+                previous_dialogue_position = 0;
+              } else {
+                dialogue_position += 1;
+              }
+              progressDialogue();
+            }
+            
 					});
           break;
         case "Input_Num_Small":
@@ -345,6 +351,9 @@
             //Log answer in the dialogue structure itself
             dialogue[givenPosition]['answer_value'] = res.value;
             dialogue[givenPosition]['answer'] = res.value;
+
+            //Save answer
+            saveAnswer(dialogue[givenPosition]["text"], res.value, "chat");
 
             if (previous_dialogue_position != 0) {
               dialogue_position = previous_dialogue_position;
@@ -381,6 +390,9 @@
             //Log answer in the dialogue structure itself
             dialogue[givenPosition]['answer_value'] = res.value;
             dialogue[givenPosition]['answer'] = res.text;
+
+            //Save answer
+            saveAnswer(dialogue[givenPosition]["text"], res.text, "chat");
 
 						//This block has a reaction, first process this before jumping back
 						isProgressDialogue = true;
@@ -526,7 +538,7 @@
 <main role="main" class="container" id="content" >
   <div class="py-2 text-center">
     <h2>Page {{ page_no }} - Chat interaction</h2>
-    <p class="lead">Please interact with the chat interface below to answer the questions.</p>
+    <p class="lead" id="chat_intro">Please press 'Start interaction' below to answer a few questions via chat.</p>
   </div>
 
   <button id="start_button" style="display:block;" type="button" class="btn btn-primary"
