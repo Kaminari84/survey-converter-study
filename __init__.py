@@ -421,7 +421,7 @@ def get_study_responses():
     #get elapsed time since last activity
     #print("Now:", datetime.now())
     pacific = timezone('US/Pacific')
-    values[4] = round((pstnow() - last_activity.timestamp.astimezone(pacific)).total_seconds() / (60.0*60.0),2)
+    values[4] = round((pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / (60.0*60.0),2)
 
     entry_values.append(values)
 
@@ -444,7 +444,7 @@ def get_study_responses():
 
       #likely expired
       pacific = timezone('US/Pacific')
-      minutes_passed = (pstnow() - last_activity.timestamp.astimezone(pacific)).total_seconds() / 60.0
+      minutes_passed = (pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / 60.0
       if (minutes_passed > 60):
         conditionCounts[ans.userEntry.condition]["pending_old"] += 1
       else:
