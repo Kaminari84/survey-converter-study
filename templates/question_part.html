@@ -7,31 +7,31 @@
   <div class="d-flex">
     <div class="p-1">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a1" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','1');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a1" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','1');showAdditionalFeedback('{{ h_part }}',1);" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a1">Very<br />poor</label>
       </div>
     </div>
     <div class="p-1">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a2" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','2');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a2" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','2');showAdditionalFeedback('{{ h_part }}',2);" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a2">Poor</label>
       </div>
     </div>
     <div class="p-1">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a3" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','3');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a3" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','3');showAdditionalFeedback('{{ h_part }}',3);" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a3">Acceptable</label>
       </div>
     </div>
     <div class="p-1">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a4" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','4');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a4" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','4');showAdditionalFeedback('{{ h_part }}',4);" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a4">Good</label>
       </div>
     </div>
     <div class="p-1">
       <div class="custom-control custom-radio">
-        <input id="{{ q_no }}_a5" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','5');showAdditionalFeedback('{{ h_part }}');" type="radio" class="custom-control-input" required>
+        <input id="{{ q_no }}_a5" name="{{ q_no }}" onclick="saveAnswer('des_q{{ q_no }}','5');showAdditionalFeedback('{{ h_part }}',5);" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="{{ q_no }}_a5">Very<br />good</label>
       </div>
     </div>
@@ -40,19 +40,24 @@
 
 <div id="additionalFeedback" style="display:none">
   {% if q_no is sameas '1'  %}
-  <p>
+  <p id="qual_instruction">
     Looking at these, please share any examples that felt particularly off.
     This could be due to:
-    <ul class="list-styled">
+    <ul class="list-styled" id="list_bad_things">
       <li>Awkward phrasing of text</li>
       <li>Mismatched context of use</li>
       <li>Any other aspect you would consider 'not natural' or 'out of place'</li>
+    </ul>
+    <ul class="list-styled" id="list_good_things">
+      <li>Still better phrasing of text</li>
+      <li>Better use in context</li>
+      <li>Any other aspect that would make it 'more natural' and 'engaging'</li>
     </ul>
   </p>
   {% endif %}
 
   <div class="form-group">
-    <label for="txt_d{{ q_no }}">Please give an example and what felt wrong about it?</label>
+    <label for="txt_d{{ q_no }}" id="qual_question">Please give an example and what felt wrong about it</label>
     <textarea class="form-control" id="txt_d{{ q_no }}" rows="5"></textarea>
   </div>
 </div>
