@@ -1,0 +1,112 @@
+<style>
+  .odd {
+    background-color: #ffffff;
+  }
+  .even {
+    background-color: #eeeeee;
+  }
+  .h {
+    height: 50px;
+  }
+  .custom-control-input {
+    border-width: 0px;
+    border-radius: 0px;
+  }
+</style>
+
+<script>
+  $( document ).ready(function() {
+    console.log("Survey specific ready, is Mobile:"+isMobile);
+
+    $("html, body").scrollTop(0);
+
+    if (isMobile) {
+      $('.mobile-label').css({display:"block"});
+      $('.desktop-label').css({display:"none"});
+    } else {
+      $('.mobile-label').css({display:"none"});
+      $('.desktop-label').css({display:"block", marginBottom:"20px"});
+    }
+
+  });
+</script>
+
+<main role="main" class="container" id="content" >
+  <div class="py-2 text-center">
+    <h2>Page {{ page_no }} - Feedback on usability</h2>
+    <p class="lead">Please provide feedback on the usability of the chat interface.</p>
+  </div>
+
+  <form class="needs-validation" novalidate>
+    <div class="row">
+      <div class="col-md-12 order-md-1">
+        
+        <!--<h6 class="mb-3">
+          Please answer the following questions:
+        </h6>-->
+
+        <!-- Top labels for Likert-->
+        <div class="row">
+          <div class="col-md-5 mb-0">
+            <span class="desktop-label"></span>
+          </div>
+          <div class="col-md mb-0"><span class="desktop-label">Strongy disagree</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Disagree</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Neutral</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Agree</span></div>
+          <div class="col-md mb-0"><span class="desktop-label">Strongly agree</span></div>
+        </div>
+
+        <!-- Sub-question 1-->
+        {% for question in questions %}
+        <div class="row {{ loop.cycle('odd', 'even') }}">
+          <div class="col-md-5 mb-1 mt-2">
+            <h6 class="mb-1">
+              {{ loop.index}}. {{ question }}
+            </h6>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="sus_q{{ loop.index}}_a1" name="sus_q{{ loop.index}}" onclick="saveAnswer('sus_q{{ loop.index}}','1');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="sus_q{{ loop.index}}_a1"><span class="mobile-label">Strongly disagree</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="sus_q{{ loop.index}}_a2" name="sus_q{{ loop.index}}" onclick="saveAnswer('sus_q{{ loop.index}}','2');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="sus_q{{ loop.index}}_a2"><span class="mobile-label">Disagree</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="sus_q{{ loop.index}}_a3" name="sus_q{{ loop.index}}" onclick="saveAnswer('sus_q{{ loop.index}}','3');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="sus_q{{ loop.index}}_a3"><span class="mobile-label">Neutral</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="sus_q{{ loop.index}}_a4" name="sus_q{{ loop.index}}" onclick="saveAnswer('sus_q{{ loop.index}}','4');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="sus_q{{ loop.index}}_a4"><span class="mobile-label">Agree</span></label>
+            </div>
+          </div>
+          <div class="col-md mb-2 mt-2">
+            <div class="custom-control custom-radio">
+              <input id="sus_q{{ loop.index}}_a5" name="sus_q{{ loop.index}}" onclick="saveAnswer('sus_q{{ loop.index}}','5');" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="sus_q{{ loop.index}}_a5"><span class="mobile-label">Strongly agree</span></label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </form>
+</main>
+
+<!-- Footer with buttons -->
+<footer class="footer">
+  <div class="container">
+    <button type="button" class="btn btn-primary" onClick="nextPage();">Continue</button>
+  </div>
+</footer>
