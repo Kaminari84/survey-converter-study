@@ -299,7 +299,7 @@
             dialogue[givenPosition]['answer'] = res.text;
 
             //Save answer
-            saveAnswer(dialogue[givenPosition]["text"], res.text, "chat");
+            saveAnswer(dialogue[givenPosition]["text"], res.text, res.value, "chat");
 
             //This block has a reaction, first process this before jumping back
             isProgressDialogue = true;
@@ -353,7 +353,7 @@
             dialogue[givenPosition]['answer'] = res.value;
 
             //Save answer
-            saveAnswer(dialogue[givenPosition]["text"], res.value, "chat");
+            saveAnswer(dialogue[givenPosition]["text"], res.value, res.value, "chat");
 
             if (previous_dialogue_position != 0) {
               dialogue_position = previous_dialogue_position;
@@ -392,7 +392,7 @@
             dialogue[givenPosition]['answer'] = res.text;
 
             //Save answer
-            saveAnswer(dialogue[givenPosition]["text"], res.text, "chat");
+            saveAnswer(dialogue[givenPosition]["text"], res.text, res.value, "chat");
 
 						//This block has a reaction, first process this before jumping back
 						isProgressDialogue = true;
