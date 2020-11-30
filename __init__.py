@@ -110,6 +110,7 @@ class ChatAnswer(db.Model):
   answer_id = db.Column(db.Integer, primary_key=True)
   question_id = db.Column(db.String(1024), nullable=False)
   answer = db.Column(db.String(10000), nullable=False)
+  option_id = db.Column(db.String(1024), nullable=False)
   timestamp = db.Column(db.DateTime())
   # Foreign key
   user_id = db.Column(db.String(64), db.ForeignKey('user_entry.user_id'))
@@ -117,13 +118,14 @@ class ChatAnswer(db.Model):
   # Relationship
   userEntry = relationship("UserEntry", back_populates="chatAnswers") #backref=db.backref('answers', lazy='dynamic')
 
-  def __init__(self, question_id, answer):
+  def __init__(self, question_id, answer, option_id):
     self.question_id = question_id
     self.answer = answer
+    self.option_id = option_id
     self.timestamp = pstnow()
 
   def __repr__(self):
-    return "<ChatAnswer(answer_id='%s', question_id='%s', answer='%s')>" % (
+    return "<ChatAnswer(answer_id='%s', question_id='%s', answer='%s', option_id='%s')>" % (
       self.answer_id, self.question_id, self.answer)
 
 UserEntry.chatAnswers = relationship("ChatAnswer", 
@@ -368,6 +370,22 @@ def get_survey():
 
   return make_response(json_resp, 200, {"content_type":"application/json"})
 
+@app.route('/get_chat_answers')
+def get_chat_answers():
+  logging.info("Getting chat answers...")
+
+  user_id = request.args.get('user_id')
+  logging.info("User_id:"+str(user_id))
+
+  question_answers = {}
+  chatAnswers = ChatAnswer.query.filter_by(user_id=user_id)
+  for ans in chatAnswers:
+    question_answers[ans.question_id] = {"text": ans.answer, "opt_id": ans.option_id}
+
+  json_resp = json.dumps({'status': 'OK', 'message':'', 'chat_answers':question_answers})
+  
+  return make_response(json_resp, 200, {"content_type":"application/json"})
+
 @app.route('/get_study_responses')
 def get_study_responses():
   key_values = ['user_id','condition','datetime','duration (min)','last_activity (h)']
@@ -451,12 +469,17 @@ def save_answer():
   q_ans = request.form.get('q_ans')
   print("q_ans:",str(q_ans))
 
-  json_resp = json.dumps({'status': 'ERROR', 'message':''})
-  add_func = add_survey_answer
-  if source == "chat":
-    add_func = add_chat_answer
+  opt_id = request.form.get('opt_id')
+  print("Answer option id:",str(opt_id))
 
-  if add_func(user_id, q_id, q_ans, replace=True):
+  json_resp = json.dumps({'status': 'ERROR', 'message':''})
+  save_result = False
+  if source == "chat":
+    save_result = add_chat_answer(user_id, q_id, q_ans, opt_id, replace=True)
+  else:
+    save_result = add_survey_answer(user_id, q_id, q_ans, replace=True)
+
+  if save_result:
     json_resp = json.dumps({'status': 'OK', 'message':'', 'q_id':q_id, 'q_ans':q_ans})
   else:
     json_resp = json.dumps({'status': 'ERROR', 'message':'Missing arguments'})
@@ -491,11 +514,11 @@ def add_survey_answer(user_id, q_id, ans, replace=False):
     return False
 
 # Helper method - add chat answer
-def add_chat_answer(user_id, q_id, ans, replace=False):
+def add_chat_answer(user_id, q_id, ans, opt_id, replace=False):
   userEntry = UserEntry.query.get(user_id)
 
   if userEntry != None:
-    chatAnswer = ChatAnswer(question_id=q_id, answer=ans)
+    chatAnswer = ChatAnswer(question_id=q_id, answer=ans, option_id=opt_id)
     
     found = False
     for answer in userEntry.chatAnswers:
