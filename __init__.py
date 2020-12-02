@@ -409,15 +409,6 @@ def get_study_responses():
     for ans in entry.answers:
       if ans.question_id not in key_values:
         key_values.append(ans.question_id)
-
-    values = ['' for v in key_values]
-    values[0] = entry.user_id
-    values[1] = entry.condition
-    values[2] = entry.timestamp
-
-    for ans in entry.answers:
-      key_idx = key_values.index(ans.question_id)
-      values[key_idx] = ans.answer
       
     #get duration from start till last activity
     last_activity = db.session.query(UserAnswer)\
@@ -425,6 +416,15 @@ def get_study_responses():
         .order_by(UserAnswer.timestamp.desc()).first()
 
     if last_activity != None:
+      values = ['' for v in key_values]
+      values[0] = entry.user_id
+      values[1] = entry.condition
+      values[2] = entry.timestamp
+
+      for ans in entry.answers:
+        key_idx = key_values.index(ans.question_id)
+        values[key_idx] = ans.answer
+
       logging.info("Last activity:"+ str(last_activity.timestamp)+", start:"+str(entry.timestamp))
       duration = round((last_activity.timestamp - entry.timestamp).total_seconds() / 60.0,2)
       values[3] = duration
@@ -432,11 +432,10 @@ def get_study_responses():
       #get elapsed time since last activity
       pacific = timezone('US/Pacific')
       values[4] = round((pstnow() - pacific.localize(last_activity.timestamp)).total_seconds() / (60.0*60.0),2)
+    
+      entry_values.append(values)
     else:
-      values[3] = 0
-      values[4] = 0
-   
-    entry_values.append(values)
+      pass 
 
   #logging.info("Key Values:"+ str(key_values))
   #logging.info("Entry Values:"+str(entry_values))
